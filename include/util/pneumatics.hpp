@@ -12,14 +12,26 @@ void toggleLeftWing();
 
 void toggleRightWing();
 
-void extendMatchload();
+void openLeftRearWing();
 
-void retractMatchload();
+void closeLeftRearWing();
 
-void toggleMatchLoad();
+void openRightRearWing();
 
-void extendHangMech();
+void closeRightRearWing();
 
-void retractHangMech();
+void toggleLeftRearWing();
 
-void toggleHangMech();
+void toggleRightRearWing();
+
+void extendBlocker();
+
+void retractBlocker();
+
+void toggleBlocker();
+
+void extendSingleUse();
+
+void retractSingleUse();
+
+void toggleSingleUse();

@@ -22,8 +22,6 @@ void initialize()
 	pros::lcd::initialize();
 	gyro.reset();
 
-	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
-	pros::lcd::print(3, "Yaw: %f", getIMU());
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
 }
@@ -80,33 +78,43 @@ void opcontrol()
 		// basic chassis control, do not touch.
 		driveChassis();
 		updateIntake();
-		// updatePneumatics();
+		updatePneumatics();
 		// opCatapult();
+		pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
+		pros::lcd::print(3, "Yaw: %f", getIMU());
 
 		if (r2.changedToPressed())
 		{
 			cataToggle = !cataToggle;
 		}
-		// Down Pos: 1180
-		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		// Down Pos: 2490 -> 1680
 		if (cataToggle)
 		{
 			catapult.moveVoltage(12000);
 		}
 		else
 		{
-			if (potentiometer.get() > 1180) // CHANGE THIS POSITION
+			if (potentiometer.get() > 1760) // CHANGE THIS POSITION
 			{
-				catapult.moveVoltage(12000);
+				catapult.moveVoltage(9000);/*8500*/
 			}
-			else if (r1.changedToPressed())
+			else if (potentiometer.get() > 1550 && potentiometer.get() < 1775)
 			{
-				lastPressed = pros::millis();
-				catapult.moveRelative(1000, 12000);
-			}
-			else if (pros::millis() - lastPressed > 400/*350*/ && r1.isPressed()) //change this value maybe 
-			{
-				catapult.moveVoltage(12000);
+				if (r1.changedToPressed())
+				{
+					lastPressed = pros::millis();
+					// pros::delay(1000);
+					catapult.moveRelative(1000, 7000);
+				}
+				else if (pros::millis() - lastPressed > 350 && r1.isPressed()) // change this value maybe
+				{
+					// pros::delay(1000);
+					catapult.moveVoltage(7000);
+				}
+				else
+				{
+					catapult.moveVoltage(0);
+				}
 			}
 			else
 			{
