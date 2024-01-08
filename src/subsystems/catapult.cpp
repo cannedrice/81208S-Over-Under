@@ -1,9 +1,6 @@
 #include "subsystems/catapult.hpp"
-//uint32_t lastPressed = -800;
-// okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-/*NOTICE*/
-// CODE IS IN MAIN!!!
-// GO THERE IF YOU WANT TO FIX THE CATA CODE!!!
+// uint32_t lastPressed = -800;
+
 void opCatapult()
 {
 	// if (r2.changedToPressed())

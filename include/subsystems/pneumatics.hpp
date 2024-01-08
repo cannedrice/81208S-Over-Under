@@ -35,3 +35,9 @@ void extendSingleUse();
 void retractSingleUse();
 
 void toggleSingleUse();
+
+void extendHang();
+
+void retractHang();
+
+void toggleHang();

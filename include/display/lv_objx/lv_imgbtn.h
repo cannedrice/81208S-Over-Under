@@ -42,7 +42,7 @@ extern "C"
     typedef struct
     {
         lv_btn_ext_t btn; /*Ext. of ancestor*/
-        /*New data for this type */
+                          /*New data for this type */
 #if LV_IMGBTN_TILED == 0
         const void *img_src[LV_BTN_STATE_NUM]; /*Store images to each state*/
 #else

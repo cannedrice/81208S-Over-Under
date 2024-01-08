@@ -1,6 +1,6 @@
 #include "main.h"
 bool counter = true;
-// purpose is to check whether 
+
 void updatePneumatics()
 {
     if (leftButton.changedToPressed())
@@ -11,11 +11,11 @@ void updatePneumatics()
     {
         toggleRightWing();
     }
-    if (downButton.changedToPressed())
+    if (downButton.changedToPressed()) // Single acting, doesn't work, pls fix
     {
         toggleLeftRearWing();
     }
-    if (upButton.changedToPressed())
+    if (upButton.changedToPressed()) // Single acting, doesn't work, pls fix
     {
         toggleRightRearWing();
     }
@@ -25,11 +25,12 @@ void updatePneumatics()
     }
     if (YButton.changedToPressed())
     {
-        toggleSingleUse();
+        toggleHang();
     }
     if (XButton.changedToPressed())
     {
-        //toggleFree();
+        toggleLeftWing();
+        toggleRightWing();
     }
 }
 
@@ -118,16 +119,6 @@ void openLeftRearWing()
 }
 
 /**
- * @brief opens the wing
- *
- */
-void openRightRearWing()
-{
-    rightRearWing.set_value(true);
-    rightRearWingState = true;
-}
-
-/**
  * @brief closes the wing
  *
  */
@@ -135,6 +126,16 @@ void closeLeftRearWing()
 {
     leftRearWing.set_value(false);
     leftRearWingState = false;
+}
+
+/**
+ * @brief opens the wing
+ *
+ */
+void openRightRearWing()
+{
+    rightRearWing.set_value(true);
+    rightRearWingState = true;
 }
 
 /**
@@ -256,9 +257,9 @@ void toggleSingleUse()
  * @brief extend free
  *
  */
-void extendFree()
+void extendHang()
 {
-    Free.set_value(false);
+    hang.set_value(false);
     singleUseState = true;
 }
 
@@ -267,9 +268,9 @@ void extendFree()
  *
  */
 
-void retractFree()
+void retractHang()
 {
-    singleUse.set_value(true);
+    hang.set_value(true);
     singleUseState = false;
 }
 
@@ -277,14 +278,14 @@ void retractFree()
  * @brief toggle free
  *
  */
-void toggleFree()
+void toggleHang()
 {
     if (singleUseState == false)
     {
-        extendSingleUse();
+        extendHang();
     }
     else
     {
-        retractSingleUse();
+        retractHang();
     }
 }

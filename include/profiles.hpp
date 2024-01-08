@@ -6,6 +6,7 @@ extern bool leftRearWingState;
 extern bool rightRearWingState;
 extern bool blockerState;
 extern bool singleUseState;
+extern bool hangState;
 extern bool cataToggle;
 extern double angleOffset;
 
@@ -59,5 +60,5 @@ extern okapi::ControllerButton XButton;
 /* Right rear wing */ extern pros::ADIDigitalOut rightRearWing;
 /* Left rear wing */ extern pros::ADIDigitalOut leftRearWing;
 /* Blocker left*/ extern pros::ADIDigitalOut blocker;
-/* Blocker Right*/ extern pros::ADIDigitalOut Free;
+/* Blocker Right*/ extern pros::ADIDigitalOut hang;
 /* Single use*/ extern pros::ADIDigitalOut singleUse;

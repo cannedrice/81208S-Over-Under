@@ -79,7 +79,7 @@ void opcontrol()
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
-		// opCatapult();
+		// opCatapult(); might add this one later, don't know if it works or not
 		pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 		pros::lcd::print(3, "Yaw: %f", getIMU());
 
@@ -87,7 +87,7 @@ void opcontrol()
 		{
 			cataToggle = !cataToggle;
 		}
-		// Down Pos: 2490 -> 1680
+		// Starting pos:2490 -> Down pos:1680
 		if (cataToggle)
 		{
 			catapult.moveVoltage(12000);
@@ -96,19 +96,17 @@ void opcontrol()
 		{
 			if (potentiometer.get() > 1760) // CHANGE THIS POSITION
 			{
-				catapult.moveVoltage(9000);/*8500*/
+				catapult.moveVoltage(9000); /*8500*/
 			}
-			else if (potentiometer.get() > 1550 && potentiometer.get() < 1775)
+			else if (potentiometer.get() > 1550 && potentiometer.get() < 1780)
 			{
 				if (r1.changedToPressed())
 				{
 					lastPressed = pros::millis();
-					// pros::delay(1000);
 					catapult.moveRelative(1000, 7000);
 				}
-				else if (pros::millis() - lastPressed > 350 && r1.isPressed()) // change this value maybe
+				else if (pros::millis() - lastPressed > 350 && r1.isPressed())
 				{
-					// pros::delay(1000);
 					catapult.moveVoltage(7000);
 				}
 				else

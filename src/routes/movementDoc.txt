@@ -36,7 +36,7 @@ TURNING
         turnPID.kd = 0.04;
         pivotTurn(90, 8000, 0.5, 2400, true, turnPID); //this turns 90 degrees, pushing a max of 8000 volts into one motor, has .5 degrees of tolerance, can use upto 2400 milliseconds to complete the task, true means we are using the left wheel, and uses predetermined PID values
 
-        pivotTurn(90, 8000, 0.5, 2400, false, {0.019, 0, 0.04}); //this shares the first 4 values of the previous pivot example, but false means it uses the right wheel, and it defines the PID values within the method call instead of using preexisting ones 
+        pivotTurn(90, 8000, 0.5, 2400, false, {0.019, 0, 0.04}); //this shares the first 4 values of the previous pivot example, but false means it uses the right wheel, and it defines the PID values within the method call instead of using preexisting ones
 
 
     TYPE 3 - travelTurn //travels a distance while slowly adjusting the angle - this one is very inconsistent for some reason
@@ -45,7 +45,7 @@ TURNING
         turnPID.ki = 0;
         turnPID.kd = 0.04;
         travelTurn(24, 6000, 45, 3000, 0.5, 2400, turnPID); //this travels 24 inches, pushes 6000 millivolts forward, has a heading target of 45 degrees, pushes 3000 millivolts into turning, has a degree tolerance of 0.5, has a timeout of 2400 milliseconds, and uses pre existing PID values
-        
+
         travelTurn(24, 6000, 45, 3000, 0.5, 2400, {0.019, 0, 0.04}); //this does the same thing as the previous function, but creates its own PID values within the method call
 
 ODOMETRY STANDARD USAGE
@@ -59,7 +59,7 @@ ODOMETRY STANDARD USAGE
     should be implemented in other locations such as for PP code, helps significantly with setting up position coordinates
 
     for standards, lets use the bottom left corner as point of origin (0, 0), and top right corner as (144, 144)
-    this should be the standard for PP as well, jonathan you can update this to make it work 
+    this should be the standard for PP as well, jonathan you can update this to make it work
 
     Odom runs continuously even while we are not using odometry functions, so we can combine regular motion profiling/turning with moveToPoint
 
@@ -73,5 +73,5 @@ ODOMETRY STANDARD USAGE
 
 OTHER SUBSYSTEMS
     fireShooter(); //this fires the shooter using a preprogrammed sequence, if resetCataTask is running it will bring itself down
-    progOuttake(); //this outtakes at the milliVoltage specified 
+    progOuttake(); //this outtakes at the milliVoltage specified
     progIntake(); //this intakes at the milliVoltage specified

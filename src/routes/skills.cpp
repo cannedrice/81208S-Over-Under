@@ -49,7 +49,7 @@ void skills()
     rotationTurn(24, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-77, 24, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
 
-/*-- 2 front pushes --*/
+    /*-- 2 front pushes --*/
 
     // /*--Get to center--*/
     // rotationTurn(-21, 8000, 1, 1000, {0.02, 0, 0.08});
@@ -85,11 +85,11 @@ void skills()
     // toggleLeftWing();
     // toggleRightWing();
 
-/*-- End --*/
+    /*-- End --*/
 
-/*-- 2 Diagonal pushes --*/
+    /*-- 2 Diagonal pushes --*/
 
-/*--Get to center--*/
+    /*--Get to center--*/
     rotationTurn(-21, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-10, -21, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(69, 8000, 1, 1000, {0.02, 0, 0.08});
@@ -127,7 +127,7 @@ void skills()
     toggleLeftWing();
     toggleRightWing();
 
-/*-- End --*/
+    /*-- End --*/
 
     // It would be nice if we could do a side push but I don't think that's an option lol
 
