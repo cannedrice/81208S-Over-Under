@@ -5,7 +5,7 @@
 
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 4;
+int autonNumber = 0;
 // 0 = Winpoint
 // 1 = Destruction
 // 2 = Score 4
@@ -101,7 +101,7 @@ void opcontrol()
 					// pros::delay(1000);
 					// if (potentiometer.get() > 1700) {
 						catapult.moveVoltage(1000);
-						pros::delay(130);
+						pros::delay(150);
 						catapult.moveVoltage(12000);
 						pros::delay(200);
 					// } else {

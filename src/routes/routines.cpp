@@ -12,15 +12,15 @@ void tests()
     // motionProfile.moveDistance(12, 0, 1, {0.02, 0, 0.01}, {50, 0.01, 0.3, 5});
     // motionProfile.moveDistance(20, 0, 1, {0.02, 0, 0.01}, {50, 0.1, 0.3, 5});
     // motionProfile.moveDistance(40, 0, 1, {0.02, 0, 0.01}, {55, 0.1, 0.3, 5});
-    // rotationTurn(45, 8000, 1, 1200, {0.02, 0, 0.08});
-    // motionProfile.moveDistance(12, 45, 1, {0.02, 0, 0.01}, {50, 0.01, 0.3, 5});
+    // rotationTurn(45, 8000, 1, 1200, {0.019, 0, 0.08});
+    // motionProfile.moveDistance(12, 45, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
     // pros::delay(5000);
-    // rotationTurn(90, 8000, 1, 1200, {0.018, 0, 0.08});
-    // motionProfile.moveDistance(12, 90, 1, {0.02, 0, 0.01}, {50, 0.01, 0.3, 5});
+    // rotationTurn(90, 8000, 1, 1200, {0.015, 0, 0.08});
+    // motionProfile.moveDistance(12, 90, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
     // pros::delay(5000);
-    rotationTurn(135, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(12, 135, 1, {0.02, 0, 0.01}, {50, 0.01, 0.3, 5});
-    pros::delay(5000);
+    // rotationTurn(135, 8000, 1, 1200, {0.015, 0, 0.08});
+    // motionProfile.moveDistance(12, 135, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
+    // pros::delay(5000);
 }
 
 void scoring()
@@ -494,6 +494,7 @@ void winpointAuton()
     rotationTurn(-150, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(46, -150, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); // trying to get the triball out
     // somehow works:
+    toggleRightRearWing();
     // toggleMatchload(); FIX
     pros::delay(150);
     driveLeftGroup.moveVoltage(-7500);
@@ -502,6 +503,7 @@ void winpointAuton()
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
     ////toggleMatchload(); FIX FIX
+    toggleRightRearWing();
 
     /*--Winpoint ending--*/
     rotationTurn(136.5, 8000, 1, 1200, {0.02, 0, 0.08});
