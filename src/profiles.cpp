@@ -27,12 +27,12 @@ okapi::ControllerButton XButton(okapi::ControllerDigital::X);         // increme
 okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // select auton path
 
 // Drivetrain
-/* Left front */ okapi::Motor lf(8, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
-/* Left bottom */ okapi::Motor lb(4, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
-/* Left top */ okapi::Motor lt(18, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
-/* Right front */ okapi::Motor rf(7, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
-/* Right back */ okapi::Motor rb(20, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
-/* Right top */ okapi::Motor rt(19, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Left front */ okapi::Motor lf(14, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Left bottom */ okapi::Motor lb(8, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Left top */ okapi::Motor lt(10, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Right front */ okapi::Motor rf(13, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Right back */ okapi::Motor rb(18, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Right top */ okapi::Motor rt(12, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 
 // Drivetrain Motor Group
 /* Left group*/ okapi::MotorGroup driveLeftGroup = {lb, lf, lt};
@@ -40,12 +40,12 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // select 
 /* Drive group */ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 
 // Intake
-/* Right intake */ okapi::Motor ri(3, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
-/* Left intake */ okapi::Motor li(9, false, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
+/* Right intake */ okapi::Motor ri(20, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
+/* Left intake */ okapi::Motor li(11, false, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
 /* Intake motor group */ okapi::MotorGroup intake = {ri, li};
 
 // Catapult
-/* Catapult */ okapi::Motor catapult(13, true, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
+/* Catapult */ okapi::Motor catapult(9, true, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
 /* Potentionmeter */ okapi::Potentiometer potentiometer('H');
 
 // Auton
