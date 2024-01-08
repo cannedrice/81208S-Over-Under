@@ -87,36 +87,33 @@ void opcontrol()
 		{
 			cataToggle = !cataToggle;
 		}
-		// Starting pos:2490 -> Down pos:1680
-		if (cataToggle)
-		{
-			catapult.moveVoltage(12000);
-		}
-		else
-		{
-			if (potentiometer.get() > 1760) // CHANGE THIS POSITION
-			{
-				catapult.moveVoltage(9000); /*8500*/
-			}
-			else if (potentiometer.get() > 1550 && potentiometer.get() < 1780)
-			{
-				if (r1.changedToPressed())
-				{
-					lastPressed = pros::millis();
-					catapult.moveRelative(1000, 7000);
-				}
-				else if (pros::millis() - lastPressed > 350 && r1.isPressed())
-				{
-					catapult.moveVoltage(7000);
-				}
-				else
-				{
+		// Down Pos: 2490 -> 1680
+		if (cataToggle) {
+			catapult.moveVoltage(9000);
+		} else {
+			if (potentiometer.get() > 1950) { // CHANGE THIS POSITION
+				catapult.moveVoltage(12000);/*8500*/
+			// } else if (potentiometer.get() > 1800) {
+				
+			} else {
+				if (r1.isPressed()) {
+					// lastPressed = pros::millis();
+					// pros::delay(1000);
+					// if (potentiometer.get() > 1700) {
+						catapult.moveVoltage(1000);
+						pros::delay(130);
+						catapult.moveVoltage(12000);
+						pros::delay(200);
+					// } else {
+					// 	catapult.moveVoltage(12000);
+					// }
+					// catapult.moveRelative(1000, 7000);
+				// } else if (pros::millis() - lastPressed > 350 && r1.isPressed()) { // change this value maybe
+				// 	// pros::delay(1000);
+				// 	catapult.moveVoltage(7000);
+				} else {
 					catapult.moveVoltage(0);
 				}
-			}
-			else
-			{
-				catapult.moveVoltage(0);
 			}
 		}
 		pros::delay(20);
