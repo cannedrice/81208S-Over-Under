@@ -154,7 +154,7 @@ void closeRightRearWing()
  */
 void toggleLeftRearWing()
 {
-    if (leftWingState == false)
+    if (leftRearWingState == false)
     {
         openLeftRearWing();
     }
@@ -170,7 +170,7 @@ void toggleLeftRearWing()
  */
 void toggleRightRearWing()
 {
-    if (rightWingState == false)
+    if (rightRearWingState == false)
     {
         openRightRearWing();
     }
