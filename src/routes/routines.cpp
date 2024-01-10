@@ -1,6 +1,5 @@
 #include "main.h"
 
-// update this soon
 // movement profile = {0.05, 0, 0.01}
 // rotation turn 8000, 0.5, 6000, {0.016, 0, 0.08} 90 deg
 // 400 chassis has max speed of ~68.07 inches/sec, use 67 or 68 for max, use 60 reg
@@ -567,17 +566,6 @@ void destruction()
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
     ////toggleMatchload(); FIX FIX
-
-    /*--Winpoint ending--*/
-    // rotationTurn(136.5, 8000, 1, 1200, {0.016, 0, 0.08});
-    // motionProfile.moveDistance(8, 136.5, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3});
-    // rotationTurn(90, 8000, 1, 1200, {0.016, 0, 0.08});
-    // pros::delay(75);
-    // intake.moveVoltage(-12000);
-    // driveGroup.moveVoltage(12000);
-    // pros::delay(665);
-    // driveGroup.moveVoltage(0);
-    // intake.moveVoltage(0);
 
     /*--Destroy ending--*/
     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});

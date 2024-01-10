@@ -6,8 +6,6 @@ using namespace std;
 #define ENCODER_TICKS 360
 #define GEAR_RATIO 2 / 3
 #define GEARBOX 600
-#define ANGLE_TOLERANCE 2
-#define MAX_VELOCITY 20;
 
 /**
  * @brief Construct a new motion profile::motion profile object

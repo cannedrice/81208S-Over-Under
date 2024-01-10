@@ -82,6 +82,7 @@ void opcontrol()
 		// opCatapult(); might add this one later, don't know if it works or not
 		pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 		pros::lcd::print(3, "Yaw: %f", getIMU());
+		pros::lcd::print(4, "Average drive train temp (cool down if >55): %f", getDriveTemp());
 
 		if (r2.changedToPressed())
 		{
@@ -93,24 +94,12 @@ void opcontrol()
 		} else {
 			if (potentiometer.get() > 1950) { // CHANGE THIS POSITION
 				catapult.moveVoltage(12000);/*8500*/
-			// } else if (potentiometer.get() > 1800) {
-				
 			} else {
 				if (r1.isPressed()) {
-					// lastPressed = pros::millis();
-					// pros::delay(1000);
-					// if (potentiometer.get() > 1700) {
-						catapult.moveVoltage(1000);
-						pros::delay(150);
-						catapult.moveVoltage(12000);
-						pros::delay(200);
-					// } else {
-					// 	catapult.moveVoltage(12000);
-					// }
-					// catapult.moveRelative(1000, 7000);
-				// } else if (pros::millis() - lastPressed > 350 && r1.isPressed()) { // change this value maybe
-				// 	// pros::delay(1000);
-				// 	catapult.moveVoltage(7000);
+					catapult.moveVoltage(1000);
+					pros::delay(150);
+					catapult.moveVoltage(12000);
+					pros::delay(200);
 				} else {
 					catapult.moveVoltage(0);
 				}
