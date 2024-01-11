@@ -75,24 +75,31 @@ void opcontrol()
 	int stepC = 1;
 	while (true)
 	{
-		// basic chassis control, do not touch.
+		/*--chassis control--*/
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
-		// opCatapult(); might add this one later, don't know if it works or not
-		// pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
-		pros::lcd::print(1, "Yaw: %f", getIMU());
-		pros::lcd::print(2, "Average drive train temp: %f", getDriveTemp());
-		pros::lcd::print(3, "Cata temp: %f", catapult.getTemperature());
 
-		if (r1.isPressed()) {
+		/*--info--*/
+		pros::lcd::print(2, "Yaw: %f", getIMU());
+		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
+		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
+		
+		/*--current cata code--*/
+		// if (r1.isPressed()) {
+		// 	catapult.moveAbsolute(180 * stepC, 12000);
+		// 	stepC++; // no way c++??????
+		// 	driveGroup.moveVoltage(0);
+		// 	pros::delay(650);
+		// }
+
+		/*--experimental new cata code--*/
+		if (r1.isPressed() && pros::millis() - lastPressed > 650) {
+			lastPressed=pros::millis();
 			catapult.moveAbsolute(180 * stepC, 12000);
 			stepC++; // no way c++??????
-			driveGroup.moveVoltage(0);
-			pros::delay(650);
 		}
-
-		/*OLD CODE*/
+		/*--old cata code--*/
 
 		// if (r2.changedToPressed())
 		// {
