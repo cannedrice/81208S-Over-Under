@@ -171,16 +171,21 @@ void scoresix()
     // MAKE SURE AIR IS VERY FULL, OR ELSE MATCHLOAD BALL WILL NOT COME OUT
     // PUT ALLIANCE TRIBALL TO THE LEFT OF THE RIGHTMOST SCREW OF THE POLYCARB (MAKE SURE IT DOESNT ROLL AWAY)
 
+    /* --Updated setup-- */
+    /* Place the robot ~3 tiles away from the side barrier */
+    /* make sure it's perfectly aligned */
+    /* Place matchload on the right side of the robot*/
+
 
     rotationTurn(-8.5, 8000, 1, 400, {0.016, 0, 0.08});
 
     /*--Ball under bar--*/
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(10, -8.5, 1, {0.02, 0, 0.04}, {45, 0.01, 0.3, 3});
+    motionProfile.moveDistance(10, -8.5, 1, {0.02, 0, 0.04}, {60/*45*/, 0.01, 0.3, 3});
     pros::delay(190);
     intake.moveVoltage(0);
     // motionProfile.moveDistance(-14, -8.5, 1, {0.02, 0, 0.04}, {30, 0.01, 0.3, 3});
-    motionProfile.moveDistance(-48/*-34*/, -8.5, 1, {0.02, 0, 0.04}, {65, 0.1, 1.5/*1*/, 3}); // buh
+    motionProfile.moveDistance(-46.5/*-34*/, -8.5, 1, {0.02, 0, 0.04}, {65, 0.1, 1, 3}); // buh
     /*--End--*/
 
     /*--Alliance triball--*/
@@ -193,46 +198,47 @@ void scoresix()
     pros::delay(225);
     driveLeftGroup.moveVoltage(0);
     rotationTurn(-63, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(-13, -63, 1, {0.02, 0, 0.04}, {55, 0.1, 0.3, 5});
+    motionProfile.moveDistance(-13, -63, 1, {0.02, 0, 0.04}, {60/*55*/, 0.1, 0.3, 5});
     toggleRightRearWing();
+    pros::delay(100);
     rotationTurn(-90, 8000, 1, 400, {0.016, 0, 0.08});
     driveGroup.moveVoltage(-12000);
     pros::delay(800);
     driveGroup.moveVoltage(0);
-    motionProfile.moveDistance(10.5, -90, 1, {0.05, 0, 0.01}, {55, 0.1, 0.3, 5});
+    motionProfile.moveDistance(10.5, -90, 1, {0.05, 0, 0.01}, {60/*55*/, 0.1, 0.3, 5});
 
     /*--Additional triballs--*/
 
-    rotationTurn(-22 + 45, 8000, 1, 1200, {0.016, 0, 0.08}); // get to first triball:
-    motionProfile.moveDistance(36 /*47 -> 36 + 11*/, -22 + 45, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 5});
+    rotationTurn(23, 8000, 1, 1200, {0.016, 0, 0.08}); // get to first triball:
+    motionProfile.moveDistance(36 /*47 -> 36 + 11*/, 23, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 5});
     rotationTurn(144 /*35*/, 8000, 1, 1200, {0.016, 0, 0.08});
     intake.moveVoltage(-12000);
     pros::delay(250);
     intake.moveVoltage(0);
-    rotationTurn(-22 + 45, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(11 /*35*/ /*47 -> 36 + 11*/, -22 + 45, 1, {0.05, 0, 0.01}, {55, 0.1, 0.3, 5});
+    rotationTurn(23, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(11 /*35*/ /*47 -> 36 + 11*/, 23, 1, {0.05, 0, 0.01}, {60/*55*/, 0.1, 0.3, 5});
     intake.moveVoltage(12000);
     pros::delay(110);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-1, 95 + 45, 1, {0.017, 0, 0.04}, {30, 0.01, 0.3, 25}); // get triball to goal:
-    rotationTurn(95 + 45-15, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(8, 95 + 45-15, 1, {0.02, 0, 0.04}, {45, 0.01, 0.3, 25});
+    motionProfile.moveDistance(-1, 95 + 30, 1, {0.017, 0, 0.04}, {60/*30*/, 0.01, 0.5, 25}); // get triball to goal:
+    rotationTurn(95 + 30, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(8, 95 + 30, 1, {0.02, 0, 0.04}, {60/*45*/, 0.01, 0.3, 25});
     intake.moveVoltage(-12000);
     pros::delay(500);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-5, 95 + 45-15, 1, {0.02, 0, 0.04}, {35, 0.01, 0.3, 25});// CHANGES HERE!
+    motionProfile.moveDistance(-5, 95 + 30, 1, {0.02, 0, 0.04}, {60/*35*/, 0.01, 0.3, 25});
     rotationTurn(20 + 45, 8000, 1, 1200, {0.019, 0, 0.08}); // get second and third triball:
     pros::delay(250);
     intake.moveVoltage(12000);
     motionProfile.moveDistance(17.5, 20 + 45, 1, {0.05, 0, 0.01}, {62, 0.1, 0.3, 5});
     pros::delay(145);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-7.5, 20 + 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 5});
+    motionProfile.moveDistance(-7.5, 20 + 45, 1, {0.05, 0, 0.01}, {60/*40*/, 0.01, 0.3, 5});
     // pros::delay(500);
     rotationTurn(81.5 + 45, 8000, 1, 1200, {0.016, 0, 0.08});
     // toggleLeftWing(); // open wings
     // toggleRightWing();
-    motionProfile.moveDistance(9, 81.5 + 45, 1, {0.05, 0, 0.01}, {50, 0.1, 0.3, 5});
+    motionProfile.moveDistance(9, 81.5 + 45, 1, {0.05, 0, 0.01}, {60/*50*/, 0.1, 0.3, 5});
     rotationTurn(135 + 43, 8000, 1, 1200, {0.016, 0, 0.08}); // pushing triballs:
     intake.moveVoltage(-12000);
     pros::delay(120);

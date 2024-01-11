@@ -80,16 +80,19 @@ void opcontrol()
 		updateIntake();
 		updatePneumatics();
 		// opCatapult(); might add this one later, don't know if it works or not
-		pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
-		pros::lcd::print(3, "Yaw: %f", getIMU());
-		pros::lcd::print(4, "Average drive train temp: %f", getDriveTemp());
-		pros::lcd::print(5, "Cata shooter: %f", catapult.getTemperature());
+		// pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
+		pros::lcd::print(1, "Yaw: %f", getIMU());
+		pros::lcd::print(2, "Average drive train temp: %f", getDriveTemp());
+		pros::lcd::print(3, "Cata shooter: %f", catapult.getTemperature());
 
 		if (r1.isPressed()) {
 			catapult.moveAbsolute(180 * stepC, 12000);
 			stepC++; // no way c++??????
 			pros::delay(650);
 		}
+
+		/*OLD CODE*/
+
 		// if (r2.changedToPressed())
 		// {
 		// 	cataToggle = !cataToggle;
