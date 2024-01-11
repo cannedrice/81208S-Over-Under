@@ -64,9 +64,9 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	// COMMENT OUT ONCE AUTON IS CODED
-	while (potentiometer.get() > 1830) {
+	while (potentiometer.get() > 1825) {
 	 	catapult.moveVoltage(12000);
-		pros::delay(20);
+		pros::delay(10);
 	}
 	catapult.moveVoltage(0);
 	// END
