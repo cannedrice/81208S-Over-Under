@@ -64,11 +64,11 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	// COMMENT OUT ONCE AUTON IS CODED
-	// while (potentiometer.get() > 1810) {
-	//  	catapult.moveVoltage(12000);
-	// 	pros::delay(20);
-	// }
-	// catapult.moveVoltage(0);
+	while (potentiometer.get() > 1830) {
+	 	catapult.moveVoltage(12000);
+		pros::delay(20);
+	}
+	catapult.moveVoltage(0);
 	// END
 
 	catapult.tarePosition();
@@ -83,11 +83,12 @@ void opcontrol()
 		// pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 		pros::lcd::print(1, "Yaw: %f", getIMU());
 		pros::lcd::print(2, "Average drive train temp: %f", getDriveTemp());
-		pros::lcd::print(3, "Cata shooter: %f", catapult.getTemperature());
+		pros::lcd::print(3, "Cata temp: %f", catapult.getTemperature());
 
 		if (r1.isPressed()) {
 			catapult.moveAbsolute(180 * stepC, 12000);
 			stepC++; // no way c++??????
+			driveGroup.moveVoltage(0);
 			pros::delay(650);
 		}
 
