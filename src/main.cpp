@@ -5,7 +5,7 @@
 
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 3;
+int autonNumber = 2;
 // 0 = Winpoint
 // 1 = SoloWP
 // 2 = Score 5
@@ -84,7 +84,7 @@ void opcontrol()
 		pros::lcd::print(2, "Yaw: %f", getIMU());
 		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
 		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
-		
+
 		/*--current cata code--*/
 		// if (r1.isPressed()) {
 		// 	catapult.moveAbsolute(180 * stepC, 12000);
