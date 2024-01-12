@@ -93,7 +93,12 @@ void opcontrol()
 		}
 
 		/*--experimental controller code--*/
-		master.set_text(2, 0, "Example"); //if this thing works ill expand on it later
+		master.set_text(2, 0, std::to_string(stepC-1));
+		master.set_text(2, 2, " ");
+		master.set_text(2, 3, std::to_string(getDriveTemp()));
+		master.set_text(2, 5, " ");
+		master.set_text(2, 6, std::to_string(catapult.getTemperature()));
+		
 
 		/*--old cata code v2--*/
 		// if (r1.isPressed()) {
