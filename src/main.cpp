@@ -9,7 +9,7 @@ int autonNumber = 0;
 // 0 = Winpoint
 // 1 = SoloWP
 // 2 = Score 5
-// 3 = Score 6
+// 3 = Score 6 DO NOT USE THIS!
 // 4 = Skills
 // 7 = Tests
 

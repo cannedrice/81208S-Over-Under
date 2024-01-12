@@ -13,7 +13,8 @@ void updatePneumatics()
     }
     if (downButton.changedToPressed())
     {
-        toggleLeftRearWing();
+        toggleLeftWing();
+        toggleRightWing();
     }
     if (upButton.changedToPressed())
     {
@@ -30,6 +31,11 @@ void updatePneumatics()
     if (XButton.changedToPressed())
     {
         //ideally it would toggle hang but ehhh not quite finished
+    }
+    if (BButton.changedToPressed())
+    {
+        toggleLeftRearWing();
+        toggleRightRearWing();
     }
 }
 

@@ -22,7 +22,7 @@ void tests()
     // pros::delay(5000);
 }
 
-void scoring()
+void scoring() //depreaciated
 {
     motion_profile motionProfile;
 
@@ -100,7 +100,6 @@ void scoring()
 void scorefive()
 {
     motion_profile motionProfile;
-    //setup is parallel to matchload bar, with front left wheel on the barrier // old
     //new setup is parallel to wall, touching diagonal bar, wheels (not gears) on foam tile connecting layer, facing opposite offensive zone
 
     pros::delay(250);
@@ -443,7 +442,7 @@ void winpointAuton()
     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
     motionProfile.moveDistance(10, 30, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 10});
     rotationTurn(0, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(4, 0, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 30});
+    motionProfile.moveDistance(11, 0, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 30});
     toggleLeftWing();
     rotationTurn(90, 8000, 1, 1200, {0.016, 0, 0.08}); // test
     motionProfile.moveDistance(26, 90, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10}, 1000);
