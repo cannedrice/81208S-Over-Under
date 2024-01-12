@@ -11,26 +11,25 @@ void updatePneumatics()
     {
         toggleRightWing();
     }
-    if (downButton.changedToPressed()) // Single acting, doesn't work, pls fix
+    if (downButton.changedToPressed())
     {
         toggleLeftRearWing();
     }
-    if (upButton.changedToPressed()) // Single acting, doesn't work, pls fix
-    {
-        toggleRightRearWing();
-    }
-    if (AButton.changedToPressed())
+    if (upButton.changedToPressed())
     {
         toggleBlocker();
     }
+    if (AButton.changedToPressed())
+    {
+        toggleRightRearWing();
+    }
     if (YButton.changedToPressed())
     {
-        toggleHang();
+        toggleLeftRearWing();
     }
     if (XButton.changedToPressed())
     {
-        toggleLeftWing();
-        toggleRightWing();
+        //ideally it would toggle hang but ehhh not quite finished
     }
 }
 
@@ -82,13 +81,11 @@ void toggleLeftWing()
 {
     if (leftWingState == false)
     {
-        leftWing.set_value(true);
-        leftWingState = true;
+        openLeftWing();
     }
     else
     {
-        leftWing.set_value(false);
-        leftWingState = false;
+        closeLeftWing();
     }
 }
 
@@ -220,10 +217,10 @@ void toggleBlocker()
  * @brief extend singleUse
  *
  */
-void extendSingleUse()
+void extendShooter()
 {
-    singleUse.set_value(false);
-    singleUseState = true;
+    shooter.set_value(false);
+    shooterState = true;
 }
 
 /**
@@ -231,25 +228,25 @@ void extendSingleUse()
  *
  */
 
-void retractSingleUse()
+void retractShooter()
 {
-    singleUse.set_value(true);
-    singleUseState = false;
+    shooter.set_value(true);
+    shooterState = false;
 }
 
 /**
  * @brief toggle singleUse
  *
  */
-void toggleSingleUse()
+void toggleShooter()
 {
-    if (singleUseState == false)
+    if (shooterState == false)
     {
-        extendSingleUse();
+        extendShooter();
     }
     else
     {
-        retractSingleUse();
+        retractShooter();
     }
 }
 
@@ -260,7 +257,7 @@ void toggleSingleUse()
 void extendHang()
 {
     hang.set_value(false);
-    singleUseState = true;
+    hangState = true;
 }
 
 /**
@@ -271,7 +268,7 @@ void extendHang()
 void retractHang()
 {
     hang.set_value(true);
-    singleUseState = false;
+    hangState = false;
 }
 
 /**
@@ -280,7 +277,7 @@ void retractHang()
  */
 void toggleHang()
 {
-    if (singleUseState == false)
+    if (hangState == false)
     {
         extendHang();
     }

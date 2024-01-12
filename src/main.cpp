@@ -86,6 +86,16 @@ void opcontrol()
 		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
 
 		/*--current cata code--*/
+		if (r1.isPressed() && pros::millis() - lastPressed > 650) {
+			lastPressed=pros::millis();
+			catapult.moveAbsolute(180 * stepC, 12000);
+			stepC++; // no way c++??????
+		}
+
+		/*--experimental controller code--*/
+		master.set_text(2, 0, "Example"); //if this thing works ill expand on it later
+
+		/*--old cata code v2--*/
 		// if (r1.isPressed()) {
 		// 	catapult.moveAbsolute(180 * stepC, 12000);
 		// 	stepC++; // no way c++??????
@@ -93,14 +103,8 @@ void opcontrol()
 		// 	pros::delay(650);
 		// }
 
-		/*--experimental new cata code--*/
-		if (r1.isPressed() && pros::millis() - lastPressed > 650) {
-			lastPressed=pros::millis();
-			catapult.moveAbsolute(180 * stepC, 12000);
-			stepC++; // no way c++??????
-		}
-		/*--old cata code--*/
 
+		/*--old cata code--*/
 		// if (r2.changedToPressed())
 		// {
 		// 	cataToggle = !cataToggle;

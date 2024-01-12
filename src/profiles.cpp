@@ -5,7 +5,7 @@ bool rightWingState = false;
 bool leftRearWingState = false;
 bool rightRearWingState = false;
 bool blockerState = false;
-bool singleUseState = false;
+bool shooterState = false;
 bool hangState = false;
 bool cataToggle = false;
 double angleOffset = 0;
@@ -60,4 +60,4 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // unused
 /* Left rear wing */ pros::ADIDigitalOut leftRearWing('D', LOW);
 /* Blocker Right */ pros::ADIDigitalOut blocker('A', LOW);
 /* Blocker left */ pros::ADIDigitalOut hang('D', LOW);
-/* Single use */ pros::ADIDigitalOut singleUse('E', LOW);
+/* Single use */ pros::ADIDigitalOut shooter('E', LOW);

@@ -101,50 +101,50 @@ void scorefive()
 {
     motion_profile motionProfile;
     //setup is parallel to matchload bar, with front left wheel on the barrier
-    
+
     toggleRightRearWing();
     pros::delay(250);
-    motionProfile.moveDistance(-12, 0, 1, {0.05, 0, 0.01}, {60/*55*/, 0.1, 0.3, 5});
+    motionProfile.moveDistance(-12, 0, 1, {0.05, 0, 0.01}, {60, 0.1, 0.3, 5});
     toggleRightRearWing();
     pros::delay(250);
     rotationTurn(-60, 8000, 1, 1200, {0.016, 0, 0.08});
+    rotationTurn(-45, 8000, 1, 1200, {0.016, 0, 0.08});
     driveGroup.moveVoltage(-12000);
     pros::delay(600);
     driveGroup.moveVoltage(0);
 
     /*--Additional triballs--*/
-    motionProfile.moveDistance(10.5, -90+45, 1, {0.05, 0, 0.01}, {60/*55*/, 0.1, 0.3, 5});
-    rotationTurn(23+45, 8000, 1, 1200, {0.016, 0, 0.08}); // get to first triball:
-    motionProfile.moveDistance(35.5 /*47 -> 36 + 11*/, 23+45, 1, {0.05, 0, 0.01}, {65, 0.1, 0.5, 5});
+    motionProfile.moveDistance(10.5, -45, 1, {0.05, 0, 0.01}, {60, 0.1, 0.3, 5});
+    rotationTurn(68, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(35.5, 68, 1, {0.05, 0, 0.01}, {65, 0.1, 0.5, 5});
     rotationTurn(180, 8000, 1, 1200, {0.016, 0, 0.08});
     intake.moveVoltage(-12000);
     pros::delay(250);
     intake.moveVoltage(0);
-    rotationTurn(23+45, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(12.5 /*35*/ /*47 -> 36 + 11*/, 23+45, 1, {0.05, 0, 0.01}, {60/*55*/, 0.1, 0.5, 5});
+    rotationTurn(68, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(12.5, 68, 1, {0.05, 0, 0.01}, {60, 0.1, 0.5, 5});
     intake.moveVoltage(12000);
     pros::delay(110);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-1, -145, 1, {0.017, 0, 0.04}, {60/*30*/, 0.01, 0.5, 25}); // get triball to goal:
-    rotationTurn(-145, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(8, -145, 1, {0.02, 0, 0.04}, {60/*45*/, 0.01, 0.3, 25});
+    motionProfile.moveDistance(-1, -150, 1, {0.017, 0, 0.04}, {60, 0.01, 0.5, 25});
+    rotationTurn(-150, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(8, -150, 1, {0.02, 0, 0.04}, {60, 0.01, 0.3, 25});
     intake.moveVoltage(-12000);
     pros::delay(220);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-5, -145, 1, {0.02, 0, 0.04}, {60/*35*/, 0.01, 0.3, 25});
-    rotationTurn(20 + 45+45, 8000, 1, 1200, {0.019, 0, 0.08}); // get second and third triball:
+    motionProfile.moveDistance(-5, -150, 1, {0.02, 0, 0.04}, {60, 0.01, 0.3, 25});
+    rotationTurn(110, 8000, 1, 1200, {0.019, 0, 0.08});
     pros::delay(250);
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(18, 20 + 45+45, 1, {0.05, 0, 0.01}, {62, 0.1, 0.3, 5});
+    motionProfile.moveDistance(18, 110, 1, {0.05, 0, 0.01}, {62, 0.1, 0.3, 5});
     pros::delay(145);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-7.5, 20 + 45+45, 1, {0.05, 0, 0.01}, {60/*40*/, 0.01, 0.3, 5});
-    // pros::delay(500);
-    rotationTurn(81.5 + 45+45, 8000, 1, 1200, {0.016, 0, 0.08});
-    // toggleLeftWing(); // open wings
-    // toggleRightWing();
-    motionProfile.moveDistance(9, 81.5 + 45+45, 1, {0.05, 0, 0.01}, {60/*50*/, 0.1, 0.3, 5});
-    rotationTurn(135 + 43+45, 8000, 1, 1200, {0.016, 0, 0.08}); // pushing triballs:
+    motionProfile.moveDistance(-7.5, 110, 1, {0.05, 0, 0.01}, {60, 0.01, 0.3, 5});
+    rotationTurn(171.5, 8000, 1, 1200, {0.016, 0, 0.08});
+    toggleLeftWing();
+    toggleRightWing();
+    motionProfile.moveDistance(9, 171.5, 1, {0.05, 0, 0.01}, {60 , 0.1, 0.3, 5});
+    rotationTurn(-45, 8000, 1, 1200, {0.016, 0, 0.08});
     intake.moveVoltage(-12000);
     driveGroup.moveVoltage(12000);
     pros::delay(750);
@@ -152,7 +152,8 @@ void scorefive()
     pros::delay(270);
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
-
+    toggleLeftWing();
+    toggleRightWing();
 }
 
 void scoresix()
