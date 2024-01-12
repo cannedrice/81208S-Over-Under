@@ -56,8 +56,8 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // unused
 // Pneumatics
 /* Right wing */ pros::ADIDigitalOut rightWing('C', LOW);
 /* Left wing */ pros::ADIDigitalOut leftWing('G', LOW);
-/* Right rear wing */ pros::ADIDigitalOut rightRearWing('B', LOW);
-/* Left rear wing */ pros::ADIDigitalOut leftRearWing('D', LOW);
+/* Right rear wing */ pros::ADIDigitalOut rightRearWing('D', LOW);
+/* Left rear wing */ pros::ADIDigitalOut leftRearWing('B', LOW);
 /* Blocker Right */ pros::ADIDigitalOut blocker('A', LOW);
 /* Blocker left */ pros::ADIDigitalOut hang('D', LOW);
 /* Single use */ pros::ADIDigitalOut shooter('E', LOW);
