@@ -1,8 +1,8 @@
 PID TUNING
 Step 1: P (proportional)
     Start with a P value of approximately 0.1
-    If the robot shakes while completing the task, begin reducing P value by approx. 10% each time, use your own judgement but 10% is ok 
-    If the robot struggles to maintain the path, increase the P value by approx 20% each time 
+    If the robot shakes while completing the task, begin reducing P value by approx. 10% each time, use your own judgement but 10% is ok
+    If the robot struggles to maintain the path, increase the P value by approx 20% each time
 
 Step 2: D (derivative)
     Start with a D value that is double of the P value
@@ -21,14 +21,14 @@ Step 4: Timeout
 
 Step 5: Tolerance
     I am stupid it does not work properly
-    Therefore, consider using a 1.0 to 5.0 inch tolerance 
+    Therefore, consider using a 1.0 to 5.0 inch tolerance
 
 
 MP TUNING
 Step 1: MAX_VEL
     Use your judgement and think about how fast the robot should travel at max speed
     Usually this will be about 40-80 inches/second for long distance, maybe 20 for short distance
-    
+
 Step 2: MIN_VEL
     Minimum velocity should always be less than 3 inches/second
     If MIN_VEL = MAX_VEL, you have no acceleration/deceleration, which is the single edge case wehre MIN_VEL can be higher than 3

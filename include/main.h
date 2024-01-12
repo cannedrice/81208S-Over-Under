@@ -90,12 +90,12 @@ extern "C"
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
 #include "subsystems/catapult.hpp"
+#include "subsystems/pneumatics.hpp"
 
 #include "util/PID_controller.hpp"
 #include "util/motion_profile.hpp"
 #include "util/sensors.hpp"
 #include "util/turning.hpp"
-#include "util/pneumatics.hpp"
 // #include <iostream>
 #endif
 

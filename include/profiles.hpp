@@ -2,8 +2,11 @@
 
 extern bool leftWingState;
 extern bool rightWingState;
-extern bool matchloadState;
-extern bool climbingState;
+extern bool leftRearWingState;
+extern bool rightRearWingState;
+extern bool blockerState;
+extern bool singleUseState;
+extern bool hangState;
 extern bool cataToggle;
 extern double angleOffset;
 
@@ -54,5 +57,8 @@ extern okapi::ControllerButton XButton;
 // Pneumatics
 /* Right wing */ extern pros::ADIDigitalOut rightWing;
 /* Left wing */ extern pros::ADIDigitalOut leftWing;
-/* Matchload bar */ extern pros::ADIDigitalOut matchloadBar;
-/* Hang bar */ extern pros::ADIDigitalOut hangBar;
+/* Right rear wing */ extern pros::ADIDigitalOut rightRearWing;
+/* Left rear wing */ extern pros::ADIDigitalOut leftRearWing;
+/* Blocker left*/ extern pros::ADIDigitalOut blocker;
+/* Blocker Right*/ extern pros::ADIDigitalOut hang;
+/* Single use*/ extern pros::ADIDigitalOut singleUse;

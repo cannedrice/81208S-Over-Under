@@ -30,3 +30,7 @@ double getAverageRightRotation()
 {
     return (rf.getPosition() + rb.getPosition() + rt.getPosition()) / 3;
 }
+
+double getDriveTemp(){
+    return ((lf.getTemperature() + lb.getTemperature() + lt.getTemperature() + rf.getTemperature() + rb.getTemperature() + rt.getTemperature())/6) ;
+}

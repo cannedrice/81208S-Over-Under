@@ -31,6 +31,3 @@ void driveChassis()
         max 1, joystick results is 2, -> 1
         */
 }
-
-
-

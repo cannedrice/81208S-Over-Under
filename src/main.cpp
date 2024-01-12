@@ -1,13 +1,16 @@
+/* ALL AUTON FILES ARE COMMENTED OUT DUE TO PNEUMATICS*/
+/* PNEUMATICS FILES ARE COMMENTED OUT */
+/* AUTON RUNNING IS COMMENTED OUT IN MAIN */
+/* UPDATE PNEUMATICS IS COMMENTED OUT IN OPCONTROL */
+
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 4;
+int autonNumber = 2;
 // 0 = Winpoint
-// 1 = Destruction
-// 2 = Score 4
-// 3 = Score 5
-// 4 = Score 6
-// 5 = Skills
-// 6 = SoloWP
+// 1 = SoloWP
+// 2 = Score 5
+// 3 = Score 6
+// 4 = Skills
 // 7 = Tests
 
 void on_center_button() {}
@@ -17,56 +20,8 @@ void initialize()
 	pros::lcd::initialize();
 	gyro.reset();
 
-	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
-	pros::lcd::print(3, "Yaw: %f", getIMU());
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-
-	/* new auton selector hope it works */
-	// bool exit = true;
-	// while (exit)
-	// {
-	// 	if (XButton.changedToPressed())
-	// 	{
-	// 		autonNumber++;
-	// 		autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
-	// 	}
-	// 	else if (BButton.changedToPressed())
-	// 	{
-	// 		autonNumber--;
-	// 		autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
-	// 	}
-	// 	if (BButton.isPressed() || XButton.isPressed())
-	// 	{
-	// 		switch (autonNumber)
-	// 		{
-	// 		case 0:
-	// 			controller.rumble(".");
-	// 			pros::lcd::print(1, "Auton: Winpoint (depreciated)", autonNumber);
-	// 			break;
-	// 		case 1:
-	// 			controller.rumble("-");
-	// 			pros::lcd::print(1, "Auton: Scoring ", autonNumber);
-	// 			break;
-	// 		case 2:
-	// 			pros::lcd::print(1, "Auton: Destruction Winpoint", autonNumber);
-	// 			controller.rumble("- .");
-	// 			break;
-	// 		case 3:
-	// 			pros::lcd::print(1, "Auton: Skills", autonNumber);
-	// 			controller.rumble("- -");
-	// 			break;
-	// 		default:									// this should never run
-	// 			controller.rumble(". . . - - - . . ."); // haha sos bro the controllers battery is gonna be nonexistant after this one. well it shouldnt happen anyways
-	// 			break;
-	// 		}
-	// 	}
-	// 	if (YButton.changedToPressed())
-	// 	{
-	// 		exit = false;
-	// 	}
-	// 	pros::delay(20);
-	// }
 }
 
 void disabled() {}
@@ -83,28 +38,20 @@ void autonomous()
 		winpointAuton();
 		break;
 	case 1:
-		pros::lcd::set_text(1, "Destruction");
-		destruction();
+		pros::lcd::set_text(1, "Solo WP");
+		soloWP();
 		break;
 	case 2:
-		pros::lcd::set_text(1, "Score 4");
-		scoring();
-		break;
-	case 3:
 		pros::lcd::set_text(1, "Score 5");
 		scorefive();
 		break;
-	case 4:
+	case 3:
 		pros::lcd::set_text(1, "Score 6");
 		scoresix();
 		break;
-	case 5:
+	case 4:
 		pros::lcd::set_text(1, "SKILLS");
 		skills();
-		break;
-	case 6:
-		pros::lcd::set_text(1, "Solo WP");
-		soloWP();
 		break;
 	case 7:
 		pros::lcd::set_text(1, "Test");
@@ -116,57 +63,65 @@ void autonomous()
 void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	// okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-	// okapi::ControllerButton cToggle(okapi::ControllerDigital::up); experimental, possible doesn't work
+	// COMMENT OUT ONCE AUTON IS CODED
+	while (potentiometer.get() > 1825) {
+	 	catapult.moveVoltage(12000);
+		pros::delay(10);
+	}
+	catapult.moveVoltage(0);
+	// END
+
+	catapult.tarePosition();
+	int stepC = 1;
 	while (true)
 	{
-		// basic chassis control, do not touch.
+		/*--chassis control--*/
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
-		// cata
 
-		//yo! engineering explination here!
-		//first have a way to toggle the catapult, in the case that something gets jammed
-		//l2
-		//For the main catapult code, we first check if the catapult is toggled or not.
-		//if it is toggled, don't move the catapult
-		//if it isn't, automatically set the catapult to a downwards position
-		//next, check whether if the user pressed l1. If it is, then just simply run the catapult motor
-		//also check whether if the user pressed the catapult in the last .3 seconds
-		// as to give the catapult time to resettle before firing
+		/*--info--*/
+		pros::lcd::print(2, "Yaw: %f", getIMU());
+		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
+		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
 
+		/*--current cata code--*/
+		// if (r1.isPressed()) {
+		// 	catapult.moveAbsolute(180 * stepC, 12000);
+		// 	stepC++; // no way c++??????
+		// 	driveGroup.moveVoltage(0);
+		// 	pros::delay(650);
+		// }
 
-		if (r2.changedToPressed())
-		{
-			cataToggle = !cataToggle;
+		/*--experimental new cata code--*/
+		if (r1.isPressed() && pros::millis() - lastPressed > 650) {
+			lastPressed=pros::millis();
+			catapult.moveAbsolute(180 * stepC, 12000);
+			stepC++; // no way c++??????
 		}
-		// Down Pos: 1180
-		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
-		if (cataToggle)
-		{
-			catapult.moveVoltage(12000);
-		}
-		else
-		{
-			if (potentiometer.get() < 1180)
-			{
-				catapult.moveVoltage(12000);
-			}
-			else if (r1.changedToPressed())
-			{
-				lastPressed = pros::millis();
-				catapult.moveRelative(1000, 12000);
-			}
-			else if (pros::millis() - lastPressed > 350 && r1.isPressed())
-			{
-				catapult.moveVoltage(12000);
-			}
-			else
-			{
-				catapult.moveVoltage(0);
-			}
-		}
+		/*--old cata code--*/
+
+		// if (r2.changedToPressed())
+		// {
+		// 	cataToggle = !cataToggle;
+		// }
+		// // Down Pos: 2490 -> 1680
+		// if (cataToggle) {
+		// 	catapult.moveVoltage(9000);
+		// } else {
+		// 	if (potentiometer.get() > 1950) { // CHANGE THIS POSITION
+		// 		catapult.moveVoltage(12000);/*8500*/
+		// 	} else {
+		// 		if (r1.isPressed()) {
+		// 			catapult.moveVoltage(1000);
+		// 			pros::delay(150);
+		// 			catapult.moveVoltage(12000);
+		// 			pros::delay(200);
+		// 		} else {
+		// 			catapult.moveVoltage(0);
+		// 		}
+		// 	}
+		// }
 		pros::delay(20);
 	}
 }
