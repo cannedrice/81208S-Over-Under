@@ -8,8 +8,8 @@ uint32_t lastPressed = -800;
 int autonNumber = 0;
 // 0 = Winpoint
 // 1 = SoloWP
-// 2 = Score 5
-// 3 = Score 6 DO NOT USE THIS!
+// 2 = Wp auton safe
+// 3 = Score 5
 // 4 = Skills
 // 7 = Tests
 
@@ -42,18 +42,22 @@ void autonomous()
 		soloWP();
 		break;
 	case 2:
-		pros::lcd::set_text(1, "Score 5");
-		scorefive();
+		pros::lcd::set_text(1, "Safe wp");
+		wpAutonsafe();
 		break;
 	case 3:
-		pros::lcd::set_text(1, "Score 6");
-		scoresix();
+		pros::lcd::set_text(1, "Score 5");
+		scorefive();
 		break;
 	case 4:
 		pros::lcd::set_text(1, "SKILLS");
 		skills();
 		break;
 	case 7:
+		pros::lcd::set_text(1, "score 6 ");
+		scoresix();
+		break;
+	case 8:
 		pros::lcd::set_text(1, "Test");
 		tests();
 		break;
