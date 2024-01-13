@@ -81,9 +81,11 @@ void opcontrol()
 		updatePneumatics();
 
 		/*--info--*/
-		pros::lcd::print(2, "Yaw: %f", getIMU());
-		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
-		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
+		// pros::lcd::print(2, "Yaw: %f", getIMU());
+		pros::lcd::print(2, "Average drive train temp: %f", getDriveTemp());
+		pros::lcd::print(3, "Cata temp: %f", catapult.getTemperature());
+		pros::lcd::print(4, "left chassis efficency: %f", (lf.getEfficiency() + lb.getEfficiency() + lt.getEfficiency())/3);
+		pros::lcd::print(5, "right chassis efficency: %f", (rf.getEfficiency() + rb.getEfficiency() + rt.getEfficiency()) / 3);
 
 		/*--current cata code--*/
 		if (r1.isPressed() && pros::millis() - lastPressed > 650) {
@@ -98,7 +100,7 @@ void opcontrol()
 		master.set_text(2, 3, std::to_string(getDriveTemp()));
 		master.set_text(2, 5, " ");
 		master.set_text(2, 6, std::to_string(catapult.getTemperature()));
-		
+
 
 		/*--old cata code v2--*/
 		// if (r1.isPressed()) {

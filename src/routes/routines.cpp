@@ -22,7 +22,7 @@ void tests()
     // pros::delay(5000);
 }
 
-void scoring() //depreaciated
+void scoring() //deprecated
 {
     motion_profile motionProfile;
 
@@ -152,7 +152,7 @@ void scorefive()
     toggleRightWing();
 }
 
-void scoresix()
+void scoresix() //deprecated until further notice
 {
     motion_profile motionProfile;
 
@@ -241,7 +241,7 @@ void scoresix()
     // toggleRightWing();
 }
 
-void scoresixalt()
+void scoresixalt() // deprecated
 {
     motion_profile motionProfile;
 
@@ -322,9 +322,8 @@ void scoresixalt()
     toggleRightWing();
 }
 
-// this path is illegal sometimes? also destruction auton works well enough to just not use this path
 
-void soloWP()
+void soloWP() // need to update 
 {
 
     motion_profile motionProfile;

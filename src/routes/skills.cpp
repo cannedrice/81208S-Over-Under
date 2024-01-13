@@ -4,41 +4,26 @@ void skills()
 {
 
     motion_profile motionProfile;
-
-    // not that normal setup we're gonna need a jig for that lmao
-    // parallel to the matchload bar just like 12inches away
-    // outtake while pushing front
-
+    uint32_t lastPressed = -800;
     /*--Deploy intake--*/
-    catapult.moveVoltage(12000);
-    pros::delay(125);
+    //tbf
+
+    /*--Setup + firing--*/
+    while (potentiometer.get() > 1825)
+    {
+        catapult.moveVoltage(12000);
+        pros::delay(10);
+    }
     catapult.moveVoltage(0);
-
-    // /*--Alliance Balls--*/
-    // motionProfile.moveDistance(-21, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    // rotationTurn(45, 6000, 1, 1000, {0.02, 0, 0.08});
-    // driveGroup.moveVoltage(-12000);
-    // pros::delay(600);
-    // driveGroup.moveVoltage(0);
-    // motionProfile.moveDistance(8, 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-
-    // /*--Cata--*/
-    // rotationTurn(135, 8000, 1, 1000, {0.02, 0, 0.08});
-    // motionProfile.moveDistance(-12, 135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    // rotationTurn(103, 8000, 1, 1000, {0.02, 0, 0.08});
-    // motionProfile.moveDistance(17, 103, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3}, 750);
-
-    /*--Setup--*/
-    motionProfile.moveDistance(16, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 40});
-    rotationTurn(-40, 8000, 1, 1000, {0.02, 0, 0.08});
-    toggleLeftWing();
-
-    /*--Firing--*/
-    pros::delay(500);
-    // catapult.moveVoltage(12000);
-    // pros::delay(43100); // We should create an auto setting function, do this later
-    // catapult.moveVoltage(0);
-    toggleLeftWing();
+    catapult.tarePosition();
+    int stepC = 1;
+    //put setup shit here
+    while (stepC >= 45 && pros::millis() - lastPressed > 650)
+    {
+        lastPressed = pros::millis();
+        catapult.moveAbsolute(180 * stepC, 12000);
+        stepC++; // no way c++??????
+    }
     gyro.reset();
     pros::delay(2500);
 
