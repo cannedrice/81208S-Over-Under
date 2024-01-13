@@ -2,7 +2,7 @@ void tests();
 void scoring();
 void scorefive();
 void scoresix();
-void scoresixalt();
+void scoreSixSafe();
 void soloWP();
 void winpointAuton();
 void wpAutonsafe();
