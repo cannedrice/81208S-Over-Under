@@ -438,9 +438,9 @@ void winpointAuton()
 
     /*--Destroy--*/
     motionProfile.moveDistance(20.5, 0, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
-    rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
+    rotationTurn(30, 8000, 1, 300, {0.016, 0, 0.08});
     motionProfile.moveDistance(10, 30, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 10});
-    rotationTurn(0, 8000, 1, 1200, {0.016, 0, 0.08});
+    rotationTurn(0, 8000, 1, 300, {0.016, 0, 0.08});
     motionProfile.moveDistance(11, 0, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 30});
     toggleLeftWing();
     rotationTurn(90, 8000, 1, 1200, {0.016, 0, 0.08}); // test
@@ -452,7 +452,7 @@ void winpointAuton()
     intake.moveVoltage(-12000);
     pros::delay(200);
     driveGroup.moveVoltage(12000);
-    pros::delay(700);
+    pros::delay(400);
     intake.moveVoltage(0);
 
     /*--Get to matchload area--*/
@@ -468,16 +468,80 @@ void winpointAuton()
     pros::delay(650); // flying
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
-    ////toggleMatchload(); FIX FIX
+    
     toggleRightRearWing();
 
     /*--Winpoint ending--*/
     rotationTurn(136.5, 8000, 1, 1200, {0.016, 0, 0.08});
     motionProfile.moveDistance(8, 136.5, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10});
-    rotationTurn(90, 8000, 1, 1200, {0.016, 0, 0.08});
+    rotationTurn(80, 8000, 1, 1200, {0.016, 0, 0.08});
     pros::delay(75);
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(36.75, 90, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});
+    motionProfile.moveDistance(27.75, 80, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});
+    driveGroup.moveVoltage(0);
+    intake.moveVoltage(0);
+
+    /*--Destroy ending--*/
+    //     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
+    //     motionProfile.moveDistance(10, 136.5, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
+    //     rotationTurn(110, 8000, 1, 1200, {0.016, 0, 0.08});
+    //     motionProfile.moveDistance(6, 110, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
+}
+
+void wpAutonsafe(){
+    // setup against wall and matchload bar
+    motion_profile motionProfile;
+
+    /*--Deploy intake--*/
+    // catapult.moveVoltage(12000);
+    intake.moveVoltage(12000);
+    // pros::delay(125);
+    // catapult.moveVoltage(0);
+    pros::delay(212);
+    intake.moveVoltage(0);
+
+    /*--Destroy--*/
+    motionProfile.moveDistance(20.5, 0, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
+    rotationTurn(30, 8000, 1, 300, {0.016, 0, 0.08});
+    motionProfile.moveDistance(10, 30, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 10});
+    rotationTurn(0, 8000, 1, 300, {0.016, 0, 0.08});
+    motionProfile.moveDistance(11, 0, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 30});
+    toggleLeftWing();
+    rotationTurn(90, 8000, 1, 1200, {0.016, 0, 0.08}); // test
+    motionProfile.moveDistance(26, 90, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10}, 1000);
+    toggleLeftWing();
+    motionProfile.moveDistance(-12, 90, 1, {0.0175, 0, 0.01}, {55, 0.1, 0.3, 10});
+    rotationTurn(-90, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(7.5, -90, 1, {0.0175, 0, 0.01}, {40, 0.1, 0.3, 30}); // alliance triball pushin
+    intake.moveVoltage(-12000);
+    pros::delay(200);
+    driveGroup.moveVoltage(12000);
+    pros::delay(400);
+    intake.moveVoltage(0);
+
+    /*--Get to matchload area--*/
+    motionProfile.moveDistance(-16, -90, 1, {0.0175, 0, 0.01}, {50, 0.1, 0.3, 10});
+    rotationTurn(-150, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(46, -150, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10}); // trying to get the triball out
+    // somehow works:
+    toggleRightRearWing();
+    // toggleMatchload(); FIX
+    pros::delay(150);
+    driveLeftGroup.moveVoltage(-7500);
+    driveRightGroup.moveVoltage(7500);
+    pros::delay(650); // flying
+    driveLeftGroup.moveVoltage(0);
+    driveRightGroup.moveVoltage(0);
+    
+    toggleRightRearWing();
+
+    /*--Winpoint ending--*/
+    rotationTurn(136.5, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(8, 136.5, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10});
+    rotationTurn(80, 8000, 1, 1200, {0.016, 0, 0.08});
+    pros::delay(75);
+    intake.moveVoltage(-12000);
+    motionProfile.moveDistance(27.75, 80, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
 

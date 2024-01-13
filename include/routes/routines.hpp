@@ -5,4 +5,5 @@ void scoresix();
 void scoresixalt();
 void soloWP();
 void winpointAuton();
+void wpAutonsafe();
 void destruction();
