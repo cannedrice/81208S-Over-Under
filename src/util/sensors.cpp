@@ -8,7 +8,7 @@
  */
 double getIMU()
 {
-    return gyro.get_yaw(); // + angleOffset;
+    return gyro.get_yaw() + angleOffset;
 }
 
 /**
