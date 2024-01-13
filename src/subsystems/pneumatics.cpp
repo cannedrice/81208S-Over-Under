@@ -30,7 +30,7 @@ void updatePneumatics()
     }
     if (XButton.changedToPressed())
     {
-        //ideally it would toggle hang but ehhh not quite finished
+        toggleHang();
     }
     if (BButton.changedToPressed())
     {

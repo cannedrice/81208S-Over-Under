@@ -18,15 +18,15 @@ okapi::ControllerAnalog rightX(okapi::ControllerAnalog::rightX);      // left + 
 okapi::ControllerButton l1(okapi::ControllerDigital::L1);             // intake
 okapi::ControllerButton l2(okapi::ControllerDigital::L2);             // outtake
 okapi::ControllerButton r1(okapi::ControllerDigital::R1);             // fire catapult
-okapi::ControllerButton r2(okapi::ControllerDigital::R2);             // toggle catapult
-okapi::ControllerButton rightButton(okapi::ControllerDigital::right); // unused
-okapi::ControllerButton downButton(okapi::ControllerDigital::down);   // unused
-okapi::ControllerButton leftButton(okapi::ControllerDigital::left);   // unused
-okapi::ControllerButton upButton(okapi::ControllerDigital::up);       // unused
-okapi::ControllerButton AButton(okapi::ControllerDigital::A);         // unused
-okapi::ControllerButton BButton(okapi::ControllerDigital::B);         // unused
-okapi::ControllerButton XButton(okapi::ControllerDigital::X);         // unused
-okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // unused
+okapi::ControllerButton r2(okapi::ControllerDigital::R2);             // unused
+okapi::ControllerButton rightButton(okapi::ControllerDigital::right); // right wing
+okapi::ControllerButton downButton(okapi::ControllerDigital::down);   // toggle both wings
+okapi::ControllerButton leftButton(okapi::ControllerDigital::left);   // left wing
+okapi::ControllerButton upButton(okapi::ControllerDigital::up);       // blocker
+okapi::ControllerButton AButton(okapi::ControllerDigital::A);         // right rear wing
+okapi::ControllerButton BButton(okapi::ControllerDigital::B);         // toggle both rear wings
+okapi::ControllerButton XButton(okapi::ControllerDigital::X);         // hang
+okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // left rear wing
 
 // Drivetrain
 /* Left front */ okapi::Motor lf(14, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
