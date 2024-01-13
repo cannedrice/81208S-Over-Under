@@ -5,7 +5,7 @@
 
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 0;
+int autonNumber = 7;
 // 0 = Winpoint
 // 1 = SoloWP
 // 2 = Wp auton safe

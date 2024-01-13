@@ -7,18 +7,7 @@
 void tests()
 {
     motion_profile motionProfile;
-    // motionProfile.moveDistance(4, 0, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 30});
-    // motionProfile.moveDistance(12, 0, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
-    // motionProfile.moveDistance(20, 0, 1, {0.0175, 0, 0.01}, {50, 0.1, 0.3, 5});
-    // motionProfile.moveDistance(40, 0, 1, {0.0175, 0, 0.01}, {55, 0.1, 0.3, 5});
-    // rotationTurn(45, 8000, 1, 1200, {0.019, 0, 0.08});
-    // motionProfile.moveDistance(12, 45, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
-    // pros::delay(5000);
-    // rotationTurn(90, 8000, 1, 1200, {0.015, 0, 0.08});
-    // motionProfile.moveDistance(12, 90, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
-    // pros::delay(5000);
-    // rotationTurn(135, 8000, 1, 1200, {0.015, 0, 0.08});
-    // motionProfile.moveDistance(12, 135, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
+    pivotTurn(-90, 9500, 0.5, 650, false, {0.016, 0, 0.02});
     // pros::delay(5000);
 }
 
@@ -159,10 +148,12 @@ void scoresix() //deprecated until further notice
 
     openRightWing();
 
+    pros::delay(500);
+
     closeRightWing();  
 
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(58, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55});
+    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease 
 
     // pros::delay(500); 
 
@@ -174,33 +165,34 @@ void scoresix() //deprecated until further notice
     intake.moveVoltage(-12000);
     pros::delay(100);
 
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}); 
+    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500); 
     intake.moveVoltage(0);
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}); //rams
+    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
 
     closeLeftWing();
     closeRightWing();
 
     //this has to be right to the ball
-    pivotTurn(0, 9500, 0.5, 750, true, {0.019, 0, 0.03}); //INCREASE //delay was 1000 WEIRD PAUSE
+    pivotTurn(0, 9500, 0.5, 750, true, {0.016, 0, 0.02}); //INCREASE //delay was 1000 WEIRD PAUSE
 
-    motionProfile.moveDistance(-8, 0, 2,{0.05, 0, 0.01}, {50, 0.1, 0.3, 50});
+    motionProfile.moveDistance(-11, 0, 2,{0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);//-13
 
     rotationTurn(-85, 9500, 0.5, 500, {0.019, 0, 0.08}); //turn to ball //INCREASE
 
     intake.moveVoltage(12000);
 
     //reset pos???? maybe better to not touch the bar
-    motionProfile.moveDistance(12, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40});
+    motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
+    intake.moveVoltage(0);
 
-    motionProfile.moveDistance(-4, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}); 
+    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500); 
 
     //might have to purely stop with timeout or use drivegroup
-    pivotTurn(-15, 9500, 0.5, 650, false, {0.019, 0, 0.03}); //test this one now, see if anything changes 
+    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes 
 
-    motionProfile.moveDistance(-35, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40});//INCREASE
+    motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
 
-    intake.moveVoltage(0);
+    
 
     //face side of net
     rotationTurn(33, 9500, 0.5, 500, {0.019, 0, 0.08}); //INCREASE
@@ -213,21 +205,54 @@ void scoresix() //deprecated until further notice
     intake.moveVoltage(12000);
 
     //MAKE SURE THIS DOESN'T CROSS
-    motionProfile.moveDistance(30, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40});
+    motionProfile.moveDistance(32, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
 
-    motionProfile.moveDistance(-27, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}); 
-
+    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000); 
     intake.moveVoltage(0);
 
+    //back ram------
+    // motionProfile.moveDistance(-25, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}); 
+
+    // intake.moveVoltage(0);
+
+    // pivotTurn(-135, 9500, 0.5, 750, true, {0.016, 0, 0.02}); 
+    // // rotationTurn(-135, 9500, 0.5, 750, {0.019, 0, 0.08});//INCREASE
+    // toggleLeftRearWing();
+    // pros::delay(100);
+
+    // motionProfile.moveDistance(-13, -135, 1,{0.05, 0, 0.01}, {50, 0.1, 0.3, 20} );
+
+    // rotationTurn(-180, 12000, 1, 1000, {0.019, 0, 0.08});
+
+    // pros::delay(100);
+
+    // toggleLeftRearWing();
+
+    // rotationTurn(-150, 9500, 0.5, 800, {0.019, 0, 0.08}); //face net //INCREASE
+
+    // // pros::delay(100);
+
+    // //rams
+    // motionProfile.moveDistance(-20, -150, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 550);
+    
+    // motionProfile.moveDistance(11, -180, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60});
+
+    // rotationTurn(0, 9000, 1, 1000, {0.019, 0, 0.08} );
+    // intake.moveVoltage(-12000);
+    // motionProfile.moveDistance(16, 0, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70});
+
+
+    //foward ram-------
     rotationTurn(45, 9500, 0.5, 750, {0.019, 0, 0.08});//INCREASE
 
     toggleRightRearWing();
     pros::delay(100);
 
-    motionProfile.moveDistance(13, 45, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 350);
+    motionProfile.moveDistance(13, 45, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 500);
 
     //get ball out of corner
-    rotationTurn(-55, 12000, 0.5, 800,{0.019, 0, 0.08});
+    rotationTurn(-45, 12000, 0.5, 800,{0.019, 0, 0.08});
+
 
     toggleRightRearWing();
     pros::delay(150);
@@ -236,14 +261,17 @@ void scoresix() //deprecated until further notice
 
     // pros::delay(100);
 
-    //rams
-    motionProfile.moveDistance(20, 30, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 550);
+    //rams, also adjust these angles so that they are straighter and will have no difficulty pushing it in.
+    motionProfile.moveDistance(22, 30, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 650);
     
-    motionProfile.moveDistance(-11, 18, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60});
-    intake.moveVoltage(-12000);
-    motionProfile.moveDistance(16, 18, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70});
+    motionProfile.moveDistance(-11, 18, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);
 
-    motionProfile.moveDistance(-9, 18, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60});//move back so not touching
+    intake.moveVoltage(-12000);
+    pros::delay(100);
+
+    motionProfile.moveDistance(16, 18, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 1500);
+
+    motionProfile.moveDistance(-9, 18, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);//move back so not touching
  }
 
 void scoresixalt() // deprecated
