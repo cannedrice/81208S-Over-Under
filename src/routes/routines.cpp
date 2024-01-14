@@ -141,7 +141,7 @@ void scorefive()
     toggleRightWing();
 }
 
-void scoresix() //deprecated until further notice
+void scoresix()
 {
     motion_profile motionProfile;
     angleOffset = -35;
@@ -168,6 +168,9 @@ void scoresix() //deprecated until further notice
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500); 
     intake.moveVoltage(0);
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
+    driveGroup.moveVoltage(-12000);
+    pros::delay(250);
+    driveGroup.moveVoltage(0);
 
     closeLeftWing();
     closeRightWing();
@@ -183,7 +186,6 @@ void scoresix() //deprecated until further notice
 
     //reset pos???? maybe better to not touch the bar
     motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
-    intake.moveVoltage(0);
 
     motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500); 
 
@@ -192,14 +194,12 @@ void scoresix() //deprecated until further notice
 
     motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
 
-    
-
     //face side of net
     rotationTurn(33, 9500, 0.5, 500, {0.019, 0, 0.08}); //INCREASE
 
     intake.moveVoltage(-12000);
-    pros::delay(550);
-
+    pros::delay(350);
+    intake.moveVoltage(0);
     rotationTurn(-87, 9500, 0.5, 750, {0.019, 0, 0.08}); //INCREASE
 
     intake.moveVoltage(12000);
@@ -221,11 +221,13 @@ void scoresix() //deprecated until further notice
     //get ball out of corner
     rotationTurn(-45, 12000, 0.5, 800,{0.019, 0, 0.08});
 
+   
 
     toggleRightRearWing();
     pros::delay(150);
 
     rotationTurn(30, 9500, 0.5, 800, {0.019, 0, 0.08}); //face net //INCREASE
+    intake.moveVoltage(-12000);
 
     // pros::delay(100);
 
@@ -234,10 +236,11 @@ void scoresix() //deprecated until further notice
     
     motionProfile.moveDistance(-11, 18, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);
 
-    intake.moveVoltage(-12000);
-    pros::delay(100);
+    // motionProfile.moveDistance(16, 18, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 1500);
 
-    motionProfile.moveDistance(16, 18, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 1500);
+    driveGroup.moveVoltage(12000);
+    pros::delay(500);
+    driveGroup.moveVoltage(0);
 
     motionProfile.moveDistance(-9, 18, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);//move back so not touching
 }
@@ -262,9 +265,6 @@ void scoreSixSafe()
 
     openLeftWing();
     openRightWing();
-
-    intake.moveVoltage(-12000);
-    pros::delay(100);
 
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500); 
     intake.moveVoltage(0);
