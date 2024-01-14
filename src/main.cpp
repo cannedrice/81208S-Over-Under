@@ -4,7 +4,7 @@
 /* UPDATE PNEUMATICS IS COMMENTED OUT IN OPCONTROL */
 
 #include "main.h"
-uint32_t lastPressed = -800;
+uint32_t lastFire = -800;
 int autonNumber = 7;
 // 0 = Winpoint
 // 1 = SoloWP
@@ -90,8 +90,8 @@ void opcontrol()
 		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
 
 		/*--current cata code--*/
-		if (r1.isPressed() && pros::millis() - lastPressed > 650) {
-			lastPressed=pros::millis();
+		if (r1.isPressed() && pros::millis() - lastFire > 650) {
+			lastFire=pros::millis();
 			catapult.moveAbsolute(180 * stepC, 12000);
 			stepC++; // no way c++??????
 		}

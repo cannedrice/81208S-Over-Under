@@ -18,11 +18,11 @@ void skills()
     catapult.tarePosition();
     int stepC = 1;
     //put setup shit here
-    while (stepC >= 45 && pros::millis() - lastPressed > 650)
+    while (stepC <= 45)
     {
-        lastPressed = pros::millis();
         catapult.moveAbsolute(180 * stepC, 12000);
         stepC++; // no way c++??????
+        pros::delay(650);
     }
     gyro.reset();
     pros::delay(2500);
