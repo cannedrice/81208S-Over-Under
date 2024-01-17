@@ -18,6 +18,7 @@ void updatePneumatics()
     }
     if (upButton.changedToPressed())
     {
+        // toggleShooter();
         toggleBlocker();
     }
     if (AButton.changedToPressed())

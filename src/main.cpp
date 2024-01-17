@@ -1,11 +1,6 @@
-/* ALL AUTON FILES ARE COMMENTED OUT DUE TO PNEUMATICS*/
-/* PNEUMATICS FILES ARE COMMENTED OUT */
-/* AUTON RUNNING IS COMMENTED OUT IN MAIN */
-/* UPDATE PNEUMATICS IS COMMENTED OUT IN OPCONTROL */
-
 #include "main.h"
 uint32_t lastFire = -800;
-int autonNumber = 7;
+int autonNumber = 3;
 // 0 = Winpoint
 // 1 = SoloWP
 // 2 = Wp auton safe

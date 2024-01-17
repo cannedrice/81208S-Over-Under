@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "81208S Score 6",
+    "project_name": "81208S Score 5",
     "target": "v5",
     "templates": {
       "kernel": {
@@ -310,7 +310,7 @@
     },
     "upload_options": {
       "description": "81208S team code",
-      "slot": 8,
+      "slot": 4,
       "icon": "pros"
     }
   }

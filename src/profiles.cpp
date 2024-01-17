@@ -59,5 +59,5 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // left re
 /* Right rear wing */ pros::ADIDigitalOut rightRearWing('D', LOW);
 /* Left rear wing */ pros::ADIDigitalOut leftRearWing('B', LOW);
 /* Blocker Right */ pros::ADIDigitalOut blocker('A', LOW);
-/* Blocker left */ pros::ADIDigitalOut hang('D', LOW);
+/* Blocker left */ pros::ADIDigitalOut hang('F', LOW);
 /* Single use */ pros::ADIDigitalOut shooter('E', LOW);
