@@ -32,7 +32,7 @@ void autonomous()
 	{
 	case 0:
 		pros::lcd::set_text(1, "Winpoint");
-		wpAutonsafe();
+		winpointAuton();
 		break;
 	case 1:
 		pros::lcd::set_text(1, "Solo WP");

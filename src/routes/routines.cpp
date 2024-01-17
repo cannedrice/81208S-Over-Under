@@ -286,7 +286,7 @@ void scoring() //deprecated
     toggleRightWing();
 }
 
-void scorefive()
+void scorefive() /*--father son holy spirit amen  shorten timeouts if needed--*/
 {
     motion_profile motionProfile;
     //new setup is parallel to wall, touching diagonal bar, wheels (not gears) on foam tile connecting layer, facing opposite offensive zone
@@ -302,7 +302,7 @@ void scorefive()
     rotationTurn(-40, 8000, 1, 500, {0.019, 0, 0.08});
     toggleLeftRearWing();
     motionProfile.moveDistance(-8, -40, 1, {0.05, 0, 0.01}, {60, 0.05, 0.2, 10}, 500);
-    rotationTurn(-90, 8000, 1, 500, {0.017, 0, 0.08});
+    rotationTurn(-90, 8000, 1, 600, {0.017, 0, 0.08});
     toggleLeftRearWing();
     rotationTurn(-40, 8000, 1, 500, {0.019, 0, 0.08});
     motionProfile.moveDistance(-9, -40, 1, {0.05, 0, 0.01}, {50, 0.05, 0.02, 40}, 500);
@@ -368,7 +368,7 @@ void scorefive()
     toggleLeftWing();
     toggleRightWing();
     motionProfile.moveDistance(9, 126.5, 1, {0.05, 0, 0.01}, {60, 0.1, 0.2, 10}, 1000);
-    
+
     /*--Lining up for push--*/
     rotationTurn(178, 8000, 1, 500, {0.016, 0, 0.08});
     intake.moveVoltage(-12000);
@@ -633,12 +633,9 @@ void winpointAuton()
     motion_profile motionProfile;
 
     /*--Deploy intake--*/
-    // catapult.moveVoltage(12000);
     toggleHang();
     pros::delay(500);
     intake.moveVoltage(12000);
-    // pros::delay(125);
-    // catapult.moveVoltage(0);
     pros::delay(500);
     intake.moveVoltage(0);
     toggleHang();
@@ -665,10 +662,8 @@ void winpointAuton()
     /*--Get to matchload area--*/
     motionProfile.moveDistance(-16, -90, 1, {0.0175, 0, 0.01}, {50, 0.1, 0.3, 10});
     rotationTurn(-150, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(46, -150, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10}); // trying to get the triball out
-    // somehow works:
+    motionProfile.moveDistance(46, -150, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
     toggleRightRearWing();
-    // toggleMatchload(); FIX
     pros::delay(150);
     driveLeftGroup.moveVoltage(-7500);
     driveRightGroup.moveVoltage(7500);
@@ -697,7 +692,67 @@ void winpointAuton()
 
 void wpAutonsafe(){
     // set up with the backwheel on the edge of the 3rd tile tooth thing and with the back sloping until you see the corner of the 2nd tile to the right
-    //it's jank, but ill show it to you later
+    // it's jank, but ill show it to you later
+    motion_profile motionProfile;
+
+    /*--Deploy intake--*/
+    angleOffset = 12;
+    toggleHang();
+    pros::delay(500);
+    intake.moveVoltage(12000);
+    pros::delay(500);
+    intake.moveVoltage(0);
+    toggleHang();
+
+    /*--Destroy & score--*/
+    motionProfile.moveDistance(-41, 12, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 10});
+    rotationTurn(90, 8000, 1, 500, {0.016, 0, 0.08});
+    intake.moveVoltage(-12000);
+    pros::delay(200);
+    intake.moveVoltage(0);
+    toggleLeftWing();
+    rotationTurn(-80, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(24, -80, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10}, 1000);
+    toggleLeftWing();
+    toggleLeftRearWing();
+    motionProfile.moveDistance(-38, -90, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 10}, 1500);
+    motionProfile.moveDistance(16, -90, 1, {0.0175, 0, 0.01}, {40, 0.1, 0.3, 30});
+    toggleLeftRearWing();
+
+    /*--Get to matchload area--*/
+    rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(50, 30, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
+    toggleRightRearWing();
+    pros::delay(150);
+    driveLeftGroup.moveVoltage(-7500);
+    driveRightGroup.moveVoltage(7500);
+    pros::delay(650); // flying
+    driveLeftGroup.moveVoltage(0);
+    driveRightGroup.moveVoltage(0);
+
+    toggleRightRearWing();
+
+    /*--Winpoint ending--*/
+    rotationTurn(-40, 8000, 1, 1200, {0.016, 0, 0.08});
+    motionProfile.moveDistance(7.5, -40, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10}, 1000);
+    rotationTurn(-93, 8000, 1, 800, {0.016, 0, 0.08});
+    pros::delay(75);
+    intake.moveVoltage(-12000);
+    motionProfile.moveDistance(30.5, -93, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});
+    driveGroup.moveVoltage(0);
+    intake.moveVoltage(0);
+
+    /*--Destroy ending--*/
+    //     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
+    //     motionProfile.moveDistance(10, 136.5, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
+    //     rotationTurn(110, 8000, 1, 1200, {0.016, 0, 0.08});
+    //     motionProfile.moveDistance(6, 110, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
+}
+
+void destruction()
+{
+    // set up with the backwheel on the edge of the 3rd tile tooth thing and with the back sloping until you see the corner of the 2nd tile to the right
+    // it's jank, but ill show it to you later
     motion_profile motionProfile;
 
     /*--Deploy intake--*/
@@ -727,10 +782,8 @@ void wpAutonsafe(){
 
     /*--Get to matchload area--*/
     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(50, 30, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10}); // trying to get the triball out
-    // somehow works:
+    motionProfile.moveDistance(50, 30, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
     toggleRightRearWing();
-    // toggleMatchload(); FIX
     pros::delay(150);
     driveLeftGroup.moveVoltage(-7500);
     driveRightGroup.moveVoltage(7500);
@@ -739,69 +792,6 @@ void wpAutonsafe(){
     driveRightGroup.moveVoltage(0);
 
     toggleRightRearWing();
-
-    /*--Winpoint ending--*/
-    rotationTurn(-40, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(7.5, -40, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10}, 1000);
-    rotationTurn(-93, 8000, 1, 800, {0.016, 0, 0.08});
-    pros::delay(75);
-    intake.moveVoltage(-12000);
-    motionProfile.moveDistance(30.5, -93, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});/*96*/
-    driveGroup.moveVoltage(0);
-    intake.moveVoltage(0);
-
-    /*--Destroy ending--*/
-    //     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
-    //     motionProfile.moveDistance(10, 136.5, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
-    //     rotationTurn(110, 8000, 1, 1200, {0.016, 0, 0.08});
-    //     motionProfile.moveDistance(6, 110, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
-}
-
-void destruction()
-{
-    // setup against wall and matchload bar
-    motion_profile motionProfile;
-
-    /*--Deploy intake--*/
-    catapult.moveVoltage(12000);
-    intake.moveVoltage(12000);
-    pros::delay(125);
-    catapult.moveVoltage(0);
-    pros::delay(212);
-    intake.moveVoltage(0);
-
-    /*--Destroy--*/
-    motionProfile.moveDistance(24, 0, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3});
-    rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(20, 30, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3});
-    rotationTurn(0, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(4, 0, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3});
-    toggleLeftWing();
-    rotationTurn(90, 8000, 1, 1200, {0.016, 0, 0.08}); // test
-    motionProfile.moveDistance(26, 90, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3}, 1000);
-    toggleLeftWing();
-    motionProfile.moveDistance(-12, 90, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3});
-    rotationTurn(-90, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(7.5, -90, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3}); // alliance triball pushin
-    intake.moveVoltage(-12000);
-    pros::delay(200);
-    driveGroup.moveVoltage(12000);
-    pros::delay(700);
-    intake.moveVoltage(0);
-
-    /*--Get to matchload area--*/
-    motionProfile.moveDistance(-16, -90, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3});
-    rotationTurn(-150, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(44.5, -150, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 3}); // trying to get the triball out
-    // somehow works:
-    ////toggleMatchload(); FIX FIX
-    pros::delay(150);
-    driveLeftGroup.moveVoltage(-7500);
-    driveRightGroup.moveVoltage(7500);
-    pros::delay(725); // flying
-    driveLeftGroup.moveVoltage(0);
-    driveRightGroup.moveVoltage(0);
-    ////toggleMatchload(); FIX FIX
 
     /*--Destroy ending--*/
     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
