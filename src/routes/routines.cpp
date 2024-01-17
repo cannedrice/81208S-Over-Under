@@ -21,9 +21,9 @@ void tests()
     toggleHang();
     closeRightWing();
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease 
+    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease
 
-    // pros::delay(500); 
+    // pros::delay(500);
 
     rotationTurn(90, 9500, 0.5, 750, {0.015, 0, 0.08}); //face net
 
@@ -33,7 +33,7 @@ void tests()
     intake.moveVoltage(-12000);
     pros::delay(100);
 
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500); 
+    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500);
     intake.moveVoltage(0);
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
     driveGroup.moveVoltage(-12000);
@@ -55,10 +55,10 @@ void tests()
     //reset pos???? maybe better to not touch the bar
     motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
 
-    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500); 
+    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
 
     //might have to purely stop with timeout or use drivegroup
-    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes 
+    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes
 
     motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
 
@@ -75,7 +75,7 @@ void tests()
     //MAKE SURE THIS DOESN'T CROSS
     motionProfile.moveDistance(32, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
 
-    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000); 
+    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
     intake.moveVoltage(0);
 
     //foward ram-------
@@ -89,7 +89,7 @@ void tests()
     //get ball out of corner
     rotationTurn(-45, 12000, 0.5, 800,{0.016, 0, 0.08});
 
-   
+
 
     // toggleRightRearWing();
     // pros::delay(150);
@@ -101,7 +101,7 @@ void tests()
 
     //rams, also adjust these angles so that they are straighter and will have no difficulty pushing it in.
     motionProfile.moveDistance(22, 30, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 650);
-    
+
     pivotTurn(0, 9500, 0.5, 650, true, {0.016, 0, 0.02});
     motionProfile.moveDistance(-10.5, 15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);
 
@@ -115,7 +115,7 @@ void tests()
 
 }
 
-void scoreSixSafe() 
+void scoreSixSafe()
 {
      motion_profile motionProfile;
     angleOffset = -35;
@@ -124,19 +124,19 @@ void scoreSixSafe()
 
     pros::delay(350);
 
-    closeRightWing();  
+    closeRightWing();
 
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease 
+    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease
 
-    // pros::delay(500); 
+    // pros::delay(500);
 
     rotationTurn(90, 9500, 0.5, 750, {0.019, 0, 0.08}); //face net
 
     openLeftWing();
     openRightWing();
 
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500); 
+    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500);
     intake.moveVoltage(0);
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
 
@@ -156,14 +156,14 @@ void scoreSixSafe()
     motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
     intake.moveVoltage(0);
 
-    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500); 
+    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
 
     //might have to purely stop with timeout or use drivegroup
-    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes 
+    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes
 
     motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
 
-    
+
 
     //face side of net
     rotationTurn(33, 9500, 0.5, 500, {0.019, 0, 0.08}); //INCREASE
@@ -178,15 +178,15 @@ void scoreSixSafe()
     //MAKE SURE THIS DOESN'T CROSS
     motionProfile.moveDistance(32, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
 
-    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000); 
+    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
     intake.moveVoltage(0);
 
     // back ram------
-    motionProfile.moveDistance(-25, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}); 
+    motionProfile.moveDistance(-25, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40});
 
     intake.moveVoltage(0);
 
-    pivotTurn(-135, 9500, 0.5, 750, true, {0.016, 0, 0.02}); 
+    pivotTurn(-135, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     // rotationTurn(-135, 9500, 0.5, 750, {0.019, 0, 0.08});//INCREASE
     toggleLeftRearWing();
     pros::delay(100);
@@ -205,7 +205,7 @@ void scoreSixSafe()
 
     //rams
     motionProfile.moveDistance(-20, -150, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 550);
-    
+
     motionProfile.moveDistance(11, -180, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60});
 
     rotationTurn(0, 9000, 1, 1000, {0.019, 0, 0.08});
@@ -218,7 +218,7 @@ void scoring() //deprecated
     motion_profile motionProfile;
 
     /*--Deploy intake--*/
-    
+
 
     /*--Alliance triball--*/
     pros::delay(210);
@@ -290,49 +290,86 @@ void scorefive()
 {
     motion_profile motionProfile;
     //new setup is parallel to wall, touching diagonal bar, wheels (not gears) on foam tile connecting layer, facing opposite offensive zone
+    /*--Deploy--*/
     toggleHang();
     pros::delay(500);
     intake.moveVoltage(12000);
     pros::delay(500);
     intake.moveVoltage(0);
     toggleHang();
+
+    /*--Side triball--*/
     rotationTurn(-40, 8000, 1, 500, {0.019, 0, 0.08});
     toggleLeftRearWing();
     motionProfile.moveDistance(-8, -40, 1, {0.05, 0, 0.01}, {60, 0.05, 0.2, 10}, 500);
-    rotationTurn(-45-45, 8000, 1, 700, {0.017, 0, 0.08});
+    rotationTurn(-90, 8000, 1, 500, {0.017, 0, 0.08});
     toggleLeftRearWing();
-    rotationTurn(5-45, 8000, 1, 500, {0.019, 0, 0.08});
-    motionProfile.moveDistance(-9, 5-45, 1, {0.05, 0, 0.01}, {50, 0.05, 0.02, 40}, 500);
+    rotationTurn(-40, 8000, 1, 500, {0.019, 0, 0.08});
+    motionProfile.moveDistance(-9, -40, 1, {0.05, 0, 0.01}, {50, 0.05, 0.02, 40}, 500);
     rotationTurn(-90, 8000, 1, 500, {0.018, 0, 0.08});
     driveGroup.moveVoltage(-12000);
     pros::delay(600);
     driveGroup.moveVoltage(0);
 
-    /*--Additional triballs--*/
-    motionProfile.moveDistance(13, -45-45, 1, {0.05, 0, 0.01}, {60, 0.05, 0.2, 10}, 1000);
-    rotationTurn(65.5-45, 8000, 1, 500, {0.016, 0, 0.08});
-    motionProfile.moveDistance(40, 65.5-45, 1, {0.05, 0, 0.01}, {65, 0.1, 0.5, 10}, 1000);
+    /*--Preload--*/
+    motionProfile.moveDistance(13, -90, 1, {0.05, 0, 0.01}, {60, 0.05, 0.2, 10}, 1000);
+    rotationTurn(20.5, 8000, 1, 500, {0.016, 0, 0.08});
+    motionProfile.moveDistance(25, 20.5, 1, {0.05, 0, 0.01}, {65, 0.1, 0.5, 10}, 1000);
+    rotationTurn(150, 8000, 1, 500, {0.016, 0, 0.08});
+    intake.moveVoltage(-12000);
+    pros::delay(110);
+    intake.moveVoltage(0);
+
+    /*--1st triball--*/
+    rotationTurn(20.5, 8000, 1, 500, {0.016, 0, 0.08});
+    motionProfile.moveDistance(15, 20.5, 1, {0.05, 0, 0.01}, {65, 0.1, 0.5, 10}, 1000);
     intake.moveVoltage(12000);
     pros::delay(110);
     intake.moveVoltage(0);
-    // motionProfile.moveDistance(-1, -150+315, 1, {0.017, 0, 0.04}, {60, 0.01, 0.5, 40});
-    rotationTurn(-150+312, 8000, 1, 500, {0.016, 0, 0.08});
-    motionProfile.moveDistance(8, -150+312, 1, {0.02, 0, 0.04}, {60, 0.01, 0.2, 25}, 1000);
+    motionProfile.moveDistance(-1, 165, 1, {0.017, 0, 0.04}, {60, 0.01, 0.5, 40});
+    rotationTurn(160, 8000, 1, 500, {0.016, 0, 0.08});
+    motionProfile.moveDistance(8, 160, 1, {0.02, 0, 0.04}, {60, 0.01, 0.2, 25}, 1000);
     intake.moveVoltage(-12000);
     pros::delay(220);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-5, -150+312, 1, {0.02, 0, 0.04}, {60, 0.01, 0.2, 25}, 1000);
+    motionProfile.moveDistance(-5, 162, 1, {0.02, 0, 0.04}, {60, 0.01, 0.2, 25}, 1000);
+
+    /*--Experimental 2nd & 3rd triball*/
+    // rotationTurn(20.5, 8000, 1, 500, {0.016, 0, 0.08});
+    // motionProfile.moveDistance(15, 20.5, 1, {0.05, 0, 0.01}, {65, 0.1, 0.5, 10}, 1000);
+    // intake.moveVoltage(12000);
+    // pros::delay(110);
+    // intake.moveVoltage(0);
+    // motionProfile.moveDistance(-1, 165, 1, {0.017, 0, 0.04}, {60, 0.01, 0.5, 40});
+    // rotationTurn(160, 8000, 1, 500, {0.016, 0, 0.08});
+    // motionProfile.moveDistance(8, 160, 1, {0.02, 0, 0.04}, {60, 0.01, 0.2, 25}, 1000);
+    // intake.moveVoltage(-12000);
+    // pros::delay(220);
+    // intake.moveVoltage(0);
+    // rotationTurn(60, 8000, 1, 500, {0.019, 0, 0.08});
+    // intake.moveVoltage(12000);
+    // motionProfile.moveDistance(24, 60, 1, {0.05, 0, 0.01}, {62, 0.1, 0.2, 10}, 1000);
+    // pros::delay(175);
+    // intake.moveVoltage(0);
+    // motionProfile.moveDistance(-8.5, 60, 1, {0.05, 0, 0.01}, {60, 0.01, 0.2, 10}, 1000);
+    // rotationTurn(126.5, 8000, 1, 500, {0.016, 0, 0.08});
+    // toggleLeftWing();
+    // toggleRightWing();
+    // motionProfile.moveDistance(9, 126.5, 1, {0.05, 0, 0.01}, {60, 0.1, 0.2, 10}, 1000);
+
+    /*--2nd & 3rd triball--*/
+    rotationTurn(68.5, 8000, 1, 500, {0.019, 0, 0.08});
     intake.moveVoltage(12000);
-    rotationTurn(113.5-45, 8000, 1, 500, {0.019, 0, 0.08});
-    pros::delay(50);
-    motionProfile.moveDistance(24, 113.5-45, 1, {0.05, 0, 0.01}, {62, 0.1, 0.2, 10}, 1000);
+    motionProfile.moveDistance(24, 68.5, 1, {0.05, 0, 0.01}, {62, 0.1, 0.2, 10}, 1000);
     pros::delay(175);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-8.5, 113.5-45, 1, {0.05, 0, 0.01}, {60, 0.01, 0.2, 10}, 1000);
-    rotationTurn(171.5-45, 8000, 1, 500, {0.016, 0, 0.08});
+    motionProfile.moveDistance(-8.5, 68.5, 1, {0.05, 0, 0.01}, {60, 0.01, 0.2, 10}, 1000);
+    rotationTurn(126.5, 8000, 1, 500, {0.016, 0, 0.08});
     toggleLeftWing();
     toggleRightWing();
-    motionProfile.moveDistance(9, 171.5-45, 1, {0.05, 0, 0.01}, {60 , 0.1, 0.2, 10}, 1000);
+    motionProfile.moveDistance(9, 126.5, 1, {0.05, 0, 0.01}, {60, 0.1, 0.2, 10}, 1000);
+    
+    /*--Lining up for push--*/
     rotationTurn(178, 8000, 1, 500, {0.016, 0, 0.08});
     intake.moveVoltage(-12000);
     driveGroup.moveVoltage(12000);
@@ -356,9 +393,9 @@ void scoresix()
     toggleHang();
     closeRightWing();
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease 
+    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease
 
-    // pros::delay(500); 
+    // pros::delay(500);
 
     rotationTurn(90, 9500, 0.5, 750, {0.015, 0, 0.08}); //face net
 
@@ -368,7 +405,7 @@ void scoresix()
     intake.moveVoltage(-12000);
     pros::delay(100);
 
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500); 
+    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500);
     intake.moveVoltage(0);
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
     driveGroup.moveVoltage(-12000);
@@ -390,10 +427,10 @@ void scoresix()
     //reset pos???? maybe better to not touch the bar
     motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
 
-    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500); 
+    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
 
     //might have to purely stop with timeout or use drivegroup
-    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes 
+    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes
 
     motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
 
@@ -410,7 +447,7 @@ void scoresix()
     //MAKE SURE THIS DOESN'T CROSS
     motionProfile.moveDistance(32, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
 
-    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000); 
+    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
     intake.moveVoltage(0);
 
     //foward ram-------
@@ -434,7 +471,7 @@ void scoresix()
 
     //rams, also adjust these angles so that they are straighter and will have no difficulty pushing it in.
     motionProfile.moveDistance(22, 30, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 650);
-    
+
     pivotTurn(0, 9500, 0.5, 650, true, {0.016, 0, 0.02});
     motionProfile.moveDistance(-10.5, 15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);
 
@@ -448,7 +485,7 @@ void scoresix()
 
 }
 
-void scoreSixSafe() 
+void scoreSixSafe()
 {
      motion_profile motionProfile;
     angleOffset = -35;
@@ -457,19 +494,19 @@ void scoreSixSafe()
 
     pros::delay(350);
 
-    closeRightWing();  
+    closeRightWing();
 
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease 
+    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease
 
-    // pros::delay(500); 
+    // pros::delay(500);
 
     rotationTurn(90, 9500, 0.5, 750, {0.019, 0, 0.08}); //face net
 
     openLeftWing();
     openRightWing();
 
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500); 
+    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500);
     intake.moveVoltage(0);
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
 
@@ -489,14 +526,14 @@ void scoreSixSafe()
     motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
     intake.moveVoltage(0);
 
-    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500); 
+    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
 
     //might have to purely stop with timeout or use drivegroup
-    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes 
+    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes
 
     motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
 
-    
+
 
     //face side of net
     rotationTurn(33, 9500, 0.5, 500, {0.019, 0, 0.08}); //INCREASE
@@ -511,15 +548,15 @@ void scoreSixSafe()
     //MAKE SURE THIS DOESN'T CROSS
     motionProfile.moveDistance(32, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
 
-    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000); 
+    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
     intake.moveVoltage(0);
 
     // back ram------
-    motionProfile.moveDistance(-25, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}); 
+    motionProfile.moveDistance(-25, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40});
 
     intake.moveVoltage(0);
 
-    pivotTurn(-135, 9500, 0.5, 750, true, {0.016, 0, 0.02}); 
+    pivotTurn(-135, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     // rotationTurn(-135, 9500, 0.5, 750, {0.019, 0, 0.08});//INCREASE
     toggleLeftRearWing();
     pros::delay(100);
@@ -538,7 +575,7 @@ void scoreSixSafe()
 
     //rams
     motionProfile.moveDistance(-20, -150, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 550);
-    
+
     motionProfile.moveDistance(11, -180, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60});
 
     rotationTurn(0, 9000, 1, 1000, {0.019, 0, 0.08});
@@ -547,7 +584,7 @@ void scoreSixSafe()
 }
 
 
-void soloWP() // need to update 
+void soloWP() // need to update
 {
 
     motion_profile motionProfile;
@@ -587,7 +624,7 @@ void soloWP() // need to update
     rotationTurn(-90, 9500, 1, 500, {0.018, 0, 0.08});
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(26, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
-    
+
 }
 
 void winpointAuton()
@@ -638,7 +675,7 @@ void winpointAuton()
     pros::delay(650); // flying
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
-    
+
     toggleRightRearWing();
 
     /*--Winpoint ending--*/
@@ -673,7 +710,7 @@ void wpAutonsafe(){
     toggleHang();
 
     /*--Destroy--*/
-    
+
     motionProfile.moveDistance(-41, 12, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 10});
     rotationTurn(90, 8000, 1, 500, {0.016, 0, 0.08});
     intake.moveVoltage(-12000);
@@ -685,7 +722,7 @@ void wpAutonsafe(){
     toggleLeftWing();
     toggleLeftRearWing();
     motionProfile.moveDistance(-38, -90, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 10}, 1500);
-    motionProfile.moveDistance(16, -90, 1, {0.0175, 0, 0.01}, {40, 0.1, 0.3, 30}); 
+    motionProfile.moveDistance(16, -90, 1, {0.0175, 0, 0.01}, {40, 0.1, 0.3, 30});
     toggleLeftRearWing();
 
     /*--Get to matchload area--*/
@@ -700,7 +737,7 @@ void wpAutonsafe(){
     pros::delay(650); // flying
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
-    
+
     toggleRightRearWing();
 
     /*--Winpoint ending--*/
