@@ -506,11 +506,11 @@ void wpAutonsafe(){
 
     /*--Winpoint ending--*/
     rotationTurn(-40, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(7, -40, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10}, 1000);
-    rotationTurn(-96, 8000, 1, 800, {0.016, 0, 0.08});
+    motionProfile.moveDistance(7.5, -40, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10}, 1000);
+    rotationTurn(-93, 8000, 1, 800, {0.016, 0, 0.08});
     pros::delay(75);
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(30.5, -96, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});
+    motionProfile.moveDistance(30.5, -93, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});/*96*/
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
 
