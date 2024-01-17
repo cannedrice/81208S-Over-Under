@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastFire = -800;
-int autonNumber = 5;
+int autonNumber = 3;
 // 0 = Winpoint
 // 1 = SoloWP
 // 2 = Wp auton safe
@@ -15,6 +15,7 @@ void initialize()
 {
 	pros::lcd::initialize();
 	gyro.reset();
+	
 
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
