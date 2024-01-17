@@ -263,7 +263,7 @@ void toggleShooter()
  */
 void extendHang()
 {
-    hang.set_value(false);
+    hang.set_value(true);
     hangState = true;
 }
 
@@ -274,7 +274,7 @@ void extendHang()
 
 void retractHang()
 {
-    hang.set_value(true);
+    hang.set_value(false);
     hangState = false;
 }
 

@@ -7,22 +7,11 @@
 void tests()
 {
     motion_profile motionProfile;
-    pivotTurn(-90, 9500, 0.5, 650, false, {0.016, 0, 0.02});
-    /* Motion Profiles (untuned) */
-    // motionProfile.moveDistance(4, 0, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 30});
-    // motionProfile.moveDistance(12, 0, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
-    // motionProfile.moveDistance(20, 0, 1, {0.0175, 0, 0.01}, {50, 0.1, 0.3, 5});
-    // motionProfile.moveDistance(40, 0, 1, {0.0175, 0, 0.01}, {55, 0.1, 0.3, 5});
-    /* Turn PID */
-    // rotationTurn(45, 8000, 1, 1200, {0.019, 0, 0.08});
-    // motionProfile.moveDistance(12, 45, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
-    // pros::delay(5000);
-    // rotationTurn(90, 8000, 1, 1200, {0.015, 0, 0.08});
-    // motionProfile.moveDistance(12, 90, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
-    // pros::delay(5000);
-    // rotationTurn(135, 8000, 1, 1200, {0.015, 0, 0.08});
-    // motionProfile.moveDistance(12, 135, 1, {0.0175, 0, 0.01}, {50, 0.01, 0.3, 5});
-    // pros::delay(5000);
+    toggleHang();
+    pros::delay(500);
+    intake.moveVoltage(12000);
+    pros::delay(500);
+    intake.moveVoltage(0);
 }
 
 void scoring() //deprecated
@@ -410,6 +399,7 @@ void winpointAuton()
     /*--Deploy intake--*/
     // catapult.moveVoltage(12000);
     toggleHang();
+    pros::delay(500);
     intake.moveVoltage(12000);
     // pros::delay(125);
     // catapult.moveVoltage(0);
@@ -470,12 +460,14 @@ void winpointAuton()
 }
 
 void wpAutonsafe(){
-    // setup against wall and matchload bar
+    // set up with the backwheel on the edge of the 3rd tile tooth thing and with the back sloping until you see the corner of the 2nd tile to the right
+    //it's jank, but ill show it to you later
     motion_profile motionProfile;
 
     /*--Deploy intake--*/
     angleOffset = 12;
     toggleHang();
+    pros::delay(500);
     intake.moveVoltage(12000);
     pros::delay(500);
     intake.moveVoltage(0);
@@ -514,7 +506,7 @@ void wpAutonsafe(){
 
     /*--Winpoint ending--*/
     rotationTurn(-40, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(8, -40, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10});
+    motionProfile.moveDistance(7, -40, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10}, 1000);
     rotationTurn(-96, 8000, 1, 800, {0.016, 0, 0.08});
     pros::delay(75);
     intake.moveVoltage(-12000);
