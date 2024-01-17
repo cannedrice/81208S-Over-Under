@@ -70,6 +70,7 @@ void skills() {
     motionProfile.moveDistance(12, -135, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     toggleLeftWing();
     pivotTurn(-18, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    intake.moveVoltage(-12000);
     motionProfile.moveDistance(10, -18, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     pivotTurn(-5, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     driveGroup.moveVoltage(12000);
@@ -77,6 +78,7 @@ void skills() {
     driveGroup.moveVoltage(0);
     rotationTurn(0, 9500, 1, 500, {0.019, 0, 0.08});
     toggleLeftWing();
+    intake.moveVoltage(0);
     motionProfile.moveDistance(-26, 0, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
 
     /*--Left/Middle Diagonal--*/
@@ -88,6 +90,7 @@ void skills() {
     motionProfile.moveDistance(4, 23, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     pivotTurn(48, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     toggleLeftWing();
+    intake.moveVoltage(-12000);
     motionProfile.moveDistance(8, 48, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     pivotTurn(0, 9500, 0.5, 750, false, {0.016, 0, 0.02});
     driveGroup.moveVoltage(12000);
@@ -96,6 +99,7 @@ void skills() {
     toggleLeftWing();
     toggleRightWing();
     rotationTurn(0, 9500, 1, 400, {0.019, 0, 0.08});
+    intake.moveVoltage(0);
     motionProfile.moveDistance(-22, 0, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
 
     /*--Left Diagonal--*/
@@ -107,6 +111,7 @@ void skills() {
     motionProfile.moveDistance(6, 23, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     toggleLeftWing();
     pivotTurn(67, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    intake.moveVoltage(-12000);
     motionProfile.moveDistance(18, 67, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     pivotTurn(0, 9500, 0.5, 750, false, {0.016, 0, 0.02});
     driveGroup.moveVoltage(12000);
@@ -114,13 +119,16 @@ void skills() {
     driveGroup.moveVoltage(0);
     toggleLeftWing();
     toggleRightWing();
+    intake.moveVoltage(0);
     motionProfile.moveDistance(-22, 0, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
 
     /*--Left push--*/
 
     rotationTurn(-45, 9500, 1, 500, {0.019, 0, 0.08});
+    intake.moveVoltage(-12000);
     motionProfile.moveDistance(35.5, -45, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     pivotTurn(-154, 9500, 0.5, 750, false, {0.016, 0, 0.02});
+    intake.moveVoltage(0);
     motionProfile.moveDistance(-14, -154, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     pivotTurn(-90, 9500, 0.5, 750, false, {0.016, 0, 0.02});
     motionProfile.moveDistance(-4, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
