@@ -22,6 +22,9 @@ void driveChassis()
 
         moveLeftGroup(std::clamp((forward + turn), -1.0, 1.0) * 12000);
         moveRightGroup(std::clamp((forward - turn), -1.0, 1.0) * 12000);
+        // if (driveGroup.getVoltage() == 0) {
+        //         driveGroup.moveVelocity(0);
+        // }
 
         /*
         uses values of joystick positions to calculate what way to move / how much to move each side

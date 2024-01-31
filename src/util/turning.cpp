@@ -115,3 +115,83 @@ void travelTurn(double distance, double driveVoltage, double angle, double turnV
     moveRightGroup(0);
     pros::delay(10);
 }
+
+/*
+PETERS AUTISM FUNCTION, WIP, STUDY MOTIONPROFILE MOVEMENT FUNCS :SKULL:
+*/
+
+void radiusTurn(double distance, double angle, double turnVoltage, double momentum, uint32_t timeout, PIDvalues values){
+    PID_controller turnController(values);
+    uint32_t startTime = pros::millis();
+    turnController.SetTarget(angle);
+    double startingAngle = getIMU();
+    double botWidth = 11; // add this later, mid wheel to mid wheel in inches
+    double radius = (180 * distance) / (M_PI * (angle - startingAngle));
+    //angle checking
+    while((abs(angle - getIMU()) > momentum) && (timeout > pros::millis() - startTime)){
+        double outputValue = turnController.Calculate(getIMU());
+        moveLeftGroup(turnVoltage * (radius - (botWidth / 2)) / radius * outputValue);
+        moveRightGroup(turnVoltage * (radius + (botWidth / 2)) / radius * outputValue);
+        pros::lcd::print(1, "Current angle: %f", getIMU());
+        pros::delay(10);
+    }
+    moveLeftGroup(0);
+    moveRightGroup(0);
+}
+
+// void radiusTurnOne(double distance, double angle, double turnVoltage, double momentum, uint32_t timeout, PIDvalues values){
+//     PID_controller turnController(values);
+//     uint32_t startTime = pros::millis();
+//     turnController.SetTarget(angle);
+//     double startingAngle = getIMU();
+//     double botWidth = 11; // add this later, mid wheel to mid wheel in inches
+//     double radius = (180 * distance) / (M_PI * (angle - startingAngle));
+//     //angle checking
+//     while((abs(angle - getIMU()) > momentum) && (timeout > pros::millis() - startTime)){
+//         double outputValue = turnController.Calculate(getIMU());
+//         moveLeftGroup(turnVoltage * (radius - (botWidth / 2)) / radius * outputValue);
+//         moveRightGroup(turnVoltage * (radius + (botWidth / 2)) / radius * outputValue);
+//         pros::lcd::print(1, "Current angle: %f", getIMU());
+//         pros::delay(10);
+//     }
+//     moveLeftGroup(0);
+//     moveRightGroup(0);
+// }
+
+// void radiusTurnTwo(double distance, double angle, double turnVoltage, double momentum, uint32_t timeout, PIDvalues values){
+//     PID_controller turnController(values);
+//     uint32_t startTime = pros::millis();
+//     turnController.SetTarget(angle);
+//     double startingAngle = getIMU();
+//     double botWidth = 11; // add this later, mid wheel to mid wheel in inches
+//     double radius = 180 * distance / M_PI / (angle - startingAngle); // q1 +, q2 -, q3 -, q4 +
+//                                                             // distance: q1 +, q2 +, q3 -, q4 -
+//                                                             // angleDiff: q1 +, q2 -, q3 -, q4 +
+//         // wtf am i doing
+//     // double ratio = (radius + (botWidth / 2)) / (radius - (botWidth / 2));
+//     // double leftDistance = (radius - (botWidth / 2)) * (angle - startingAngle) * M_PI / 180; // q1 
+//     // double rightDistance = (radius + (botWidth / 2)) * (angle - startingAngle) * M_PI / 180; // 
+//     double leftDistance = distance * (radius - (botWidth / 2)) / radius;
+//     double rightDistance = distance * (radius + (botWidth / 2)) / radius;
+
+//     double leftStart = getAverageLeftRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO;
+//     double rightStart = getAverageRightRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO;
+
+//     double leftTarget = getAverageLeftRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO + leftDistance;
+//     double rightTarget = getAverageRightRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO + rightDistance;
+
+//     double leftCurrent;
+//     double rightCurrent;
+//     //angle checking
+//     while((abs(angle - getIMU()) > momentum) && (timeout > pros::millis() - startTime)){
+//         double outputValue = turnController.Calculate(getIMU());
+//         leftCurrent = getAverageLeftRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO;
+//         rightCurrent = getAverageRightRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO;
+//         moveLeftGroup(turnVoltage * outputValue);
+//         moveRightGroup(turnVoltage * outputValue);
+//         pros::lcd::print(1, "Current angle: %f", getIMU());
+//         pros::delay(10);
+//     }
+//     moveLeftGroup(0);
+//     moveRightGroup(0);
+// }

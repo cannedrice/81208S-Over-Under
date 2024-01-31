@@ -1,12 +1,12 @@
 #include "main.h"
 uint32_t lastFire = -800;
-int autonNumber = 3;
+int autonNumber = 5;
 // 0 = Winpoint
 // 1 = SoloWP
 // 2 = Wp auton safe
 // 3 = Score 5
 // 4 = Skills
-// 5 = Score 6
+// 5 = Score 5 corner
 // 6 = Tests
 
 void on_center_button() {}
@@ -51,8 +51,8 @@ void autonomous()
 		skills();
 		break;
 	case 5:
-		pros::lcd::set_text(1, "score 6 ");
-		scoresix();
+		pros::lcd::set_text(1, "score 5 Corner ");
+		scorefiveCorner();
 		break;
 	case 6:
 		pros::lcd::set_text(1, "Test");
@@ -64,19 +64,29 @@ void autonomous()
 void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	// COMMENT OUT ONCE AUTON IS CODED
-	while (potentiometer.get() > 1825) {
-	 	catapult.moveVoltage(12000);
-		pros::delay(10);
-	}
-	catapult.moveVoltage(0);
-	// END
-
-	catapult.tarePosition();
+	/*--NOT TOGGLE--*/
+	// while (potentiometer.get() > 1825) {
+	//  	catapult.moveVoltage(12000);
+	// 	pros::delay(10);
+	// }
+	// catapult.moveVoltage(0);
+	// catapult.tarePosition();
+	/*----*/
+	
+	/*--TOGGLE--*/
+	cataToggle = false;
+	/*----*/
+	
 	int stepC = 1;
+
+	/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
+	// driverSkills();
+	/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
+
 	while (true)
 	{
 		/*--chassis control--*/
+
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
@@ -86,12 +96,45 @@ void opcontrol()
 		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
 		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
 
-		/*--current cata code--*/
-		if (r1.isPressed() && pros::millis() - lastFire > 650) {
-			lastFire=pros::millis();
-			catapult.moveAbsolute(180 * stepC, 12000);
-			stepC++; // no way c++??????
+		/*--TOGGLE--*/
+		// toggle true = can fire
+		if (r2.changedToPressed()) {
+			cataToggle = !cataToggle;
+			if (cataToggle) {
+				while (potentiometer.get() < 1780) {
+				 	catapult.moveVoltage(12000);
+					pros::delay(20);
+				}
+				catapult.moveVoltage(0);
+				catapult.tarePosition();
+				stepC = 1;
+			}
 		}
+		if (cataToggle) {
+			if (r1.isPressed() && pros::millis() - lastFire > 650) {
+				lastFire=pros::millis();
+				catapult.moveAbsolute(180 * stepC, 12000);
+				stepC++; // no way c++??????
+			}
+		} else {
+			if (potentiometer.get() > 1300) {
+			 	catapult.moveVoltage(12000);
+			} else {
+				catapult.moveVoltage(0);
+			}
+		}
+		/*----*/
+
+
+		/*--NO TOGGLE--*/
+		// if (r1.isPressed() && pros::millis() - lastFire > 650) {
+		// 	lastFire=pros::millis();
+		// 	catapult.moveAbsolute(180 * stepC, 12000);
+		// 	stepC++; // no way c++??????
+		// }
+		/*----*/
+
+
 
 		/*--experimental controller code--*/
 		master.set_text(2, 0, std::to_string(stepC-1));
