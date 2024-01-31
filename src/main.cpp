@@ -1,13 +1,13 @@
 #include "main.h"
 uint32_t lastFire = -800;
 int autonNumber = 5;
-// 0 = Winpoint
-// 1 = SoloWP
-// 2 = Wp auton safe
-// 3 = Score 5
-// 4 = Skills
-// 5 = Score 5 corner
-// 6 = Tests
+// 1 = Winpoint
+// 2 = SoloWP
+// 3 = Wp auton safe
+// 4 = Score 5
+// 5 = Skills
+// 6 = Score 5 corner
+// 0 = Tests
 
 void on_center_button() {}
 
@@ -30,31 +30,31 @@ void autonomous()
 	motion_profile motionProfile;
 	switch (autonNumber)
 	{
-	case 0:
+	case 1:
 		pros::lcd::set_text(1, "Winpoint");
 		winpointAuton();
 		break;
-	case 1:
+	case 2:
 		pros::lcd::set_text(1, "Solo WP");
 		soloWP();
 		break;
-	case 2:
+	case 3:
 		pros::lcd::set_text(1, "Safe wp");
 		wpAutonsafe();
 		break;
-	case 3:
+	case 4:
 		pros::lcd::set_text(1, "Score 5");
 		scorefive();
 		break;
-	case 4:
+	case 5:
 		pros::lcd::set_text(1, "SKILLS");
 		skills();
 		break;
-	case 5:
+	case 6:
 		pros::lcd::set_text(1, "score 5 Corner ");
 		scorefiveCorner();
 		break;
-	case 6:
+	case 0:
 		pros::lcd::set_text(1, "Test");
 		tests();
 		break;
@@ -64,24 +64,25 @@ void autonomous()
 void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	/*--NOT TOGGLE--*/
-	// while (potentiometer.get() > 1825) {
-	//  	catapult.moveVoltage(12000);
-	// 	pros::delay(10);
-	// }
-	// catapult.moveVoltage(0);
-	// catapult.tarePosition();
-	/*----*/
-	
-	/*--TOGGLE--*/
-	cataToggle = false;
-	/*----*/
-	
-	int stepC = 1;
 
-	/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
-	// driverSkills();
-	/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
+	if (autonNumber == 5) {
+		driverSkills();
+	} else {
+		/*--NOT TOGGLE--*/
+		// while (potentiometer.get() > 1825) {
+		//  	catapult.moveVoltage(12000);
+		// 	pros::delay(10);
+		// }
+		// catapult.moveVoltage(0);
+		// catapult.tarePosition();
+		/*----*/
+		
+		/*--TOGGLE--*/
+		cataToggle = false;
+		/*----*/
+	}
+
+	int stepC = 1;
 
 	while (true)
 	{
@@ -96,45 +97,44 @@ void opcontrol()
 		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
 		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
 
-		/*--TOGGLE--*/
-		// toggle true = can fire
-		if (r2.changedToPressed()) {
-			cataToggle = !cataToggle;
-			if (cataToggle) {
-				while (potentiometer.get() < 1780) {
-				 	catapult.moveVoltage(12000);
-					pros::delay(20);
+		if (autonNumber != 5) {
+			/*--TOGGLE--*/
+			// toggle true = can fire
+			if (r2.changedToPressed()) {
+				cataToggle = !cataToggle;
+				if (cataToggle) {
+					while (potentiometer.get() < 1780) {
+						catapult.moveVoltage(12000);
+						pros::delay(20);
+					}
+					catapult.moveVoltage(0);
+					catapult.tarePosition();
+					stepC = 1;
 				}
-				catapult.moveVoltage(0);
-				catapult.tarePosition();
-				stepC = 1;
 			}
-		}
-		if (cataToggle) {
-			if (r1.isPressed() && pros::millis() - lastFire > 650) {
-				lastFire=pros::millis();
-				catapult.moveAbsolute(180 * stepC, 12000);
-				stepC++; // no way c++??????
-			}
-		} else {
-			if (potentiometer.get() > 1300) {
-			 	catapult.moveVoltage(12000);
+			if (cataToggle) {
+				if (r1.isPressed() && pros::millis() - lastFire > 650) {
+					lastFire=pros::millis();
+					catapult.moveAbsolute(180 * stepC, 12000);
+					stepC++; // no way c++??????
+				}
 			} else {
-				catapult.moveVoltage(0);
+				if (potentiometer.get() > 1300) {
+					catapult.moveVoltage(12000);
+				} else {
+					catapult.moveVoltage(0);
+				}
 			}
+			/*----*/
+
+			/*--NO TOGGLE--*/
+			// if (r1.isPressed() && pros::millis() - lastFire > 650) {
+			// 	lastFire=pros::millis();
+			// 	catapult.moveAbsolute(180 * stepC, 12000);
+			// 	stepC++; // no way c++??????
+			// }
+			/*----*/		
 		}
-		/*----*/
-
-
-		/*--NO TOGGLE--*/
-		// if (r1.isPressed() && pros::millis() - lastFire > 650) {
-		// 	lastFire=pros::millis();
-		// 	catapult.moveAbsolute(180 * stepC, 12000);
-		// 	stepC++; // no way c++??????
-		// }
-		/*----*/
-
-
 
 		/*--experimental controller code--*/
 		master.set_text(2, 0, std::to_string(stepC-1));

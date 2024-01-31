@@ -676,7 +676,7 @@ void winpointAuton()
     rotationTurn(80, 8000, 1, 1200, {0.016, 0, 0.08});
     pros::delay(75);
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(29.5, 80, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20});
+    motionProfile.moveDistance(29.5, 80, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.3, 20}); // touches bar
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
 
@@ -735,7 +735,7 @@ void wpAutonsafe(){
     rotationTurn(-93, 8000, 1, 800, {0.016, 0, 0.08});
     pros::delay(75);
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(31.75, -93, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.4, 20});
+    motionProfile.moveDistance(31.75, -93, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.4, 20}); // tounches bar
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
 
