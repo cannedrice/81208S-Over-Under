@@ -72,7 +72,7 @@ void skills() {
     toggleLeftWing();
     pivotTurn(-14, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(8, -14, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    motionProfile.moveDistance(8, -14, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 300); //300
     pivotTurn(-5, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     driveGroup.moveVoltage(12000);
     pros::delay(650);
@@ -90,12 +90,12 @@ void skills() {
     toggleRightWing();
     pivotTurn(-16, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     toggleLeftWing();
-    motionProfile.moveDistance(3, -16, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    motionProfile.moveDistance(3, -16, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 300); //300
     pivotTurn(26, 9500, 0.5, 750, true, {0.016, 0, 0.02});
-    motionProfile.moveDistance(5, 26, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    motionProfile.moveDistance(5, 26, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 300); //300
     pivotTurn(52, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(12, 52, 1, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40});
+    motionProfile.moveDistance(12, 52, 1, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 500); //500
     pivotTurn(0, 9500, 0.5, 750, false, {0.016, 0, 0.02});
     driveGroup.moveVoltage(12000);
     pros::delay(400);
