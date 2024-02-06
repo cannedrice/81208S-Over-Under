@@ -346,7 +346,7 @@ void scorefive()
     motionProfile.moveDistance(-7, -167, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1000);
     pivotTurn(-174, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     driveGroup.moveVoltage(-12000);
-    pros::delay(600);
+    pros::delay(750);
     driveGroup.moveVoltage(12000);
     pros::delay(400);
     driveGroup.moveVoltage(-12000);

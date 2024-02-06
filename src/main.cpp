@@ -1,13 +1,13 @@
 #include "main.h"
 uint32_t lastFire = -800;
 int autonNumber = 3;
-// 0 = Winpoint
-// 1 = SoloWP
-// 2 = Wp auton safe
-// 3 = Score 5
-// 4 = Skills
-// 5 = Score 5 corner
-// 6 = Tests
+// 1 = Winpoint
+// 2 = SoloWP
+// 3 = Wp auton safe
+// 4 = Score 5
+// 5 = Skills
+// 6 = Score 5 corner
+// 0 = Tests
 
 void on_center_button() {}
 
@@ -29,32 +29,25 @@ void autonomous()
 	motion_profile motionProfile;
 	switch (autonNumber)
 	{
-	case 0:
-		pros::lcd::set_text(1, "Winpoint");
+	case 1:
 		winpointAuton();
 		break;
-	case 1:
-		pros::lcd::set_text(1, "Solo WP");
+	case 2:
 		soloWP();
 		break;
-	case 2:
-		pros::lcd::set_text(1, "Safe wp");
+	case 3:
 		wpAutonsafe();
 		break;
-	case 3:
-		pros::lcd::set_text(1, "Score 5");
+	case 4:
 		scorefive();
 		break;
-	case 4:
-		pros::lcd::set_text(1, "SKILLS");
+	case 5:
 		skills();
 		break;
-	case 5:
-		pros::lcd::set_text(1, "score 5 Corner ");
+	case 6:
 		scorefiveCorner();
 		break;
-	case 6:
-		pros::lcd::set_text(1, "Test");
+	case 0:
 		tests();
 		break;
 	}
