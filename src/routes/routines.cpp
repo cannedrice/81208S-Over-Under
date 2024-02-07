@@ -382,109 +382,123 @@ void scorefive()
 void scoresix()
 {
     motion_profile motionProfile;
-    angleOffset = -35;
-    toggleHang();
-    openRightWing();
 
+    angleOffset = -90;
+    toggleHang();
     pros::delay(350);
     toggleHang();
-    closeRightWing();
+    
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease
+    motionProfile.moveDistance(4, -90, 2, {0.05, 0, 0.01}, {65, 0.05, 0.1, 60}, 750);
+    pros::delay(200);
 
-    // pros::delay(500);
+    motionProfile.moveDistance(-24, -90, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
 
-    rotationTurn(90, 9500, 0.5, 750, {0.015, 0, 0.08}); //face net
+    /*-- JONATHAN CODE --*/
 
-    openLeftWing();
-    openRightWing();
+    // angleOffset = -35;
+    // toggleHang();
+    // openRightWing();
 
-    intake.moveVoltage(-12000);
-    pros::delay(100);
+    // pros::delay(350);
+    // toggleHang();
+    // closeRightWing();
+    // intake.moveVoltage(12000);
+    // motionProfile.moveDistance(60, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease
 
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500);
-    intake.moveVoltage(0);
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
-    driveGroup.moveVoltage(-12000);
-    pros::delay(250);
-    driveGroup.moveVoltage(0);
+    // // pros::delay(500);
 
-    closeLeftWing();
-    closeRightWing();
+    // rotationTurn(90, 9500, 0.5, 750, {0.015, 0, 0.08}); //face net
 
-    //this has to be right to the ball
-    pivotTurn(0, 9500, 0.5, 750, true, {0.016, 0, 0.02}); //INCREASE //delay was 1000 WEIRD PAUSE
+    // openLeftWing();
+    // openRightWing();
 
-    motionProfile.moveDistance(-12, 0, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 50}, 750);//-13
-
-    rotationTurn(-85, 9500, 0.5, 500, {0.016, 0, 0.08}); //turn to ball //INCREASE
-
-    intake.moveVoltage(12000);
-
-    //reset pos???? maybe better to not touch the bar
-    motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
-
-    motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
-
-    //might have to purely stop with timeout or use drivegroup
-    pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes
-
-    motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
-
-    //face side of net
-    rotationTurn(33, 9500, 0.5, 500, {0.019, 0, 0.08}); //INCREASE
-
-    intake.moveVoltage(-12000);
-    pros::delay(350);
-    intake.moveVoltage(0);
-    rotationTurn(-87, 9500, 0.5, 750, {0.017, 0, 0.08}); //INCREASE
-
-    intake.moveVoltage(12000);
-
-    //MAKE SURE THIS DOESN'T CROSS
-    motionProfile.moveDistance(32, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
-
-    motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
-    intake.moveVoltage(0);
-
-    //foward ram-------
-    rotationTurn(45, 9500, 0.5, 750, {0.016, 0, 0.08});//INCREASE
-
-    // toggleRightRearWing();
+    // intake.moveVoltage(-12000);
     // pros::delay(100);
 
-    // motionProfile.moveDistance(13, 45, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 500);
+    // motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500);
+    // intake.moveVoltage(0);
+    // motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
+    // driveGroup.moveVoltage(-12000);
+    // pros::delay(250);
+    // driveGroup.moveVoltage(0);
 
-    //get ball out of corner
-    // rotationTurn(-45, 12000, 0.5, 800,{0.016, 0, 0.08});
+    // closeLeftWing();
+    // closeRightWing();
 
-    // toggleRightRearWing();
-    // pros::delay(150);
+    // //this has to be right to the ball
+    // pivotTurn(0, 9500, 0.5, 750, true, {0.016, 0, 0.02}); //INCREASE //delay was 1000 WEIRD PAUSE
 
-    rotationTurn(30, 9500, 0.5, 800, {0.017, 0, 0.08}); //face net //INCREASE
-    intake.moveVoltage(-12000);
+    // motionProfile.moveDistance(-12, 0, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 50}, 750);//-13
 
-    pros::delay(100);
+    // rotationTurn(-85, 9500, 0.5, 500, {0.016, 0, 0.08}); //turn to ball //INCREASE
 
-    //rams, also adjust these angles so that they are straighter and will have no difficulty pushing it in.
-    motionProfile.moveDistance(22, 30, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 650);
+    // intake.moveVoltage(12000);
 
-    pivotTurn(0, 9500, 0.5, 650, true, {0.016, 0, 0.02});
-    motionProfile.moveDistance(-10.5, 15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);
+    // //reset pos???? maybe better to not touch the bar
+    // motionProfile.moveDistance(22, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
 
-    // motionProfile.moveDistance(16, 18, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 1500);
+    // motionProfile.moveDistance(-15, -85, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
 
-    driveGroup.moveVoltage(12000);
-    pros::delay(500);
-    driveGroup.moveVoltage(0);
+    // //might have to purely stop with timeout or use drivegroup
+    // pivotTurn(-15, 9500, 0.5, 650, false, {0.016, 0, 0.02}); //test this one now, see if anything changes
 
-    motionProfile.moveDistance(-9, 0, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);//move back so not touching
+    // motionProfile.moveDistance(-29, -15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
+
+    // //face side of net
+    // rotationTurn(33, 9500, 0.5, 500, {0.019, 0, 0.08}); //INCREASE
+
+    // intake.moveVoltage(-12000);
+    // pros::delay(350);
+    // intake.moveVoltage(0);
+    // rotationTurn(-87, 9500, 0.5, 750, {0.017, 0, 0.08}); //INCREASE
+
+    // intake.moveVoltage(12000);
+
+    // //MAKE SURE THIS DOESN'T CROSS
+    // motionProfile.moveDistance(32, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
+
+    // motionProfile.moveDistance(-29, -87, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 40}, 2000);
+    // intake.moveVoltage(0);
+
+    // //foward ram-------
+    // rotationTurn(45, 9500, 0.5, 750, {0.016, 0, 0.08});//INCREASE
+
+    // // toggleRightRearWing();
+    // // pros::delay(100);
+
+    // // motionProfile.moveDistance(13, 45, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 500);
+
+    // //get ball out of corner
+    // // rotationTurn(-45, 12000, 0.5, 800,{0.016, 0, 0.08});
+
+    // // toggleRightRearWing();
+    // // pros::delay(150);
+
+    // rotationTurn(30, 9500, 0.5, 800, {0.017, 0, 0.08}); //face net //INCREASE
+    // intake.moveVoltage(-12000);
+
+    // pros::delay(100);
+
+    // //rams, also adjust these angles so that they are straighter and will have no difficulty pushing it in.
+    // motionProfile.moveDistance(22, 30, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 650);
+
+    // pivotTurn(0, 9500, 0.5, 650, true, {0.016, 0, 0.02});
+    // motionProfile.moveDistance(-10.5, 15, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);
+
+    // // motionProfile.moveDistance(16, 18, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 70}, 1500);
+
+    // driveGroup.moveVoltage(12000);
+    // pros::delay(500);
+    // driveGroup.moveVoltage(0);
+
+    // motionProfile.moveDistance(-9, 0, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500);//move back so not touching
 
 }
 
 void scoreSixSafe()
 {
-     motion_profile motionProfile;
+    motion_profile motionProfile;
     angleOffset = -35;
 
     openRightWing();
