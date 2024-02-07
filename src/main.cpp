@@ -69,13 +69,16 @@ void opcontrol()
 	cataToggle = false;
 	/*----*/
 
-	int stepC = 1;
-
-	/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
-	if (autonNumber == 4)
+		/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
+	if (autonNumber == 5)
 	{
 		driverSkills();
 	}
+	else
+	{
+		cataToggle = false;
+	}
+	int stepC = 1;
 	/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
 
 	while (true)
@@ -93,7 +96,7 @@ void opcontrol()
 
 		/*--TOGGLE--*/
 		// toggle true = can fire
-		if (autonNumber == 4)
+		if (autonNumber != 5)
 		{
 			if (r2.changedToPressed())
 			{
