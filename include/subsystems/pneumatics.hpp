@@ -30,12 +30,6 @@ void retractBlocker();
 
 void toggleBlocker();
 
-void extendShooter();
-
-void retractShooter();
-
-void toggleShooter();
-
 void extendHang();
 
 void retractHang();

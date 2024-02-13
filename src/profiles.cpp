@@ -2,8 +2,10 @@
 
 bool leftWingState = false;
 bool rightWingState = false;
+bool globalWingState = false;
 bool leftRearWingState = false;
 bool rightRearWingState = false;
+bool globalRearWingState = false;
 bool blockerState = false;
 bool shooterState = false;
 bool hangState = false;
@@ -18,7 +20,7 @@ okapi::ControllerAnalog rightX(okapi::ControllerAnalog::rightX);      // left + 
 okapi::ControllerButton l1(okapi::ControllerDigital::L1);             // intake
 okapi::ControllerButton l2(okapi::ControllerDigital::L2);             // outtake
 okapi::ControllerButton r1(okapi::ControllerDigital::R1);             // fire catapult
-okapi::ControllerButton r2(okapi::ControllerDigital::R2);             // unused
+okapi::ControllerButton r2(okapi::ControllerDigital::R2);             // toggle cata state
 okapi::ControllerButton rightButton(okapi::ControllerDigital::right); // right wing
 okapi::ControllerButton downButton(okapi::ControllerDigital::down);   // toggle both wings
 okapi::ControllerButton leftButton(okapi::ControllerDigital::left);   // left wing

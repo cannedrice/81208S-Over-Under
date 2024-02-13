@@ -13,12 +13,12 @@ void updatePneumatics()
     }
     if (downButton.changedToPressed())
     {
-        toggleLeftWing();
-        toggleRightWing();
+        globalWingState = !globalWingState;
+        leftWing.set_value(globalWingState);
+        rightWing.set_value(globalWingState);
     }
     if (upButton.changedToPressed())
     {
-        // toggleShooter();
         toggleBlocker();
     }
     if (AButton.changedToPressed())
@@ -35,8 +35,9 @@ void updatePneumatics()
     }
     if (BButton.changedToPressed())
     {
-        toggleLeftRearWing();
-        toggleRightRearWing();
+        globalRearWingState = !globalRearWingState;
+        leftRearWing.set_value(globalRearWingState);
+        rightRearWing.set_value(globalRearWingState);
     }
 }
 
@@ -221,44 +222,7 @@ void toggleBlocker()
 }
 
 /**
- * @brief extend singleUse
- *
- */
-void extendShooter()
-{
-    shooter.set_value(false);
-    shooterState = true;
-}
-
-/**
- * @brief retract singleUse
- *
- */
-
-void retractShooter()
-{
-    shooter.set_value(true);
-    shooterState = false;
-}
-
-/**
- * @brief toggle singleUse
- *
- */
-void toggleShooter()
-{
-    if (shooterState == false)
-    {
-        extendShooter();
-    }
-    else
-    {
-        retractShooter();
-    }
-}
-
-/**
- * @brief extend free
+ * @brief extend hang
  *
  */
 void extendHang()
@@ -268,7 +232,7 @@ void extendHang()
 }
 
 /**
- * @brief retract free
+ * @brief retract hang
  *
  */
 
@@ -279,7 +243,7 @@ void retractHang()
 }
 
 /**
- * @brief toggle free
+ * @brief toggle hang
  *
  */
 void toggleHang()

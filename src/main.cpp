@@ -66,7 +66,7 @@ void opcontrol()
 	/*----*/
 
 	/*--TOGGLE--*/
-	cataToggle = false;
+	cataToggle = true;
 	/*----*/
 
 		/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/

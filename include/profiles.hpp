@@ -2,8 +2,10 @@
 
 extern bool leftWingState;
 extern bool rightWingState;
+extern bool globalWingState;
 extern bool leftRearWingState;
 extern bool rightRearWingState;
+extern bool globalRearWingState;
 extern bool blockerState;
 extern bool shooterState;
 extern bool hangState;
