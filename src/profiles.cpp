@@ -6,10 +6,6 @@ bool globalWingState = false;
 bool leftRearWingState = false;
 bool rightRearWingState = false;
 bool globalRearWingState = false;
-bool blockerState = false;
-bool shooterState = false;
-bool hangState = false;
-bool cataToggle = false;
 double angleOffset = 0;
 
 // Controller
@@ -48,8 +44,8 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // left re
 /* Left intake */ okapi::Motor li(12, false, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
 /* Intake motor group */ okapi::MotorGroup intake = {ri, li};
 
-// Catapult
-/* Catapult */ okapi::Motor catapult(11, true, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
+// Hang
+/* Hang */ okapi::Motor hang(11, true, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
 /* Potentionmeter */ okapi::Potentiometer potentiometer('H');
 
 // Auton
@@ -60,6 +56,3 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // left re
 /* Left wing */ pros::ADIDigitalOut leftWing('G', LOW);
 /* Right rear wing */ pros::ADIDigitalOut rightRearWing('D', LOW);
 /* Left rear wing */ pros::ADIDigitalOut leftRearWing('B', LOW);
-/* Blocker Right */ pros::ADIDigitalOut blocker('A', LOW);
-/* Blocker left */ pros::ADIDigitalOut hang('F', LOW);
-/* Single use */ pros::ADIDigitalOut shooter('E', LOW);

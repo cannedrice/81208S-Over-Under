@@ -89,7 +89,7 @@ extern "C"
 
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
-#include "subsystems/catapult.hpp"
+#include "subsystems/hang.hpp"
 #include "subsystems/pneumatics.hpp"
 
 #include "util/PID_controller.hpp"
