@@ -286,7 +286,7 @@ void scorefive()
     toggleHang();
     // closeRightWing();
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(63.5, -35, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500); //temp time out, will decrease
+    motionProfile.moveDistance(62.75, -35, 2, {0.05, 0, 0.01}, {67, 0.1, 0.3, 60}, 1500); //temp time out, will decrease
 
     pros::delay(120);
 
@@ -299,8 +299,7 @@ void scorefive()
     pros::delay(100);
 
     motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {70, 0.1, 0.3, 60}, 1500);
-    intake.moveVoltage(0);
-    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 60}, 1500); //rams
+    motionProfile.moveDistance(16, 90, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 60}, 1500); //rams
     driveGroup.moveVoltage(-12000);
     pros::delay(250);
     driveGroup.moveVoltage(0);
@@ -310,19 +309,19 @@ void scorefive()
 
     //this has to be right to the ball
     pivotTurn(0, 9500, 0.5, 750, true, {0.016, 0, 0.02}); //INCREASE //delay was 1000 WEIRD PAUSE
-    motionProfile.moveDistance(-12, 0, 2,{0.05, 0, 0.01}, {60, 0.1, 0.3, 50}, 750);//-13
+    motionProfile.moveDistance(-11, 0, 2,{0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 750);//-13
     rotationTurn(-86, 9500, 0.5, 500, {0.016, 0, 0.08}); //turn to ball //INCREASE
 
     intake.moveVoltage(12000);
 
     //reset pos???? maybe better to not touch the bar
-    motionProfile.moveDistance(24, -86, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 1500);
+    motionProfile.moveDistance(24, -86, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500);
     pros::delay(120);
-    motionProfile.moveDistance(-15, -86, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
+    motionProfile.moveDistance(-15, -86, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 55}, 1500);
     
     pivotTurn(60, 9500, 0.5, 750, true, {0.016, 0, 0.02}); 
 
-    motionProfile.moveDistance(7, 60, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
+    motionProfile.moveDistance(7, 60, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 50}, 1500);
     pivotTurn(90, 9500, 0.5, 750, true, {0.016, 0, 0.02}); 
     intake.moveVoltage(-12000);
     pros::delay(120);
@@ -332,18 +331,19 @@ void scorefive()
 
     intake.moveVoltage(0);
 
-    motionProfile.moveDistance(-8, 90, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
-    pivotTurn(-27.5, 9500, 0.5, 750, true, {0.016, 0, 0.02});
-    motionProfile.moveDistance(-32.5, -27.5, 2, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 1500);
-    pivotTurn(-120, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    motionProfile.moveDistance(-8, 90, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 55}, 1500);
+    pivotTurn(-28.25, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    motionProfile.moveDistance(-28, -28.25, 2, {0.05, 0, 0.01}, {68, 0.1, 0.3, 55}, 1500);
+    pivotTurn(-125, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     toggleLeftRearWing();
-    motionProfile.moveDistance(-7, -120, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1500);
-    pivotTurn(-160, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    motionProfile.moveDistance(-4.5, -125, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 55}, 1500);
+    pivotTurn(-160, 10500, 0.5, 500, true, {0.016, 0, 0.02}); 
+    motionProfile.moveDistance(2, 160, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 55}, 1500);
     toggleLeftRearWing();
-    rotationTurn(-154, 9500, 0.5, 500, {0.016, 0, 0.08}); //turn to ball //INCREASE
-    motionProfile.moveDistance(-6, -154, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1000);
+    rotationTurn(-147, 9500, 0.5, 500, {0.016, 0, 0.08}); //turn to ball //INCREASE
+    motionProfile.moveDistance(-6, -147, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 55}, 1000);
     pivotTurn(-167, 9500, 0.5, 750, true, {0.016, 0, 0.02});
-    motionProfile.moveDistance(-7, -167, 2, {0.05, 0, 0.01}, {50, 0.1, 0.3, 50}, 1000);
+    motionProfile.moveDistance(-7, -167, 2, {0.05, 0, 0.01}, {60, 0.1, 0.3, 55}, 1000);
     pivotTurn(-174, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     driveGroup.moveVoltage(-12000);
     pros::delay(750);
@@ -382,17 +382,72 @@ void scorefive()
 void scoresix()
 {
     motion_profile motionProfile;
-
-    angleOffset = -90;
+    // edge of chassis on middle of second tooth
+    angleOffset = 0;
     toggleHang();
     pros::delay(350);
     toggleHang();
     
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(4, -90, 2, {0.05, 0, 0.01}, {65, 0.05, 0.1, 60}, 750);
+    motionProfile.moveDistance(5.5, 0, 2, {0.05, 0, 0.01}, {65, 0.05, 0.1, 60}, 750);
     pros::delay(200);
 
-    motionProfile.moveDistance(-24, -90, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    motionProfile.moveDistance(-22.5, 0, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pivotTurn(-35, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    toggleLeftRearWing();
+    motionProfile.moveDistance(-11.5, -35, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pivotTurn(-60, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    toggleLeftRearWing();
+    motionProfile.moveDistance(-4, -60, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pivotTurn(-85, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    motionProfile.moveDistance(-4, -85, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    driveGroup.moveVoltage(-12000);
+    pros::delay(500);
+    driveGroup.moveVoltage(0);
+    motionProfile.moveDistance(7, -90, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pivotTurn(30, 9500, 0.5, 1200, true, {0.016, 0, 0.02});
+    motionProfile.moveDistance(15.5, 30, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pivotTurn(90, 9500, 0.5, 1200, true, {0.016, 0, 0.02});
+    motionProfile.moveDistance(6, 90, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pivotTurn(155, 9500, 0.5, 1200, true, {0.016, 0, 0.02});
+    intake.moveVoltage(-12000);
+    pros::delay(200);
+    intake.moveVoltage(12000);
+    motionProfile.moveDistance(-10, 155, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    rotationTurn(-10, 9500, 1, 1200, {0.017, 0, 0.08});
+    motionProfile.moveDistance(11.5, -10, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pros::delay(200);
+    motionProfile.moveDistance(-6, -10, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    rotationTurn(155, 9500, 1, 600, {0.017, 0, 0.08});
+    motionProfile.moveDistance(8, 155, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    intake.moveVoltage(-12000);
+    pros::delay(250);
+    intake.moveVoltage(12000);
+    rotationTurn(40, 9500, 1, 600, {0.017, 0, 0.08});
+    motionProfile.moveDistance(23, 40, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    pros::delay(200);
+    motionProfile.moveDistance(-4, 40, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    rotationTurn(110, 9500, 1, 600, {0.017, 0, 0.08});
+    pivotTurn(175, 9500, 0.5, 1200, true, {0.016, 0, 0.02});
+    toggleLeftWing();
+    toggleRightWing();
+    motionProfile.moveDistance(16, 175, 2, {0.05, 0, 0.01}, {65, 0.05, 0.2, 55}, 1500);
+    intake.moveVoltage(-12000);
+    driveGroup.moveVoltage(12000);
+    pros::delay(800);
+    driveGroup.moveVoltage(0);
+    intake.moveVoltage(0);
+
+
+
+
+
+
+
+
+
+
+    
 
     /*-- JONATHAN CODE --*/
 
@@ -598,43 +653,43 @@ void scoreSixSafe()
 void soloWP() // need to update
 {
 
-    motion_profile motionProfile;
+    // motion_profile motionProfile;
 
-    // FACE WALL ON WALL BETWEEN 3-4TH TOOTH AWAY FROM MATCHLOAD BAR, INTAKE TOUCHING WALL WITHOUT DEPLOY
-    toggleHang();
-    motionProfile.moveDistance(-26.5, 0, 1, {0.05, 0, 0.01}, {35, 0.3, 0.5, 10});
-    toggleHang();
+    // // FACE WALL ON WALL BETWEEN 3-4TH TOOTH AWAY FROM MATCHLOAD BAR, INTAKE TOUCHING WALL WITHOUT DEPLOY
+    // toggleHang();
+    // motionProfile.moveDistance(-26.5, 0, 1, {0.05, 0, 0.01}, {35, 0.3, 0.5, 10});
+    // toggleHang();
+    // // toggleRightRearWing();
+    // pivotTurn(55, 5500, 0.5, 1000, false, {0.017, 0, 0.02});
+    // pros::delay(600);
+    // motionProfile.moveDistance(-20, 55, 1, {0.025, 0, 0.01}, {30, 0.3, 1, 10});
+    // pros::delay(200);
+    // pivotTurn(90, 5500, 0.5, 1000, false, {0.017, 0, 0.02});
+    // pros::delay(600);
+    // motionProfile.moveDistance(-7.5, 90, 1, {0.03, 0, 0.01}, {25, 0.3, 0.5, 10}, 500);
+    // pros::delay(300);
+    // toggleShooter();
+    // pros::delay(300);
+    // toggleShooter();
+    // pros::delay(300);
+    // toggleShooter();
+    // pros::delay(300);
+    // gyro.reset(true);
+    // angleOffset = 90;
+    // motionProfile.moveDistance(4, 90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    // rotationTurn(38.5, 9500, 1, 500, {0.018, 0, 0.08});
+    // motionProfile.moveDistance(39, 38.5, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    // rotationTurn(-45, 9500, 1, 500, {0.016, 0, 0.08});
     // toggleRightRearWing();
-    pivotTurn(55, 5500, 0.5, 1000, false, {0.017, 0, 0.02});
-    pros::delay(600);
-    motionProfile.moveDistance(-20, 55, 1, {0.025, 0, 0.01}, {30, 0.3, 1, 10});
-    pros::delay(200);
-    pivotTurn(90, 5500, 0.5, 1000, false, {0.017, 0, 0.02});
-    pros::delay(600);
-    motionProfile.moveDistance(-7.5, 90, 1, {0.03, 0, 0.01}, {25, 0.3, 0.5, 10}, 500);
-    pros::delay(300);
-    toggleShooter();
-    pros::delay(300);
-    toggleShooter();
-    pros::delay(300);
-    toggleShooter();
-    pros::delay(300);
-    gyro.reset(true);
-    angleOffset = 90;
-    motionProfile.moveDistance(4, 90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
-    rotationTurn(38.5, 9500, 1, 500, {0.018, 0, 0.08});
-    motionProfile.moveDistance(39, 38.5, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
-    rotationTurn(-45, 9500, 1, 500, {0.016, 0, 0.08});
-    toggleRightRearWing();
-    rotationTurn(-135, 9500, 1, 300, {0.013, 0, 0.08});
-    toggleRightRearWing();
-    rotationTurn(-45, 9500, 1, 500, {0.016, 0, 0.08});
-    motionProfile.moveDistance(12, -45, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
-    gyro.reset();
-    angleOffset = -45;
-    rotationTurn(-90, 9500, 1, 500, {0.018, 0, 0.08});
-    intake.moveVoltage(-12000);
-    motionProfile.moveDistance(26, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    // rotationTurn(-135, 9500, 1, 300, {0.013, 0, 0.08});
+    // toggleRightRearWing();
+    // rotationTurn(-45, 9500, 1, 500, {0.016, 0, 0.08});
+    // motionProfile.moveDistance(12, -45, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    // gyro.reset();
+    // angleOffset = -45;
+    // rotationTurn(-90, 9500, 1, 500, {0.018, 0, 0.08});
+    // intake.moveVoltage(-12000);
+    // motionProfile.moveDistance(26, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
 
 }
 
@@ -732,7 +787,7 @@ void wpAutonsafe(){
 
     /*--Get to matchload area--*/
     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
-    motionProfile.moveDistance(46.5, 30, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
+    motionProfile.moveDistance(45.25, 30, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
     toggleRightRearWing();
     pros::delay(150);
     driveLeftGroup.moveVoltage(-7500);

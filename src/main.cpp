@@ -1,12 +1,13 @@
 #include "main.h"
 uint32_t lastFire = -800;
-int autonNumber = 3;
+int autonNumber = 4;
 // 1 = Winpoint
 // 2 = SoloWP
 // 3 = Wp auton safe
 // 4 = Score 5
 // 5 = Skills
 // 6 = Score 5 corner
+// 7 = Score 6
 // 0 = Tests
 
 void on_center_button() {}
@@ -47,6 +48,9 @@ void autonomous()
 	case 6:
 		scorefiveCorner();
 		break;
+	case 7:
+		scoresix();
+		break;;
 	case 0:
 		tests();
 		break;

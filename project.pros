@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "81208S Skills",
+    "project_name": "81208S Score 5",
     "target": "v5",
     "templates": {
       "kernel": {

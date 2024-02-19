@@ -25,15 +25,15 @@ void skills() {
 
     /*--Firing--*/
 
-    while (stepC <= 47)
+    while (stepC <= 48)
     {
         catapult.moveAbsolute(180 * stepC, 12000);
         stepC++; // no way c++??????
-        pros::delay(650);
+        pros::delay(610);
     }
     toggleRightRearWing();
     gyro.reset();
-    pros::delay(2500);
+    pros::delay(2000);
     angleOffset = -21.5;
 
     /*--Cross sides--*/
@@ -64,12 +64,12 @@ void skills() {
 
     /*--Right Diagonal--*/
 
-    toggleRightWing();
     rotationTurn(-90, 9500, 1, 1000, {0.016, 0, 0.08});
     motionProfile.moveDistance(11 /*6 if theres a right side push*/, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
     rotationTurn(-141, 9500, 1, 1000, {0.018, 0, 0.08});
-    toggleLeftWing();
     motionProfile.moveDistance(16, -141, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 800);
+    toggleLeftWing();
+    toggleRightWing();
     pivotTurn(-14, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(8, -14, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 300); //300
@@ -86,17 +86,17 @@ void skills() {
     /*--Left/Middle Diagonal--*/
 
     rotationTurn(-90, 9500, 1, 500, {0.018, 0, 0.08});
-    motionProfile.moveDistance(20, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 1200);
+    motionProfile.moveDistance(20, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 1000);
     toggleRightWing();
     pivotTurn(-16, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     toggleLeftWing();
     motionProfile.moveDistance(3, -16, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 300); //300
     pivotTurn(26, 9500, 0.5, 750, true, {0.016, 0, 0.02});
     motionProfile.moveDistance(5, 26, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 300); //300
-    pivotTurn(52, 9500, 0.5, 750, true, {0.016, 0, 0.02});
+    pivotTurn(52, 9500, 0.5, 500, true, {0.016, 0, 0.02});
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(12, 52, 1, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 500); //500
-    pivotTurn(0, 9500, 0.5, 750, false, {0.016, 0, 0.02});
+    pivotTurn(0, 9500, 0.5, 500, false, {0.016, 0, 0.02});
     driveGroup.moveVoltage(12000);
     pros::delay(400);
     driveGroup.moveVoltage(0);
@@ -104,21 +104,22 @@ void skills() {
     toggleRightWing();
     rotationTurn(0, 9500, 1, 400, {0.019, 0, 0.08});
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-22, 0, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    motionProfile.moveDistance(-22, 0, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 1200);
 
     /*--Left Diagonal--*/
 
     rotationTurn(-90, 9500, 1, 500, {0.017, 0, 0.08});
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(22, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50});
+    motionProfile.moveDistance(22, -90, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 1200);
     pivotTurn(23, 8000, 0.5, 750, true, {0.016, 0, 0.02});
     toggleRightWing();
-    motionProfile.moveDistance(6, 23, 1, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 850);
+    motionProfile.moveDistance(6, 23, 1, {0.05, 0, 0.01}, {50, 0.1, 0.3, 40}, 600);
     toggleLeftWing();
     pivotTurn(71, 9500, 0.5, 750, true, {0.016, 0, 0.02});
-    intake.moveVoltage(-12000);
-    motionProfile.moveDistance(24, 71, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 2000);
+    motionProfile.moveDistance(24, 71, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 1500);
     pivotTurn(0, 9500, 0.5, 750, false, {0.016, 0, 0.02});
+    intake.moveVoltage(-12000);
+    pros::delay(200);
     driveGroup.moveVoltage(12000);
     pros::delay(400);
     driveGroup.moveVoltage(0);
@@ -131,7 +132,7 @@ void skills() {
 
     rotationTurn(-58, 9500, 1, 500, {0.019, 0, 0.08});
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(40, -58, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 3500);
+    motionProfile.moveDistance(42, -58, 1, {0.05, 0, 0.01}, {65, 0.1, 0.3, 50}, 3500);
     pros::delay(200);
     intake.moveVoltage(0);
     // pivotTurn(-122, 9500, 0.5, 1000, false, {0.016, 0, 0.02});
