@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastFire = -800;
-int autonNumber = 4;
+int autonNumber = 7;
 // 1 = Winpoint
 // 2 = SoloWP
 // 3 = Wp auton safe
