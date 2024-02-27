@@ -1,13 +1,13 @@
 #include "main.h"
 uint32_t lastFire = -800;
-int autonNumber = 7;
-// 1 = Winpoint
-// 2 = SoloWP
-// 3 = Wp auton safe
-// 4 = Score 5
-// 5 = Skills
-// 6 = Score 5 corner
-// 7 = Score 6
+int autonNumber = 5;
+// 1 = Safe Winpoint
+// 2 = Winpoint
+// 3 = Eliminations
+// 4 = Troll Elim
+// 5 = Score 5
+// 6 = Score 6
+// 7 = Skills
 // 0 = Tests
 
 void on_center_button() {}
@@ -31,26 +31,26 @@ void autonomous()
 	switch (autonNumber)
 	{
 	case 1:
-		winpointAuton();
+		safeWinpoint();
 		break;
 	case 2:
-		soloWP();
+		winpoint();
 		break;
 	case 3:
-		wpAutonsafe();
+		destruction();
 		break;
 	case 4:
-		scorefive();
+		troll();
 		break;
 	case 5:
-		skills();
+		scorefive();
 		break;
 	case 6:
-		scorefiveCorner();
+		scoresix();
 		break;
 	case 7:
-		scoresix();
-		break;;
+		skills();
+		break;
 	case 0:
 		tests();
 		break;
@@ -74,7 +74,7 @@ void opcontrol()
 	/*----*/
 
 		/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
-	if (autonNumber == 5)
+	if (autonNumber == 7)
 	{
 		driverSkills();
 	}

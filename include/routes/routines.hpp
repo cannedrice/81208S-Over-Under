@@ -1,10 +1,8 @@
 void tests();
-void scoring();
 void scorefive();
 void scorefiveCorner();
 void scoresix();
-void scoreSixSafe();
-void soloWP();
-void winpointAuton();
-void wpAutonsafe();
+void safeWinpoint();
+void winpoint();
 void destruction();
+void troll();
