@@ -4,7 +4,7 @@ void skills() {
 
     motion_profile motionProfile;
     angleOffset = 50;
-    toggleHang();
+    //toggleHang();
     while (potentiometer.get() < 1780)
     {
         catapult.moveVoltage(12000);
@@ -14,7 +14,7 @@ void skills() {
     catapult.tarePosition();
     int stepC = 1;
     pros::delay(150);
-    toggleHang();
+    //toggleHang();
 
     /*--Setup--*/ // -20 firing angle
 
@@ -166,7 +166,7 @@ void skills() {
 void driverSkills() {
     motion_profile motionProfile;
     angleOffset = 50;
-    toggleHang();
+    //toggleHang();
     while (potentiometer.get() < 1780)
     {
         catapult.moveVoltage(12000);
@@ -176,7 +176,7 @@ void driverSkills() {
     catapult.tarePosition();
     int stepC = 1;
     pros::delay(150);
-    toggleHang();
+    //toggleHang();
 
     /*--Setup--*/ // -20 firing angle
 
