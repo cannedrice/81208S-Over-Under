@@ -1,18 +1,16 @@
 #include "okapi/api.hpp"
 
-extern bool PTO;
-extern bool armRatchet;
 extern bool leftWingState;
 extern bool rightWingState;
 extern bool globalWingState;
 extern bool leftRearWingState;
 extern bool rightRearWingState;
 extern bool globalRearWingState;
-extern bool PTOState;
-extern bool ratchetState;
+extern bool blockerState;
+extern bool shooterState;
+extern bool hangState;
 extern bool cataToggle;
 extern double angleOffset;
-extern int autonNumber;
 
 // Controller
 extern okapi::Controller controller;
@@ -63,5 +61,6 @@ extern okapi::ControllerButton XButton;
 /* Left wing */ extern pros::ADIDigitalOut leftWing;
 /* Right rear wing */ extern pros::ADIDigitalOut rightRearWing;
 /* Left rear wing */ extern pros::ADIDigitalOut leftRearWing;
-/* Blocker left*/ extern pros::ADIDigitalOut PTOPiston;
-/* Blocker Right*/ extern pros::ADIDigitalOut ratchet;
+/* Blocker left*/ extern pros::ADIDigitalOut blocker;
+/* Blocker Right*/ extern pros::ADIDigitalOut hang;
+/* Single use*/ extern pros::ADIDigitalOut shooter;

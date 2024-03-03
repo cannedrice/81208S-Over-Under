@@ -1,18 +1,16 @@
 #include "main.h"
 
-bool PTO = true; // reasoning is that we literally only use cata in skills, so it's perferrable that we have control over the arm during quals.
-bool armRatchet = false;
 bool leftWingState = false;
 bool rightWingState = false;
 bool globalWingState = false;
 bool leftRearWingState = false;
 bool rightRearWingState = false;
 bool globalRearWingState = false;
-bool PTOState = false;
-bool ratchetState = false;
+bool blockerState = false;
+bool shooterState = false;
+bool hangState = false;
 bool cataToggle = false;
 double angleOffset = 0;
-int autonNumber = 0;
 
 // Controller
 okapi::Controller controller(okapi::ControllerId::master);
@@ -26,10 +24,10 @@ okapi::ControllerButton r2(okapi::ControllerDigital::R2);             // toggle 
 okapi::ControllerButton rightButton(okapi::ControllerDigital::right); // right wing
 okapi::ControllerButton downButton(okapi::ControllerDigital::down);   // toggle both wings
 okapi::ControllerButton leftButton(okapi::ControllerDigital::left);   // left wing
-okapi::ControllerButton upButton(okapi::ControllerDigital::up);       // toggle PTO
+okapi::ControllerButton upButton(okapi::ControllerDigital::up);       // blocker
 okapi::ControllerButton AButton(okapi::ControllerDigital::A);         // right rear wing
 okapi::ControllerButton BButton(okapi::ControllerDigital::B);         // toggle both rear wings
-okapi::ControllerButton XButton(okapi::ControllerDigital::X);         // toggle ratchet
+okapi::ControllerButton XButton(okapi::ControllerDigital::X);         // hang
 okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // left rear wing
 
 // Drivetrain
@@ -62,5 +60,6 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // left re
 /* Left wing */ pros::ADIDigitalOut leftWing('G', LOW);
 /* Right rear wing */ pros::ADIDigitalOut rightRearWing('D', LOW);
 /* Left rear wing */ pros::ADIDigitalOut leftRearWing('B', LOW);
-/* Blocker Right */ pros::ADIDigitalOut PTOPiston('A', LOW);
-/* Blocker left */ pros::ADIDigitalOut ratchet('F', LOW);
+/* Blocker Right */ pros::ADIDigitalOut blocker('A', LOW);
+/* Blocker left */ pros::ADIDigitalOut hang('F', LOW);
+/* Single use */ pros::ADIDigitalOut shooter('E', LOW);

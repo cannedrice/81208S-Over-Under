@@ -19,7 +19,7 @@ void updatePneumatics()
     }
     if (upButton.changedToPressed())
     {
-        toggleRatchet();
+        toggleBlocker();
     }
     if (AButton.changedToPressed())
     {
@@ -31,7 +31,7 @@ void updatePneumatics()
     }
     if (XButton.changedToPressed())
     {
-        togglePTO();
+        toggleHang();
     }
     if (BButton.changedToPressed())
     {
@@ -189,35 +189,35 @@ void toggleRightRearWing()
  * @brief extend Blocker
  *
  */
-void extendPTO()
+void extendBlocker()
 {
-    PTOPiston.set_value(true);
-    PTOState = true;
+    blocker.set_value(true);
+    blockerState = true;
 }
 
 /**
  * @brief retract Blocker
  *
  */
-void retractPTO()
+void retractBlocker()
 {
-    PTOPiston.set_value(false);
-    PTOState = false;
+    blocker.set_value(false);
+    blockerState = false;
 }
 
 /**
  * @brief toggle Blocker
  *
  */
-void togglePTO()
+void toggleBlocker()
 {
-    if (PTOState == false)
+    if (blockerState == false)
     {
-        extendPTO();
+        extendBlocker();
     }
     else
     {
-        retractPTO();
+        retractBlocker();
     }
 }
 
@@ -225,10 +225,10 @@ void togglePTO()
  * @brief extend hang
  *
  */
-void extendRatchet()
+void extendHang()
 {
-    ratchet.set_value(true);
-    ratchetState = true;
+    hang.set_value(true);
+    hangState = true;
 }
 
 /**
@@ -236,24 +236,24 @@ void extendRatchet()
  *
  */
 
-void retractRatchet()
+void retractHang()
 {
-    ratchet.set_value(false);
-    ratchetState = false;
+    hang.set_value(false);
+    hangState = false;
 }
 
 /**
  * @brief toggle hang
  *
  */
-void toggleRatchet()
+void toggleHang()
 {
-    if (ratchetState == false)
+    if (hangState == false)
     {
-        extendRatchet();
+        extendHang();
     }
     else
     {
-        retractRatchet();
+        retractHang();
     }
 }

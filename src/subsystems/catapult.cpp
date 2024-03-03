@@ -1,25 +1,36 @@
 #include "subsystems/catapult.hpp"
-uint32_t lastFire = -800;
-int stepC = 1;
+// uint32_t lastPressed = -800;
+
 void opCatapult()
 {
-	/*--TOGGLE--*/
-		// toggle true = can fire
-		if (autonNumber != 5)
-		{
-			if (PTOState)
-			{
-				//move hang thing up and down
-			}else{
-
-				if (r1.isPressed() && pros::millis() - lastFire > 650)
-				{
-					lastFire = pros::millis();
-					catapult.moveAbsolute(180 * stepC, 12000);
-					stepC++; // no way c++??????
-				}
-			
-			}
-
-		}
+	// if (r2.changedToPressed())
+	// 	{
+	// 		cataToggle = !cataToggle;
+	// 	}
+	// 	// Down Pos: 1180
+	// 	// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+	// 	if (cataToggle)
+	// 	{
+	// 		catapult.moveVoltage(12000);
+	// 	}
+	// 	else
+	// 	{
+	// 		if (potentiometer.get() < 1180)
+	// 		{
+	// 			catapult.moveVoltage(12000);
+	// 		}
+	// 		else if (r1.changedToPressed())
+	// 		{
+	// 			lastPressed = pros::millis();
+	// 			catapult.moveRelative(1000, 12000);
+	// 		}
+	// 		else if (pros::millis() - lastPressed > 350 && r1.isPressed())
+	// 		{
+	// 			catapult.moveVoltage(12000);
+	// 		}
+	// 		else
+	// 		{
+	// 			catapult.moveVoltage(0);
+	// 		}
+	// 	}
 }

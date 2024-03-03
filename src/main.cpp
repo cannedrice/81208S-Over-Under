@@ -1,4 +1,14 @@
 #include "main.h"
+uint32_t lastFire = -800;
+int autonNumber = 5;
+// 1 = Safe Winpoint
+// 2 = Winpoint
+// 3 = Eliminations
+// 4 = Troll Elim
+// 5 = Score 5
+// 6 = Score 6
+// 7 = Skills
+// 0 = Tests
 
 void on_center_button() {}
 
@@ -17,16 +27,6 @@ void competition_initialize() {}
 
 void autonomous()
 {
-	autonNumber = 5;
-	// 1 = Safe Winpoint
-	// 2 = Winpoint
-	// 3 = Eliminations
-	// 4 = Troll Elim
-	// 5 = Score 5
-	// 6 = Score 6
-	// 7 = Skills
-	// 0 = Tests
-	uint32_t startTime = pros::millis();
 	motion_profile motionProfile;
 	switch (autonNumber)
 	{
@@ -55,13 +55,25 @@ void autonomous()
 		tests();
 		break;
 	}
-	pros::lcd::print(1, "time: %f", (pros::millis() - (float)startTime)/1000);
 }
 
 void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	uint32_t driveTime = pros::millis();
+	/*--NOT TOGGLE--*/
+	// while (potentiometer.get() > 1825) {
+	//  	catapult.moveVoltage(12000);
+	// 	pros::delay(10);
+	// }
+	// catapult.moveVoltage(0);
+	// catapult.tarePosition();
+	/*----*/
+
+	/*--TOGGLE--*/
+	cataToggle = true;
+	/*----*/
+
+		/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
 	if (autonNumber == 7)
 	{
 		driverSkills();
@@ -71,26 +83,105 @@ void opcontrol()
 		cataToggle = false;
 	}
 	int stepC = 1;
+	/*--SKILLS SETUP + CATA, COMMENT OTHERWISE--*/
 
 	while (true)
 	{
-
 		/*--chassis control--*/
+
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
-		opCatapult();
 
 		/*--info--*/
 		pros::lcd::print(2, "Yaw: %f", getIMU());
 		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
 		pros::lcd::print(4, "Cata temp: %f", catapult.getTemperature());
 
-		master.set_text(2, 0, std::to_string(stepC - 1));
-		if ((pros::millis()-driveTime > 115000 && pros::millis()-driveTime < 116500) || (pros::millis()-driveTime > 135000 && pros::millis()-driveTime < 136500))
+		/*--TOGGLE--*/
+		// toggle true = can fire
+		if (autonNumber != 5)
 		{
-			master.rumble(". ");
+			if (r2.changedToPressed())
+			{
+				cataToggle = !cataToggle;
+				if (cataToggle)
+				{
+					while (potentiometer.get() < 1780)
+					{
+						catapult.moveVoltage(12000);
+						pros::delay(20);
+					}
+					catapult.moveVoltage(0);
+					catapult.tarePosition();
+					stepC = 1;
+				}
+			}
+			if (cataToggle)
+			{
+				if (r1.isPressed() && pros::millis() - lastFire > 650)
+				{
+					lastFire = pros::millis();
+					catapult.moveAbsolute(180 * stepC, 12000);
+					stepC++; // no way c++??????
+				}
+			}
+			else
+			{
+				if (potentiometer.get() > 1300)
+				{
+					catapult.moveVoltage(12000);
+				}
+				else
+				{
+					catapult.moveVoltage(0);
+				}
+			}
 		}
+
+		/*----*/
+
+		/*--NO TOGGLE--*/
+		// if (r1.isPressed() && pros::millis() - lastFire > 650) {
+		// 	lastFire=pros::millis();
+		// 	catapult.moveAbsolute(180 * stepC, 12000);
+		// 	stepC++; // no way c++??????
+		// }
+		/*----*/
+
+		/*--experimental controller code--*/
+		master.set_text(2, 0, std::to_string(stepC - 1));
+
+		/*--old cata code v2--*/
+		// if (r1.isPressed()) {
+		// 	catapult.moveAbsolute(180 * stepC, 12000);
+		// 	stepC++; // no way c++??????
+		// 	driveGroup.moveVoltage(0);
+		// 	pros::delay(650);
+		// }
+
+		/*--old cata code--*/
+		// if (r2.changedToPressed())
+		// {
+		// 	cataToggle = !cataToggle;
+		// }
+		// // Down Pos: 2490 -> 1680
+		// if (cataToggle) {
+		// 	catapult.moveVoltage(9000);
+		// } else {
+		// 	if (potentiometer.get() > 1950) { // CHANGE THIS POSITION
+		// 		catapult.moveVoltage(12000);/*8500*/
+		// 	} else {
+		// 		if (r1.isPressed()) {
+		// 			catapult.moveVoltage(1000);
+		// 			pros::delay(150);
+		// 			catapult.moveVoltage(12000);
+		// 			pros::delay(200);
+		// 		} else {
+		// 			catapult.moveVoltage(0);
+		// 		}
+		// 	}
+		// }
 		pros::delay(20);
 	}
 }
