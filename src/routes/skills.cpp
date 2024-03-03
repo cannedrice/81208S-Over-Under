@@ -1,9 +1,5 @@
 #include "main.h"
 
-double dis[3] = {0.05, 0, 0.01};
-double rot[3] = {0.017, 0, 0.08};
-double piv[3] = {0.016, 0, 0.02};
-
 void skills()
 {
 
@@ -26,7 +22,7 @@ void skills()
     motionProfile.moveDistance(-7, 50, 1, {dis[0], dis[1], dis[2]}, {65, 0.1, 0.3, 50});
     rotationTurn(-21.25, 9500, 1, 1000, {rot[0], rot[1], rot[2]});
     motionProfile.moveDistance(-3, -21.25, 1, {dis[0], dis[1], dis[2]}, {40, 0.1, 0.3, 20}, 500);
-    toggleRightRearWing();
+    
 
     /*--Firing--*/
 
@@ -36,7 +32,7 @@ void skills()
         stepC++; // no way c++??????
         pros::delay(550);
     }
-    toggleRightRearWing();
+    
     gyro.reset();
     pros::delay(2000);
     angleOffset = -21.25;
@@ -189,7 +185,7 @@ void driverSkills()
     motionProfile.moveDistance(-7, 50, 1, {dis[0], dis[1], dis[2]}, {65, 0.1, 0.3, 50});
     rotationTurn(-20, 9500, 1, 1000, {rot[0], rot[1], rot[2]});
     motionProfile.moveDistance(-3, -20, 1, {dis[0], dis[1], dis[2]}, {40, 0.1, 0.3, 20}, 500);
-    toggleRightRearWing();
+    
 
     /*--Firing--*/
 
@@ -199,5 +195,5 @@ void driverSkills()
         stepC++; // no way c++??????
         pros::delay(550);
     }
-    toggleRightRearWing();
+    
 }

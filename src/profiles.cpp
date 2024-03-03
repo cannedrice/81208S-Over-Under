@@ -1,5 +1,9 @@
 #include "main.h"
 
+double dis[3] = {0.05, 0, 0.01};
+double rot[3] = {0.017, 0, 0.08};
+double piv[3] = {0.016, 0, 0.02};
+
 bool leftWingState = false;
 bool rightWingState = false;
 bool globalWingState = false;

@@ -1,11 +1,5 @@
 #include "main.h"
 
-double dis[3] = {0.05, 0, 0.01};
-double rot[3] = {0.017, 0, 0.08};
-double piv[3] = {0.016, 0, 0.02};
-
-// movement profile = {dis[0], dis[1], dis[2]}
-// rotation turn 8000, 0.5, 6000, {0.016, 0, 0.08} 90 deg
 // 400 chassis has max speed of ~68.07 inches/sec, use 67 or 68 for max, use 60 reg
 
 void tests()
@@ -72,10 +66,10 @@ void scorefive()
     pivotTurn(-28.25, 9500, 0.5, 750, true, {piv[0], piv[1], piv[2]});
     motionProfile.moveDistance(-29.2, -28.25, 2, {dis[0], dis[1], dis[2]}, {68, 0.1, 0.3, 55}, 1500);
     pivotTurn(-125, 9500, 0.5, 750, true, {piv[0], piv[1], piv[2]});
-    toggleLeftRearWing();
+    
     motionProfile.moveDistance(-5, -125, 2, {dis[0], dis[1], dis[2]}, {60, 0.1, 0.3, 55}, 1500);
     pivotTurn(-160, 10500, 0.5, 500, true, {piv[0], piv[1], piv[2]});
-    toggleLeftRearWing();
+    
     motionProfile.moveDistance(5, -120, 2, {dis[0], dis[1], dis[2]}, {60, 0.1, 0.3, 55}, 1500);
     pivotTurn(-147, 9500, 0.5, 500, true, {piv[0], piv[1], piv[2]}); // turn to ball //INCREASE
     motionProfile.moveDistance(-9, -147, 2, {dis[0], dis[1], dis[2]}, {60, 0.1, 0.3, 55}, 1000);
@@ -130,10 +124,10 @@ void scoresix()
 
     motionProfile.moveDistance(-21.75, 0, 2, {dis[0], dis[1], dis[2]}, {67, 0.05, 0.2, 60}, 1500);
     pivotTurn(-33, 9500, 0.5, 750, true, {piv[0], piv[1], piv[2]});
-    toggleLeftRearWing();
+    
     motionProfile.moveDistance(-11.5, -33, 2, {dis[0], dis[1], dis[2]}, {69, 0.05, 0.2, 60}, 1500);
     pivotTurn(-60, 9500, 0.5, 750, true, {piv[0], piv[1], piv[2]});
-    toggleLeftRearWing();
+    
     motionProfile.moveDistance(2.5, -60, 2, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 60}, 1500);
     motionProfile.moveDistance(-6.5, -60, 2, {dis[0], dis[1], dis[2]}, {70, 0.05, 0.2, 60}, 1500);
     pivotTurn(-85, 9500, 0.5, 750, true, {piv[0], piv[1], piv[2]});
@@ -297,14 +291,14 @@ void safeWinpoint()
     motionProfile.moveDistance(9, 90, 1, {dis[0], dis[1], dis[2]}, {60, 0.05, 0.2, 40});
     pivotTurn(40, 9500, 0.5, 800, false, {piv[0], piv[1], piv[2]});
     motionProfile.moveDistance(8, 40, 1, {dis[0], dis[1], dis[2]}, {60, 0.05, 0.2, 40});
-    toggleRightRearWing();
+    
     pros::delay(150);
     driveLeftGroup.moveVoltage(-7500);
     driveRightGroup.moveVoltage(7500);
     pros::delay(350); // flying
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
-    toggleRightRearWing();
+    
     rotationTurn(35, 9500, 1, 1200, {rot[0], rot[1], rot[2]});
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(11.5, 35, 1, {dis[0], dis[1], dis[2]}, {60, 0.05, 0.2, 40});
@@ -337,15 +331,15 @@ void winpoint()
     rotationTurn(-80, 8000, 1, 1200, {0.016, 0, 0.08});
     motionProfile.moveDistance(24, -80, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 25}, 1000);
     toggleLeftWing();
-    toggleLeftRearWing();
+    
     motionProfile.moveDistance(-38, -90, 1, {0.0175, 0, 0.01}, {60, 0.1, 0.3, 25}, 1500);
     motionProfile.moveDistance(16, -90, 1, {0.0175, 0, 0.01}, {40, 0.1, 0.3, 30});
-    toggleLeftRearWing();
+    
 
     /*--Get to matchload area--*/
     rotationTurn(30, 8000, 1, 1200, {0.016, 0, 0.08});
     motionProfile.moveDistance(45.25, 30, 1, {0.0175, 0, 0.01}, {65, 0.1, 0.3, 10});
-    toggleRightRearWing();
+    
     pros::delay(150);
     driveLeftGroup.moveVoltage(-7500);
     driveRightGroup.moveVoltage(7500);
@@ -353,7 +347,7 @@ void winpoint()
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
 
-    toggleRightRearWing();
+    
 
     /*--Winpoint ending--*/
     rotationTurn(-39, 8000, 1, 1200, {0.016, 0, 0.08});
@@ -401,14 +395,14 @@ void destruction()
     motionProfile.moveDistance(9, 90, 1, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 55});
     pivotTurn(40, 9500, 0.5, 800, false, {piv[0], piv[1], piv[2]});
     motionProfile.moveDistance(9, 40, 1, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 55});
-    toggleRightRearWing();
+    
     pros::delay(150);
     driveLeftGroup.moveVoltage(-7500);
     driveRightGroup.moveVoltage(7500);
     pros::delay(350); // flying
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
-    toggleRightRearWing();
+    
     rotationTurn(35, 9500, 1, 1200, {rot[0], rot[1], rot[2]});
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(11.5, 35, 1, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 55});

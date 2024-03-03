@@ -5,6 +5,10 @@
 #define GEAR_RATIO 3 / 4
 #define GEARBOX 600
 
+double extern dis[3];
+double extern rot[3];
+double extern piv[3];
+
 extern bool leftWingState;
 extern bool rightWingState;
 extern bool globalWingState;
