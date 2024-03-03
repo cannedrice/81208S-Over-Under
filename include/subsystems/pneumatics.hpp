@@ -12,20 +12,6 @@ void toggleLeftWing();
 
 void toggleRightWing();
 
-void openLeftRearWing();
-
-void closeLeftRearWing();
-
-void openRightRearWing();
-
-void closeRightRearWing();
-
-void toggleLeftRearWing();
-
-void toggleRightRearWing();
-
-void extendBlocker();
-
 void retractBlocker();
 
 void toggleBlocker();

@@ -1,15 +1,16 @@
 #include "okapi/api.hpp"
 
+#define CIRCUMFERENCE 3.25 * M_PI
+#define ENCODER_TICKS 360
+#define GEAR_RATIO 3 / 4
+#define GEARBOX 600
+
 extern bool leftWingState;
 extern bool rightWingState;
 extern bool globalWingState;
-extern bool leftRearWingState;
-extern bool rightRearWingState;
-extern bool globalRearWingState;
 extern bool blockerState;
 extern bool shooterState;
 extern bool hangState;
-extern bool cataToggle;
 extern double angleOffset;
 
 // Controller
@@ -59,8 +60,5 @@ extern okapi::ControllerButton XButton;
 // Pneumatics
 /* Right wing */ extern pros::ADIDigitalOut rightWing;
 /* Left wing */ extern pros::ADIDigitalOut leftWing;
-/* Right rear wing */ extern pros::ADIDigitalOut rightRearWing;
-/* Left rear wing */ extern pros::ADIDigitalOut leftRearWing;
 /* Blocker left*/ extern pros::ADIDigitalOut blocker;
 /* Blocker Right*/ extern pros::ADIDigitalOut hang;
-/* Single use*/ extern pros::ADIDigitalOut shooter;

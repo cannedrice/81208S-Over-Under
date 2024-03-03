@@ -21,23 +21,9 @@ void updatePneumatics()
     {
         toggleBlocker();
     }
-    if (AButton.changedToPressed())
-    {
-        toggleRightRearWing();
-    }
-    if (YButton.changedToPressed())
-    {
-        toggleLeftRearWing();
-    }
     if (XButton.changedToPressed())
     {
         toggleHang();
-    }
-    if (BButton.changedToPressed())
-    {
-        globalRearWingState = !globalRearWingState;
-        leftRearWing.set_value(globalRearWingState);
-        rightRearWing.set_value(globalRearWingState);
     }
 }
 
@@ -110,78 +96,6 @@ void toggleRightWing()
     else
     {
         closeRightWing();
-    }
-}
-
-/**
- * @brief opens the wing
- *
- */
-void openLeftRearWing()
-{
-    leftRearWing.set_value(true);
-    leftRearWingState = true;
-}
-
-/**
- * @brief closes the wing
- *
- */
-void closeLeftRearWing()
-{
-    leftRearWing.set_value(false);
-    leftRearWingState = false;
-}
-
-/**
- * @brief opens the wing
- *
- */
-void openRightRearWing()
-{
-    rightRearWing.set_value(true);
-    rightRearWingState = true;
-}
-
-/**
- * @brief closes the wing
- *
- */
-void closeRightRearWing()
-{
-    rightRearWing.set_value(false);
-    rightRearWingState = false;
-}
-
-/**
- * @brief toggles the wing
- *
- */
-void toggleLeftRearWing()
-{
-    if (leftRearWingState == false)
-    {
-        openLeftRearWing();
-    }
-    else
-    {
-        closeLeftRearWing();
-    }
-}
-
-/**
- * @brief toggles the wing
- *
- */
-void toggleRightRearWing()
-{
-    if (rightRearWingState == false)
-    {
-        openRightRearWing();
-    }
-    else
-    {
-        closeRightRearWing();
     }
 }
 

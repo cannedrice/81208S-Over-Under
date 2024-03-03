@@ -1,11 +1,6 @@
 #include "main.h"
 
 using namespace std;
-#define M_PI 3.1415926535897932384626433832795
-#define CIRCUMFERENCE 3.25 * M_PI
-#define ENCODER_TICKS 360
-#define GEAR_RATIO 2 / 3
-#define GEARBOX 600
 
 /**
  * @brief Construct a new motion profile::motion profile object
