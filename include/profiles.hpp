@@ -5,6 +5,10 @@
 #define GEAR_RATIO 3 / 4
 #define GEARBOX 600
 
+#define VERTICALCIRC 2.75 * M_PI * 24/22.4
+#define HORIZONTALCIRC 2.75 * M_PI * 24/23.2
+#define TICKS 360
+
 double extern dis[3];
 double extern rot[3];
 double extern piv[3];
@@ -66,3 +70,6 @@ extern okapi::ControllerButton XButton;
 /* Left wing */ extern pros::ADIDigitalOut leftWing;
 /* Blocker left*/ extern pros::ADIDigitalOut blocker;
 /* Blocker Right*/ extern pros::ADIDigitalOut hang;
+
+extern pros::ADIEncoder verticalTracker;
+extern pros::ADIEncoder horizontalTracker;

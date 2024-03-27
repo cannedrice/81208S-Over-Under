@@ -1,14 +1,15 @@
 #include "main.h"
 uint32_t lastFire = -800;
 int autonNumber = 5; // When uploading make sure that slot number and auton number match!!!!
-// 1 = Safe Winpoint
-// 2 = Winpoint
-// 3 = Eliminations
-// 4 = Troll Elim
-// 5 = Score 5
-// 6 = Score 6
-// 7 = Skills
-// 0 = Tests
+// old
+	// 1 = Safe Winpoint
+	// 2 = Winpoint
+	// 3 = Eliminations
+	// 4 = Troll Elim
+	// 5 = Score 5
+	// 6 = Score 6
+	// 7 = Skills
+	// 0 = Tests
 
 void on_center_button() {}
 
@@ -29,33 +30,34 @@ void autonomous()
 {
 	uint32_t startTime = pros::millis();
 	motion_profile motionProfile;
-	switch (autonNumber)
-	{
-	case 1:
-		safeWinpoint();
-		break;
-	case 2:
-		winpoint();
-		break;
-	case 3:
-		destruction();
-		break;
-	case 4:
-		troll();
-		break;
-	case 5:
-		scorefive();
-		break;
-	case 6:
-		scoresix();
-		break;
-	case 7:
-		skills();
-		break;
-	case 0:
-		tests();
-		break;
-	}
+	// switch (autonNumber)
+	// {
+	// case 1:
+	// 	safeWinpoint();
+	// 	break;
+	// case 2:
+	// 	winpoint();
+	// 	break;
+	// case 3:
+	// 	destruction();
+	// 	break;
+	// case 4:
+	// 	troll();
+	// 	break;
+	// case 5:
+	// 	scorefive();
+	// 	break;
+	// case 6:
+	// 	scoresix();
+	// 	break;
+	// case 7:
+	// 	skills();
+	// 	break;
+	// case 0:
+	// 	tests();
+	// 	break;
+	// }
+	
 	pros::lcd::print(1, "time: %f", (pros::millis() - (float)startTime) / 1000);
 }
 
@@ -63,17 +65,7 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	uint32_t driveTime = pros::millis();
-	// cataToggle = true;
-	if (autonNumber == 7)
-	{
-		driverSkills();
-	}
-	else
-	{
-		// cataToggle = false;
-	}
-	int stepC = 1;
-
+	
 	while (true)
 	{
 		/*--chassis control--*/
@@ -125,7 +117,6 @@ void opcontrol()
 		// 	}
 		// }
 
-		master.set_text(2, 0, std::to_string(stepC - 1));
 		if ((((pros::millis() - (float)driveTime) / 1000) > 115 && ((pros::millis() - (float)driveTime) / 1000) < 116) || (((pros::millis() - (float)driveTime) / 1000) > 135 && ((pros::millis() - (float)driveTime) / 1000) < 136))
 		{
 			master.rumble(". ");

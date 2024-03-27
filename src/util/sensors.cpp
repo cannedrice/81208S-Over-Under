@@ -8,7 +8,7 @@
  */
 double getIMU()
 {
-    return gyro.get_yaw() + angleOffset;
+    return gyro.get_rotation() + angleOffset;
 }
 
 /**
@@ -29,4 +29,22 @@ double getAverageLeftRotation()
 double getAverageRightRotation()
 {
     return (rf.getPosition() + rb.getPosition() + rt.getPosition()) / 3;
+}
+
+/**
+ * @brief Get the Vertical Rotation object
+ * 
+ * @return double 
+ */
+double getVerticalRotation(){
+    return verticalTracker.get_value();
+}
+
+/**
+ * @brief Get the Horizontal Rotation object
+ * 
+ * @return double 
+ */
+double getHorizontalRotation(){
+    return horizontalTracker.get_value();
 }
