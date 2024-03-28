@@ -48,3 +48,7 @@ double getVerticalRotation(){
 double getHorizontalRotation(){
     return horizontalTracker.get_value();
 }
+
+double getDriveTemp(){
+    return ((lf.getTemperature() + lb.getTemperature() + lt.getTemperature() + rf.getTemperature() + rb.getTemperature() + rt.getTemperature())/6);
+}

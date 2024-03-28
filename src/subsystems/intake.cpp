@@ -18,8 +18,4 @@ void updateIntake()
   {
     intake.moveVoltage(-12000);
   }
-  else
-  {
-    intake.moveVoltage(0);
-  }
 }

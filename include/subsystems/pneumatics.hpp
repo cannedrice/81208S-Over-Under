@@ -23,12 +23,15 @@ void closeRightRearWing();
 void toggleLeftRearWing();
 
 void toggleRightRearWing();
-void retractBlocker();
-
-void toggleBlocker();
 
 void extendHang();
 
 void retractHang();
 
 void toggleHang();
+
+void extendPTO();
+
+void retractPTO();
+
+void togglePTO();

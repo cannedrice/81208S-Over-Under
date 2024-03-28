@@ -3,20 +3,7 @@ bool counter = true;
 
 void updatePneumatics()
 {
-    if (YButton.changedToPressed())
-    {
-        toggleLeftWing();
-    }
-    if (AButton.changedToPressed())
-    {
-        toggleRightWing();
-    }
-    if (BButton.changedToPressed())
-    {
-        globalWingState = !globalWingState;
-        leftWing.set_value(globalWingState);
-        rightWing.set_value(globalWingState);
-    }
+    /*left control pad*/
     if (rightButton.changedToPressed())
     {
         toggleRightRearWing();
@@ -31,143 +18,179 @@ void updatePneumatics()
         leftRearWing.set_value(globalRearWingState);
         rightRearWing.set_value(globalRearWingState);
     }
+
+    /*right control pad*/
+    if (YButton.changedToPressed())
+    {
+        toggleLeftWing();
+    }
+    if (AButton.changedToPressed())
+    {
+        toggleRightWing();
+    }
+    if (BButton.changedToPressed())
+    {
+        globalWingState = !globalWingState;
+        leftWing.set_value(globalWingState);
+        rightWing.set_value(globalWingState);
+    }    
+
+    /*--other--*/
+    if(r1.changedToPressed()){
+        toggleHang();
+    }
+    if(r2.changedToPressed()){
+        togglePTO();
+    }
 }
 
-// /**
-//  * @brief opens the wing
-//  *
-//  */
-// void openLeftWing()
-// {
-//     leftWing.set_value(true);
-//     leftWingState = true;
-// }
+/*--Front Wings--*/
+void openLeftWing()
+{
+    leftWing.set_value(true);
+    leftWingState = true;
+}
 
-// /**
-//  * @brief opens the wing
-//  *
-//  */
-// void openRightWing()
-// {
-//     rightWing.set_value(true);
-//     rightWingState = true;
-// }
+void openRightWing()
+{
+    rightWing.set_value(true);
+    rightWingState = true;
+}
 
-// /**
-//  * @brief closes the wing
-//  *
-//  */
-// void closeLeftWing()
-// {
-//     leftWing.set_value(false);
-//     leftWingState = false;
-// }
+void closeLeftWing()
+{
+    leftWing.set_value(false);
+    leftWingState = false;
+}
 
-// /**
-//  * @brief closes the wing
-//  *
-//  */
-// void closeRightWing()
-// {
-//     rightWing.set_value(false);
-//     rightWingState = false;
-// }
+void closeRightWing()
+{
+    rightWing.set_value(false);
+    rightWingState = false;
+}
 
-// /**
-//  * @brief toggles the wing
-//  *
-//  */
-// void toggleLeftWing()
-// {
-//     if (leftWingState == false)
-//     {
-//         openLeftWing();
-//     }
-//     else
-//     {
-//         closeLeftWing();
-//     }
-// }
+void toggleLeftWing()
+{
+    if (leftWingState == false)
+    {
+        openLeftWing();
+    }
+    else
+    {
+        closeLeftWing();
+    }
+}
 
-// /**
-//  * @brief toggles the wing
-//  *
-//  */
-// void toggleRightWing()
-// {
-//     if (rightWingState == false)
-//     {
-//         openRightWing();
-//     }
-//     else
-//     {
-//         closeRightWing();
-//     }
-// }
+void toggleRightWing()
+{
+    if (rightWingState == false)
+    {
+        openRightWing();
+    }
+    else
+    {
+        closeRightWing();
+    }
+}
 
-// /**
-//  * @brief extend Blocker
-//  *
-//  */
-// void extendBlocker()
-// {
-//     blocker.set_value(true);
-//     blockerState = true;
-// }
+/*--Rear Wings--*/
+void openLeftRearWing()
+{
+    leftRearWing.set_value(true);
+    leftRearWingState = true;
+}
 
-// /**
-//  * @brief retract Blocker
-//  *
-//  */
-// void retractBlocker()
-// {
-//     blocker.set_value(false);
-//     blockerState = false;
-// }
+void openRightRearWing()
+{
+    rightRearWing.set_value(true);
+    rightRearWingState = true;
+}
 
-// /**
-//  * @brief toggle Blocker
-//  *
-//  */
-// void toggleBlocker()
-// {
-//     if (blockerState == false)
-//     {
-//         extendBlocker();
-//     }
-//     else
-//     {
-//         retractBlocker();
-//     }
-// }
+void closeLeftRearWing()
+{
+    leftRearWing.set_value(false);
+    leftRearWingState = false;
+}
 
-// /**
-//  * @brief extend hang
-//  *
-//  */
-// void extendHang()
-// {
-//     hang.set_value(true);
-//     hangState = true;
-// }
+void closeRightRearWing()
+{
+    rightRearWing.set_value(false);
+    rightRearWingState = false;
+}
 
-// /**
-//  * @brief retract hang
-//  *
-//  */
+void toggleLeftRearWing()
+{
+    if (leftRearWingState == false)
+    {
+        openLeftWing();
+    }
+    else
+    {
+        closeLeftWing();
+    }
+}
 
-/**
- * @brief toggles the wing
- *
- */
 void toggleRightRearWing()
 {
     if (rightRearWingState == false)
     {
-        openRightRearWing();
+        openRightWing();
     }
     else
     {
-        closeRightRearWing();
+        closeRightWing();
+    }
+}
+
+/*--Hang & PTO--*/
+void extendHang()
+{
+    leftHang.set_value(true);
+    rightHang.set_value(true);
+    hangState = true;
+}
+
+void retractHang()
+{
+    leftHang.set_value(false);
+    rightHang.set_value(false);
+    hangState = false;
+}
+
+void toggleHang()
+{
+    if (hangState == false)
+    {
+        extendHang();
+    }
+    else
+    {
+        retractHang();
+    }
+}
+
+void extendPTO()
+{
+    frontPTO.set_value(true);
+    backPTO.set_value(true);
+    PTOState = true;
+}
+
+void retractPTO()
+{
+    frontPTO.set_value(false);
+    backPTO.set_value(false);
+    PTOState = false;
+}
+
+void togglePTO()
+{
+    if (PTOState == false)
+    {
+        extendPTO();
+    }
+    else
+    {
+        retractPTO();
     }
 }

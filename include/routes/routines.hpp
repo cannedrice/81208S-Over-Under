@@ -1,7 +1,6 @@
 void tests();
-void scorefive();
-void scoresix();
-void safeWinpoint();
-void winpoint();
-void destruction();
-void troll();
+void qualFarside();
+void qualCloseside();
+void qualCloseside2();
+void elimCloseside();
+void elimCloseside2();

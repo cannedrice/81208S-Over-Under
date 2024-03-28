@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "81208S Winpoint",
+    "project_name": "Q_CS",
     "target": "v5",
     "templates": {
       "kernel": {

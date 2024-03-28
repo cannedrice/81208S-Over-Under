@@ -19,8 +19,7 @@ extern bool globalWingState;
 extern bool leftRearWingState;
 extern bool rightRearWingState;
 extern bool globalRearWingState;
-extern bool blockerState;
-extern bool shooterState;
+extern bool PTOState;
 extern bool hangState;
 extern double angleOffset;
 
@@ -61,20 +60,20 @@ extern okapi::ControllerButton XButton;
 /* Left intake */ extern okapi::Motor li;
 /* Intake motor group */ extern okapi::MotorGroup intake;
 
-// Catapult
-/* Catapult */ extern okapi::Motor hang;
 /* Catapult potentiometer */ extern okapi::Potentiometer potentiometer;
 
 // Auton
 /* Gyro */ extern pros::IMU gyro;
 
 // Pneumatics
+/* Front PTO */ extern pros::ADIDigitalOut frontPTO;
+/* Back PTO*/ extern pros::ADIDigitalOut backPTO;
 /* Right wing */ extern pros::ADIDigitalOut rightWing;
 /* Left wing */ extern pros::ADIDigitalOut leftWing;
 /* Right rear wing */ extern pros::ADIDigitalOut rightRearWing;
 /* Left rear wing */ extern pros::ADIDigitalOut leftRearWing;
-/* Blocker left*/ extern pros::ADIDigitalOut blocker;
-/* Blocker Right*/ extern pros::ADIDigitalOut hang;
+/* Hang left*/ extern pros::ADIDigitalOut leftHang;
+/* hang right*/ extern pros::ADIDigitalOut rightHang;
 
 extern pros::ADIEncoder verticalTracker;
 extern pros::ADIEncoder horizontalTracker;

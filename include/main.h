@@ -89,7 +89,6 @@ extern "C"
 
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
-#include "subsystems/hang.hpp"
 #include "subsystems/pneumatics.hpp"
 #include "subsystems/drvlib.hpp"
 

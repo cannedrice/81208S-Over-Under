@@ -20,7 +20,7 @@ void skills()
 
     while (stepC <= 48)
     {
-        catapult.moveAbsolute(180 * stepC, 12000);
+        // catapult.moveAbsolute(180 * stepC, 12000);
         stepC++; // no way c++??????
         pros::delay(550);
     }
@@ -175,7 +175,7 @@ void driverSkills()
 
     while (stepC <= 47)
     {
-        catapult.moveAbsolute(180 * stepC, 12000);
+        // catapult.moveAbsolute(180 * stepC, 12000);
         stepC++; // no way c++??????
         pros::delay(550);
     }

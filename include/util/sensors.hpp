@@ -9,5 +9,3 @@ double getVerticalRotation();
 double getHorizontalRotation();
 
 double getDriveTemp();
-
-double getEfficiency();
