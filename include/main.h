@@ -91,9 +91,11 @@ extern "C"
 #include "subsystems/intake.hpp"
 #include "subsystems/hang.hpp"
 #include "subsystems/pneumatics.hpp"
+#include "subsystems/drvlib.hpp"
 
 #include "util/PID_controller.hpp"
 #include "util/motion_profile.hpp"
+#include "util/odom.hpp"
 #include "util/sensors.hpp"
 #include "util/turning.hpp"
 // #include <iostream>

@@ -1,7 +1,7 @@
 void tests();
-void winpointAuton();
-void destruction();
 void scorefive();
-void scorefiveCorner();
 void scoresix();
-void scoreSixSafe();
+void safeWinpoint();
+void winpoint();
+void destruction();
+void troll();

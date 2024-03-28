@@ -8,7 +8,7 @@
  */
 double getIMU()
 {
-    return gyro.get_yaw() + angleOffset;
+    return gyro.get_rotation() + angleOffset;
 }
 
 /**
@@ -31,10 +31,20 @@ double getAverageRightRotation()
     return (rf.getPosition() + rb.getPosition() + rt.getPosition()) / 3;
 }
 
-double getDriveTemp(){
-    return ((lf.getTemperature() + lb.getTemperature() + lt.getTemperature() + rf.getTemperature() + rb.getTemperature() + rt.getTemperature())/6) ;
+/**
+ * @brief Get the Vertical Rotation object
+ * 
+ * @return double 
+ */
+double getVerticalRotation(){
+    return verticalTracker.get_value();
 }
 
-double getEfficiency(){ // Only using this to see how much resistance the drivetrain puts up
-    return ((lf.getEfficiency() + lb.getEfficiency() + lt.getEfficiency() + rf.getEfficiency() + rb.getEfficiency() + rt.getEfficiency()) / 6);
+/**
+ * @brief Get the Horizontal Rotation object
+ * 
+ * @return double 
+ */
+double getHorizontalRotation(){
+    return horizontalTracker.get_value();
 }

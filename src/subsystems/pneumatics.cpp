@@ -33,133 +33,128 @@ void updatePneumatics()
     }
 }
 
-/**
- * @brief opens the wing
- *
- */
-void openLeftWing()
-{
-    leftWing.set_value(true);
-    leftWingState = true;
-}
+// /**
+//  * @brief opens the wing
+//  *
+//  */
+// void openLeftWing()
+// {
+//     leftWing.set_value(true);
+//     leftWingState = true;
+// }
 
-/**
- * @brief opens the wing
- *
- */
-void openRightWing()
-{
-    rightWing.set_value(true);
-    rightWingState = true;
-}
+// /**
+//  * @brief opens the wing
+//  *
+//  */
+// void openRightWing()
+// {
+//     rightWing.set_value(true);
+//     rightWingState = true;
+// }
 
-/**
- * @brief closes the wing
- *
- */
-void closeLeftWing()
-{
-    leftWing.set_value(false);
-    leftWingState = false;
-}
+// /**
+//  * @brief closes the wing
+//  *
+//  */
+// void closeLeftWing()
+// {
+//     leftWing.set_value(false);
+//     leftWingState = false;
+// }
 
-/**
- * @brief closes the wing
- *
- */
-void closeRightWing()
-{
-    rightWing.set_value(false);
-    rightWingState = false;
-}
+// /**
+//  * @brief closes the wing
+//  *
+//  */
+// void closeRightWing()
+// {
+//     rightWing.set_value(false);
+//     rightWingState = false;
+// }
 
-/**
- * @brief toggles the wing
- *
- */
-void toggleLeftWing()
-{
-    if (leftWingState == false)
-    {
-        openLeftWing();
-    }
-    else
-    {
-        closeLeftWing();
-    }
-}
+// /**
+//  * @brief toggles the wing
+//  *
+//  */
+// void toggleLeftWing()
+// {
+//     if (leftWingState == false)
+//     {
+//         openLeftWing();
+//     }
+//     else
+//     {
+//         closeLeftWing();
+//     }
+// }
 
-/**
- * @brief toggles the wing
- *
- */
-void toggleRightWing()
-{
-    if (rightWingState == false)
-    {
-        openRightWing();
-    }
-    else
-    {
-        closeRightWing();
-    }
-}
+// /**
+//  * @brief toggles the wing
+//  *
+//  */
+// void toggleRightWing()
+// {
+//     if (rightWingState == false)
+//     {
+//         openRightWing();
+//     }
+//     else
+//     {
+//         closeRightWing();
+//     }
+// }
 
-/**
- * @brief opens the wing
- *
- */
-void openLeftRearWing()
-{
-    leftRearWing.set_value(true);
-    leftRearWingState = true;
-}
+// /**
+//  * @brief extend Blocker
+//  *
+//  */
+// void extendBlocker()
+// {
+//     blocker.set_value(true);
+//     blockerState = true;
+// }
 
-/**
- * @brief closes the wing
- *
- */
-void closeLeftRearWing()
-{
-    leftRearWing.set_value(false);
-    leftRearWingState = false;
-}
+// /**
+//  * @brief retract Blocker
+//  *
+//  */
+// void retractBlocker()
+// {
+//     blocker.set_value(false);
+//     blockerState = false;
+// }
 
-/**
- * @brief opens the wing
- *
- */
-void openRightRearWing()
-{
-    rightRearWing.set_value(true);
-    rightRearWingState = true;
-}
+// /**
+//  * @brief toggle Blocker
+//  *
+//  */
+// void toggleBlocker()
+// {
+//     if (blockerState == false)
+//     {
+//         extendBlocker();
+//     }
+//     else
+//     {
+//         retractBlocker();
+//     }
+// }
 
-/**
- * @brief closes the wing
- *
- */
-void closeRightRearWing()
-{
-    rightRearWing.set_value(false);
-    rightRearWingState = false;
-}
+// /**
+//  * @brief extend hang
+//  *
+//  */
+// void extendHang()
+// {
+//     hang.set_value(true);
+//     hangState = true;
+// }
 
-/**
- * @brief toggles the wing
- *
- */
-void toggleLeftRearWing()
-{
-    if (leftRearWingState == false)
-    {
-        openLeftRearWing();
-    }
-    else
-    {
-        closeLeftRearWing();
-    }
-}
+// /**
+//  * @brief retract hang
+//  *
+//  */
 
 /**
  * @brief toggles the wing
