@@ -10,7 +10,10 @@
 #define TICKS 360
 
 double extern dis[3];
-double extern rot[3];
+double extern rot45[3];
+double extern rot90[3];
+double extern rot135[3];
+double extern rot180[3];
 double extern piv[3];
 
 extern bool leftWingState;

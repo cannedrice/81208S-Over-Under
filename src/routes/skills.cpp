@@ -12,7 +12,7 @@ void skills()
     /*--Setup--*/ // -20 firing angle
 
     motionProfile.moveDistance(-7, 50, 1, {dis[0], dis[1], dis[2]}, {65, 0.1, 0.3, 50});
-    rotationTurn(-21.25, 9500, 1, 1000, {rot[0], rot[1], rot[2]});
+    rotationTurn(-21.25, 9500, 1, 1000, {rot90[0], rot90[1], rot90[2]});
     motionProfile.moveDistance(-3, -21.25, 1, {dis[0], dis[1], dis[2]}, {40, 0.1, 0.3, 20}, 500);
     
 
@@ -31,7 +31,7 @@ void skills()
 
     /*--Cross sides--*/
 
-    rotationTurn(48, 9500, 1, 700, {rot[0], rot[1], rot[2]});
+    rotationTurn(48, 9500, 1, 700, {rot90[0], rot90[1], rot90[2]});
     motionProfile.moveDistance(15, 48, 1, {dis[0], dis[1], dis[2]}, {65, 0.1, 0.3, 50});
     rotationTurn(0, 9500, 1, 700, {0.019, 0, 0.08});
     motionProfile.moveDistance(75 /*78 if side push*/, 0, 1, {dis[0], dis[1], dis[2]}, {70, 0.1, 0.3, 45});
@@ -107,7 +107,7 @@ void skills()
 
     /*--Left Diagonal--*/
 
-    rotationTurn(-90, 9500, 1, 500, {rot[0], rot[1], rot[2]});
+    rotationTurn(-90, 9500, 1, 500, {rot90[0], rot90[1], rot90[2]});
     intake.moveVoltage(12000);
     motionProfile.moveDistance(24, -90, 1, {dis[0], dis[1], dis[2]}, {65, 0.1, 0.3, 55}, 1200);
     pivotTurn(23, 8000, 0.5, 750, true, {piv[0], piv[1], piv[2]});
@@ -167,7 +167,7 @@ void driverSkills()
     /*--Setup--*/ // -20 firing angle
 
     motionProfile.moveDistance(-7, 50, 1, {dis[0], dis[1], dis[2]}, {65, 0.1, 0.3, 50});
-    rotationTurn(-20, 9500, 1, 1000, {rot[0], rot[1], rot[2]});
+    rotationTurn(-20, 9500, 1, 1000, {rot90[0], rot90[1], rot90[2]});
     motionProfile.moveDistance(-3, -20, 1, {dis[0], dis[1], dis[2]}, {40, 0.1, 0.3, 20}, 500);
     
 

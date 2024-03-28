@@ -36,7 +36,7 @@ void qualCloseside()
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
 
-    rotationTurn(35, 9500, 1, 1200, {rot[0], rot[1], rot[2]});
+    rotationTurn(35, 9500, 1, 1200, {rot90[0], rot90[1], rot90[2]});
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(11.5, 35, 1, {dis[0], dis[1], dis[2]}, {60, 0.05, 0.2, 40});
     pivotTurn(0, 9500, 0.5, 800, false, {piv[0], piv[1], piv[2]});
@@ -84,9 +84,9 @@ void qualCloseside2()
     driveRightGroup.moveVoltage(0);
 
     /*--Winpoint ending--*/
-    rotationTurn(-39, 8000, 1, 1200, {rot[0], rot[1], rot[2]});
+    rotationTurn(-39, 8000, 1, 1200, {rot90[0], rot90[1], rot90[2]});
     motionProfile.moveDistance(7.75, -39, 1, {0.0175, 0, 0.01}, {40, 0.01, 0.3, 10}, 1000);
-    rotationTurn(-93, 8000, 1, 800, {rot[0], rot[1], rot[2]});
+    rotationTurn(-93, 8000, 1, 800, {rot90[0], rot90[1], rot90[2]});
     pros::delay(75);
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(31.75, -93, 1, {0.0175, 0, 0.01}, {65, 0.01, 0.4, 20}); // tounches bar
@@ -94,9 +94,9 @@ void qualCloseside2()
     intake.moveVoltage(0);
 
     /*--Destroy ending--*/
-    //     rotationTurn(30, 8000, 1, 1200, {rot[0], rot[1], rot[2]});
+    //     rotationTurn(30, 8000, 1, 1200, {rot90[0], rot90[1], rot90[2]});
     //     motionProfile.moveDistance(10, 136.5, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
-    //     rotationTurn(110, 8000, 1, 1200, {rot[0], rot[1], rot[2]});
+    //     rotationTurn(110, 8000, 1, 1200, {rot90[0], rot90[1], rot90[2]});
     //     motionProfile.moveDistance(6, 110, 1, {0.0175, 0, 0.01}, {30, 0.01, 0.3, 3});
 }
 
@@ -136,7 +136,7 @@ void elimCloseside()
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
 
-    rotationTurn(35, 9500, 1, 1200, {rot[0], rot[1], rot[2]});
+    rotationTurn(35, 9500, 1, 1200, {rot90[0], rot90[1], rot90[2]});
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(11.5, 35, 1, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 55});
     pivotTurn(0, 9500, 0.5, 800, false, {piv[0], piv[1], piv[2]});
@@ -161,7 +161,7 @@ void elimCloseside2()
     toggleHang();
     pros::delay(200);
     motionProfile.moveDistance(-2, -78, 1, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 55});
-    rotationTurn(0, 9500, 1, 1200, {rot[0], rot[1], rot[2]});
+    rotationTurn(0, 9500, 1, 1200, {rot90[0], rot90[1], rot90[2]});
     toggleLeftWing();
     motionProfile.moveDistance(19, 0, 1, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 55}, 600);
     toggleLeftWing();
@@ -207,7 +207,7 @@ void qualFarside()
     pros::delay(200);
     intake.moveVoltage(12000);
     motionProfile.moveDistance(-5, 150, 2, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 60}, 1500);
-    rotationTurn(15, 9500, 1, 1200, {rot[0], rot[1], rot[2]});
+    rotationTurn(15, 9500, 1, 1200, {rot90[0], rot90[1], rot90[2]});
     motionProfile.moveDistance(12, 17, 2, {dis[0], dis[1], dis[2]}, {70, 0.05, 0.2, 60}, 1500);
     pros::delay(200);
     motionProfile.moveDistance(-6, 15, 2, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 60}, 1500);
@@ -216,10 +216,10 @@ void qualFarside()
     intake.moveVoltage(-12000);
     pros::delay(250);
     intake.moveVoltage(12000);
-    rotationTurn(43, 10000, 1, 600, {rot[0], rot[1], rot[2]});
+    rotationTurn(43, 10000, 1, 600, {rot90[0], rot90[1], rot90[2]});
     motionProfile.moveDistance(29.25, 45, 2, {dis[0], dis[1], dis[2]}, {70, 0.05, 0.2, 60}, 1200);
     motionProfile.moveDistance(-5.5, 45, 2, {dis[0], dis[1], dis[2]}, {65, 0.05, 0.2, 60}, 1500);
-    rotationTurn(110, 10000, 1, 600, {rot[0], rot[1], rot[2]});
+    rotationTurn(110, 10000, 1, 600, {rot90[0], rot90[1], rot90[2]});
     pivotTurn(175, 10000, 0.5, 800, true, {piv[0], piv[1], piv[2]});
     toggleLeftWing();
     toggleRightWing();
@@ -246,7 +246,7 @@ void qualFarside()
 
     // // pros::delay(500);
 
-    // rotationTurn(90, 9500, 0.5, 750, {rot[0], rot[1], rot[2]}); //face net
+    // rotationTurn(90, 9500, 0.5, 750, {rot90[0], rot90[1], rot90[2]}); //face net
 
     // openLeftWing();
     // openRightWing();
@@ -269,7 +269,7 @@ void qualFarside()
 
     // motionProfile.moveDistance(-12, 0, 2,{dis[0], dis[1], dis[2]}, {60, 0.1, 0.3, 50}, 750);//-13
 
-    // rotationTurn(-85, 9500, 0.5, 500, {rot[0], rot[1], rot[2]}); //turn to ball //INCREASE
+    // rotationTurn(-85, 9500, 0.5, 500, {rot90[0], rot90[1], rot90[2]}); //turn to ball //INCREASE
 
     // intake.moveVoltage(12000);
 
@@ -284,12 +284,12 @@ void qualFarside()
     // motionProfile.moveDistance(-29, -15, 2, {dis[0], dis[1], dis[2]}, {60, 0.1, 0.3, 40}, 1500);//INCREASE //WATCH FOR THIS!
 
     // //face side of net
-    // rotationTurn(33, 9500, 0.5, 500, {rot[0], rot[1], rot[2]}); //INCREASE
+    // rotationTurn(33, 9500, 0.5, 500, {rot90[0], rot90[1], rot90[2]}); //INCREASE
 
     // intake.moveVoltage(-12000);
     // pros::delay(350);
     // intake.moveVoltage(0);
-    // rotationTurn(-87, 9500, 0.5, 750, {rot[0], rot[1], rot[2]}); //INCREASE
+    // rotationTurn(-87, 9500, 0.5, 750, {rot90[0], rot90[1], rot90[2]}); //INCREASE
 
     // intake.moveVoltage(12000);
 
@@ -300,7 +300,7 @@ void qualFarside()
     // intake.moveVoltage(0);
 
     // //foward ram-------
-    // rotationTurn(45, 9500, 0.5, 750, {rot[0], rot[1], rot[2]});//INCREASE
+    // rotationTurn(45, 9500, 0.5, 750, {rot90[0], rot90[1], rot90[2]});//INCREASE
 
     // // toggleRightRearWing();
     // // pros::delay(100);
@@ -308,12 +308,12 @@ void qualFarside()
     // // motionProfile.moveDistance(13, 45, 2, {dis[0], dis[1], dis[2]}, {50, 0.1, 0.3, 40}, 500);
 
     // //get ball out of corner
-    // // rotationTurn(-45, 12000, 0.5, 800,{rot[0], rot[1], rot[2]});
+    // // rotationTurn(-45, 12000, 0.5, 800,{rot90[0], rot90[1], rot90[2]});
 
     // // toggleRightRearWing();
     // // pros::delay(150);
 
-    // rotationTurn(30, 9500, 0.5, 800, {rot[0], rot[1], rot[2]}); //face net //INCREASE
+    // rotationTurn(30, 9500, 0.5, 800, {rot90[0], rot90[1], rot90[2]}); //face net //INCREASE
     // intake.moveVoltage(-12000);
 
     // pros::delay(100);

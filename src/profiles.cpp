@@ -1,8 +1,11 @@
 #include "main.h"
 
 double dis[3] = {0.05, 0, 0.01};
-double rot[3] = {0.017, 0, 0.08};
-double piv[3] = {0.016, 0, 0.02};
+double rot45[3] = {0.013, 0, 0.034};
+double rot90[3] = {0.011, 0, 0.036};
+double rot135[3] = {0.009, 0, 0.038};
+double rot180[3] = {0.008, 0, 0.04};
+double piv[3] = {0.013, 0, 0.02};
 
 bool leftWingState = false;
 bool rightWingState = false;
@@ -46,7 +49,7 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);
 /* Drive group */ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 
 // Intake
-/* Right intake */ okapi::Motor ri(13, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Right intake */ okapi::Motor ri(14, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 /* Left intake */ okapi::Motor li(17, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 /* Intake motor group */ okapi::MotorGroup intake = {ri}; //, li};
 

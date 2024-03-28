@@ -61,6 +61,13 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	uint32_t driveTime = pros::millis();
+
+	pros::delay(2000);
+	motion_profile motionProfile;
+	pivotTurn(180, 9500, 0.5, 3000, true, {piv[0], piv[1], piv[2]});  
+	pros::delay(200);
+	// motionProfile.moveDistance(8, 90, 2, {dis[0], dis[1], dis[2]}, {60, 0.1, 0.3, 40}, 500);
+
 	
 	while (true)
 	{
