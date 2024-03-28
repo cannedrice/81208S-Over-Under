@@ -3,29 +3,29 @@ bool counter = true;
 
 void updatePneumatics()
 {
-    if (leftButton.changedToPressed())
+    if (YButton.changedToPressed())
     {
         toggleLeftWing();
     }
-    if (rightButton.changedToPressed())
+    if (AButton.changedToPressed())
     {
         toggleRightWing();
     }
-    if (downButton.changedToPressed())
+    if (BButton.changedToPressed())
     {
         globalWingState = !globalWingState;
         leftWing.set_value(globalWingState);
         rightWing.set_value(globalWingState);
     }
-    if (AButton.changedToPressed())
+    if (rightButton.changedToPressed())
     {
         toggleRightRearWing();
     }
-    if (YButton.changedToPressed())
+    if (leftButton.changedToPressed())
     {
         toggleLeftRearWing();
     }
-    if (BButton.changedToPressed())
+    if (downButton.changedToPressed())
     {
         globalRearWingState = !globalRearWingState;
         leftRearWing.set_value(globalRearWingState);

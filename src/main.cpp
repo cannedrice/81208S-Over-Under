@@ -24,6 +24,7 @@ void competition_initialize() {}
 
 void autonomous()
 {
+	uint32_t startTime = pros::millis();
 	motion_profile motionProfile;
 	switch (autonNumber)
 	{
@@ -46,6 +47,7 @@ void autonomous()
 		tests();
 		break;
 	}
+	pros::lcd::print(1, "time: %f", (pros::millis() - (float)startTime) / 1000);
 }
 
 void opcontrol()
@@ -63,7 +65,11 @@ void opcontrol()
 		/*--info--*/
 		pros::lcd::print(2, "Yaw: %f", getIMU());
 		pros::lcd::print(3, "Average drive train temp: %f", getDriveTemp());
-		//put more info here, tbd
+		// put more info here, tbd
+		if ((pros::millis() > 115000 && pros::millis() < 116500) || (pros::millis() > 135000 && pros::millis() < 136500))
+		{
+			master.rumble(". ");
+		}
 		pros::delay(20);
 	}
 }
