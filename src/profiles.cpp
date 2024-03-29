@@ -1,11 +1,11 @@
 #include "main.h"
 
-double dis[3] = {0.05, 0, 0.01};
-double rot45[3] = {0.013, 0, 0.034};
-double rot90[3] = {0.011, 0, 0.036};
-double rot135[3] = {0.009, 0, 0.038};
-double rot180[3] = {0.008, 0, 0.04};
-double piv[3] = {0.013, 0, 0.02};
+PIDvalues dis = {0.05, 0, 0.01};
+PIDvalues rot45 = {0.013, 0, 0.034};
+PIDvalues rot90 = {0.011, 0, 0.036};
+PIDvalues rot135 = {0.009, 0, 0.038};
+PIDvalues rot180 = {0.008, 0, 0.04};
+PIDvalues piv = {0.013, 0, 0.02};
 
 bool leftWingState = false;
 bool rightWingState = false;

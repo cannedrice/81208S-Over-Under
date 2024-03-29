@@ -1,4 +1,5 @@
 #include "okapi/api.hpp"
+#include "util/PID_controller.hpp"
 
 #define CIRCUMFERENCE 3.25 * M_PI
 #define ENCODER_TICKS 360
@@ -9,12 +10,12 @@
 #define HORIZONTALCIRC 2.75 * M_PI * 24/23.2
 #define TICKS 360
 
-double extern dis[3];
-double extern rot45[3];
-double extern rot90[3];
-double extern rot135[3];
-double extern rot180[3];
-double extern piv[3];
+extern PIDvalues dis;
+extern PIDvalues rot45;
+extern PIDvalues rot90;
+extern PIDvalues rot135;
+extern PIDvalues rot180;
+extern PIDvalues piv;
 
 extern bool leftWingState;
 extern bool rightWingState;
