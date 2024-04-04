@@ -14,4 +14,7 @@ void updateIntake()
   {
     intake.moveVoltage(0);
   }
+  if (globalWingState){
+    intake.moveVoltage(-12000);
+  }
 }

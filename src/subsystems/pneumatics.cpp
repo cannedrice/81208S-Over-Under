@@ -39,7 +39,7 @@ void updatePneumatics()
     if(r1.changedToPressed()){
         toggleHang();
     }
-    if(r2.changedToPressed()){
+    if(r2.changedToPressed() && hangState){
         togglePTO();
     }
 }

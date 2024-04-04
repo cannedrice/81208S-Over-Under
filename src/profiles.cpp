@@ -62,12 +62,15 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);
 // Pneumatics
 /* Front PTO */ pros::ADIDigitalOut frontPTO('C', LOW);
 /* Back PTO */ pros::ADIDigitalOut backPTO('G', LOW);
+
 /* Right wing */ pros::ADIDigitalOut rightWing('C', LOW);
 /* Left wing */ pros::ADIDigitalOut leftWing('G', LOW);
+
 /* Right back wing */ pros::ADIDigitalOut rightRearWing('C', LOW);
 /* Left back wing */ pros::ADIDigitalOut leftRearWing('G', LOW);
+
 /* Hang left */ pros::ADIDigitalOut leftHang('F', LOW);
 /* Hang right */ pros::ADIDigitalOut rightHang('F', LOW);
 
-pros::ADIEncoder verticalTracker({4, 'A', 'B'}, false);
-pros::ADIEncoder horizontalTracker({4, 'C', 'D'}, true);
+/* Vertical Tracker */pros::ADIEncoder verticalTracker({4, 'A', 'B'}, false);
+/* Horizontal Tracker */pros::ADIEncoder horizontalTracker({4, 'C', 'D'}, true);

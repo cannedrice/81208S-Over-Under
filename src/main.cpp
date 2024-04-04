@@ -1,18 +1,21 @@
 #include "main.h"
 uint32_t lastFire = -800;
-int autonNumber = 1;
-	// 1 = Qual closeside
-	// 2 = Qual closeside 2
-	// 3 = Qual farside
-	// 4 = Elim closeside
-	// 5 = Elim closeside 2
-	// 6 = Elim farside
-	// 7 = Skills
+int autonNumber = 1; 
+// right now naming is kinda convoluted ill figure out how to make it more descriptive without making it too long xd
+	// 1 = Qual closeside safe (Q_CS Safe)
+	// 2 = Qual closeside disrupt (Q_CS Disrupt)
+	// 3 = Qual farside 6 ball (Q_FS 6)
+	// 4 = Elim closeside disrupt (E_CS Disrupt)
+	// 5 = Elim closeside disrupt troll (E_CS Troll)
+	// 6 = Elim farside 6 mid rush (E_FS Rush)
+	// 7 = Skills (Skills lmao)
 	// 0 = Tests
 
 void initialize()
 {
 	pros::lcd::initialize();
+	//makes sure that the hang mech stays down at the start
+	hangState = true;
 	leftHang.set_value(true);
 	rightHang.set_value(true);
 	gyro.reset();
@@ -61,7 +64,7 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	uint32_t driveTime = pros::millis();
-
+	//peter remember to remove this when ur done tuning LOL
 	pros::delay(2000);
 	motion_profile motionProfile;
 	pivotTurn(180, 9500, 0.5, 3000, true, piv);  
